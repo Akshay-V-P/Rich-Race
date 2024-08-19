@@ -1,0 +1,97 @@
+export const companies = {
+    nexGen: [
+        "NexGen Announces Breakthrough in AI Research",
+        "Data Breach Exposes Sensitive Customer Information",
+        "Company Acquires Leading Cybersecurity Firm",
+        "Major Product Recall Due to Safety Concerns",
+        "Massive Funding Secured for New AR/VR Project",
+        "CEO Resigns Amidst Controversial Statements",
+        "Stock Price Soars to All-Time High",
+        "Stock Price Plummets After Earnings Miss",
+        "Partnerships Formed with Major Tech Giants",
+        "Lawsuit Filed Over Patent Infringement",
+        "New Product Launch Receives Overwhelming Positive Feedback",
+        "Supply Chain Issues Disrupt Production",
+        "Employee Satisfaction Survey Yields Exceptional Results",
+        "Employee Morale Drops Following Mass Layoffs",
+        "Wins Prestigious Award for Innovation",
+        "Negative Press Coverage Over Unethical Practices",
+        "Expands Operations to New International Market",
+        "Facing Stiff Competition from New Entrants",
+        "Record-Breaking Revenue Generated in Last Quarter",
+        "Antitrust Investigation Launched by Government"
+      ],
+    ecoGenix:[
+        "Promising New Drug Shows Positive Results in Clinical Trials",
+        "Clinical Trial Results Disappoint Investors",
+        "Partnerships Formed with Leading Pharmaceutical Companies",
+        "Drug Development Program Placed on Hold",
+        "Secures Major Funding for Cancer Research",
+        "Ethical Concerns Raised About Animal Testing",
+        "New Treatment Approved by Regulatory Authorities",
+        "Lawsuit Filed Over Side Effects of Drug",
+        "Wins Prestigious Award for Medical Breakthrough",
+        "Manufacturing Plant Faces Quality Control Issues",
+        "Stock Price Surges on Positive Clinical Data",
+        "Stock Price Crashes After Negative Trial Results",
+        "Acquires Biotech Startup with Cutting-Edge Technology",
+        "Key Executives Resign Amidst Internal Conflicts",
+        "Expands Research and Development Facilities",
+        "Negative Publicity Surrounding Controversial Experiment",
+        "Successful Launch of New Medical Device",
+        "Facing Intense Competition from Rival Companies",
+        "Positive Impact on Patient Outcomes Reported",
+        "Regulatory Hurdles Delay Drug Approval"
+      ],
+    greenPower:[
+        "Secures Major Contract for Solar Panel Installation",
+        "Supply Chain Issues Impact Renewable Energy Production",
+        "Government Grants Awarded for Wind Farm Development",
+        "Natural Disasters Cause Damage to Renewable Energy Infrastructure",
+        "Stock Price Rises on Strong Financial Performance",
+        "Government Cuts Subsidies for Renewable Energy",
+        "New Battery Technology Achieves Breakthrough",
+        "Public Opposition to Wind Farm Project",
+        "Partnerships Formed with Electric Vehicle Manufacturers",
+        "Cyberattack Disrupts Operations",
+        "Expands Operations to New Renewable Energy Market",
+        "Stock Price Falls Amidst Market Volatility",
+        "Wins Award for Sustainable Business Practices",
+        "Facing Competition from Lower-Cost Fossil Fuels",
+        "Reduces Carbon Footprint Significantly",
+        "Regulatory Challenges Hinder Project Development",
+        "Creates Hundreds of New Green Jobs",
+        "Employee Strikes Over Wages and Working Conditions",
+        "Positive Impact on Local Communities",
+        "Negative Publicity Surrounding Environmental Impact"
+      ],
+    ariaApparel:[
+        "New Store Openings Drive Sales Growth",
+        "Data Breach Exposes Customer Credit Card Information",
+        "Successful Launch of Online Shopping Platform",
+        "Product Recall Due to Quality Issues",
+        "Partnerships with Celebrity Fashion Designers",
+        "Negative Publicity Surrounding Labor Practices",
+        "Record-Breaking Holiday Sales",
+        "Economic Downturn Leads to Sales Decline",
+        "Customer Satisfaction Survey Yields High Ratings",
+        "Stiff Competition from Fast Fashion Rivals",
+        "Expands International Presence",
+        "Supply Chain Disruptions Cause Stock Shortages",
+        "Innovative Marketing Campaign Goes Viral",
+        "Store Closures Due to Financial Difficulties",
+        "Wins Award for Best Retail Store Design",
+        "Public Relations Crisis Following Controversial Ad Campaign",
+        "Strong Financial Performance and Increased Profits",
+        "Decreased Customer Satisfaction Ratings",
+        "Positive Brand Image and Customer Loyalty",
+        "Lawsuit Filed Over False Advertising"
+      ]
+}
+        
+        
+  
+        
+         
+      
+        
