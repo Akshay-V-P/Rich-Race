@@ -13,6 +13,14 @@ const ecogenixChangeDisplay = document.getElementById("ecogenix-change")
 const greenpowerChangeDisplay = document.getElementById("greenpower-change")
 const ariaapparelChangeDisplay = document.getElementById("ariaapparel-change")
 
+// balance displays
+const balanceRootDiv = document.querySelector(".balance-display")
+const balanceHomeDisplay = document.getElementById("home-balance")
+const salaryHomeDisplay = document.getElementById("home-salary")
+
+// balance details 
+const balanceDetailDiv = document.querySelector(".balance-details")
+
 // next button
 const nextBtn = document.querySelector(".next-month")
 
@@ -27,6 +35,12 @@ if (localStorage.getItem('nexgenCurrentPrice')=== null){
     localStorage.setItem("ariaapparelCurrentPrice" , 230)
 }
 
+
+// opening balance details tab
+balanceRootDiv.addEventListener("click", ()=>{
+    balanceDetailDiv.style.display = "flex"
+})
+
 // navigate to news tab
 newsTabRoute.addEventListener("click", ()=>{
     window.location.href = "news-tab.html"
@@ -34,6 +48,8 @@ newsTabRoute.addEventListener("click", ()=>{
 
 updateCurrentPrice()
 updatePriceChange()
+displayBalance()
+
 
 nextBtn.addEventListener("click", ()=>{
     nextMonth('nexGen', 'nexgenCurrentPrice')
@@ -43,7 +59,24 @@ nextBtn.addEventListener("click", ()=>{
     updateCurrentPrice()
     updatePriceChange()
 
+    if (localStorage.getItem("ifSalaryCollected")==="no"){// command for me : check later why false is not working
+        console.log("hi")
+        collectSalary()
+    }
+    displayBalance()
+
 })
+
+// collect salary
+function collectSalary(){
+    let addSalary = parseFloat(localStorage.getItem("balance"))+parseFloat(localStorage.getItem("salary"))
+    localStorage.setItem("balance", addSalary)
+}
+
+function displayBalance(){
+    balanceHomeDisplay.innerText = '₹'+localStorage.getItem("balance")
+    salaryHomeDisplay.innerText = '₹'+localStorage.getItem("salary")+"/Month"
+}
 
 // update price to ui
 function updateCurrentPrice(){ 

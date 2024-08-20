@@ -225,6 +225,45 @@ header h1 {
 
 }
 
+.balance-details {
+    position: absolute;
+    width: 90%;
+    height: 300px;
+    left: 5%;
+    background-color: var(--mainblue);
+    border: 2px solid var(--borderblue);
+    border-radius: 20px;
+    top: 10%;
+    display: none;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.balance-details * {
+    margin: 0 0 5px 50px;
+    padding: 0;
+    color: var(--mainblack);
+}
+
+.action-div {
+    margin-top: 60px;
+    margin-left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 20px;
+
+}
+
+.action-div * {
+    margin: 0;
+}
+
+.action-div button {
+    width: 70px;
+    height: 30px;
+}
+
 @media (width < 512px) {
     .container {
         border: 0;
