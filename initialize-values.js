@@ -18,5 +18,8 @@ export function setInitialValues(){
     localStorage.setItem("ecogenixPriceChange",0)
     localStorage.setItem("greenpowerPriceChange",0)
     localStorage.setItem("ariaapparelPriceChange",0)
+    
+    // month count
+    localStorage.setItem("MonthCount", 0)
 
 }

@@ -20,12 +20,19 @@ const salaryHomeDisplay = document.getElementById("home-salary")
 
 // balance details 
 const balanceDetailDiv = document.querySelector(".balance-details")
+const balanceDetailClose = document.querySelector(".material-symbols-outlined")
+const balanceDetailsDisplayBal = document.querySelector(".balance-disp")
+const balanceDetailsSalary = document.querySelectorAll(".salary-display")
 
 // next button
 const nextBtn = document.querySelector(".next-month")
 
 // progress display div
 const progressDiv = document.querySelector(".progress-display")
+
+// month display
+const monthDisplay = document.querySelector(".month-display")
+
 
 // temporary initialisation
 if (localStorage.getItem('nexgenCurrentPrice')=== null){
@@ -39,6 +46,13 @@ if (localStorage.getItem('nexgenCurrentPrice')=== null){
 // opening balance details tab
 balanceRootDiv.addEventListener("click", ()=>{
     balanceDetailDiv.style.display = "flex"
+    balanceDetailsDisplayBal.innerHTML = "Balance : ₹"+localStorage.getItem("balance")
+    balanceDetailsSalary.innerHTML = "Salary: ₹"+localStorage.getItem("salary")+"/Month"
+})
+
+// close balance details tab
+balanceDetailClose.addEventListener("click", ()=>{
+    balanceDetailDiv.style.display = "none"
 })
 
 // navigate to news tab
@@ -49,6 +63,9 @@ newsTabRoute.addEventListener("click", ()=>{
 updateCurrentPrice()
 updatePriceChange()
 displayBalance()
+monthDisplay.innerHTML = "Month : "+localStorage.getItem("MonthCount")
+
+
 
 
 nextBtn.addEventListener("click", ()=>{
@@ -60,10 +77,10 @@ nextBtn.addEventListener("click", ()=>{
     updatePriceChange()
 
     if (localStorage.getItem("ifSalaryCollected")==="no"){// command for me : check later why false is not working
-        console.log("hi")
         collectSalary()
     }
     displayBalance()
+    addAMonth()
 
 })
 
@@ -71,6 +88,12 @@ nextBtn.addEventListener("click", ()=>{
 function collectSalary(){
     let addSalary = parseFloat(localStorage.getItem("balance"))+parseFloat(localStorage.getItem("salary"))
     localStorage.setItem("balance", addSalary)
+}
+
+// add a month to count
+function addAMonth(){
+    localStorage.setItem("MonthCount",parseInt(localStorage.getItem("MonthCount"))+1)
+    monthDisplay.innerHTML = "Month : "+localStorage.getItem("MonthCount")
 }
 
 function displayBalance(){

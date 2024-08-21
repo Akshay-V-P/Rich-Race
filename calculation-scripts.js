@@ -6,19 +6,18 @@ import { Variations } from "./price-var-db.js";
 export function selectRandomNews(companyName, storageName) {
     let currentNews = ''
     let tempPrice = localStorage.getItem(storageName) // takes last price of stock from localstorage
-  
 
     let randomIndex = parseInt(Math.floor(Math.random() * 20));
     currentNews = companies[companyName][randomIndex]; 
-    let priceChangeArr = Variations[randomIndex]
+    let priceChangeArr = Variations[localStorage.getItem(companyName+"priceChangeIndex")]
     let priceChange
     priceChange = eval(tempPrice+priceChangeArr[0]+priceChangeArr[1])
     priceChange = Math.trunc(priceChange)
-    console.log(priceChange)
     if (priceChange < 10){
         priceChange = 10
+        tempPrice = 10
     }
-    
+    localStorage.setItem(companyName+"priceChangeIndex", randomIndex) // need to initialize in initialize-value.js
     return [currentNews, priceChange, priceChangeArr[1], priceChangeArr[0], tempPrice] // [current news, Current Price, Price changed this month, operator eg:+ or -, last price]
 }
 
