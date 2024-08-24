@@ -1,4 +1,5 @@
 import { selectRandomNews } from "./calculation-scripts.js"
+import { displayStockTab, hideStockTab, nexgenCloseBtn, nexgenhomediv } from "./buy-sell-stocks.js"
 const newsTabRoute = document.getElementById("news-tab")
 
 // selects price displays
@@ -44,7 +45,7 @@ if (localStorage.getItem('nexgenCurrentPrice')=== null){
 
 
 // opening balance details tab
-balanceRootDiv.addEventListener("click", ()=>{
+balanceRootDiv.addEventListener("click", (e)=>{
     balanceDetailDiv.style.display = "flex"
     balanceDetailsDisplayBal.innerHTML = "Balance : ₹"+localStorage.getItem("balance")
     balanceDetailsSalary.innerHTML = "Salary: ₹"+localStorage.getItem("salary")+"/Month"
@@ -64,6 +65,18 @@ updateCurrentPrice()
 updatePriceChange()
 displayBalance()
 monthDisplay.innerHTML = "Month : "+localStorage.getItem("MonthCount")
+
+
+// stock tab open 
+nexgenhomediv.addEventListener("click", ()=>{
+    displayStockTab("nexgen")
+})
+
+
+// close stock tab 
+nexgenCloseBtn.addEventListener("click", ()=>{
+    hideStockTab("nexgen")
+})
 
 
 

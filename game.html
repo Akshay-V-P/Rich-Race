@@ -50,7 +50,7 @@
 
         </div>
         <div class="stock-display">
-            <div class="1">
+            <div class="nexgen">
                 <i class="fa-solid fa-microchip" style="color: #333333;"></i>
                 <div id="item-details">
                     <h4>NexGen</h4>
@@ -58,7 +58,7 @@
                     <p style="color: red; font-size: 10px;" id="nexgen-change">-2.5 (2.87%)</p>
                 </div>
             </div>
-            <div class="2">
+            <div class="ecogenix">
                 <i class="fa-solid fa-dna" style="color: rgb(224, 41, 41);"></i>
                 <div id="item-details">
                     <h4>Ecogenix</h4>
@@ -67,7 +67,7 @@
                 </div>
 
             </div>
-            <div class="3">
+            <div class="greenpower">
                 <i class="fa-solid fa-leaf" style="color: rgb(83, 221, 28);"></i>
                 <div id="item-details">
                     <h4>Green Power</h4>
@@ -75,7 +75,7 @@
                     <p style="color: red; font-size: 10px;" id="greenpower-change">-2.5 (2.87%)</p>
                 </div>
             </div>
-            <div class="4">
+            <div class="ariaapparel">
                 <i class="fa-solid fa-shirt" style="color: rgb(51, 51, 205);"></i>
                 <div id="item-details">
                     <h4>Aria Apparel</h4>
@@ -107,34 +107,125 @@
         
         </div>
         <!-- Stocks tab -->
+         <!-- Nexgen -->
          <div class="nexgen-stock">
-            <div class="nexgen-profile">
+            <div class="profile">
+                <span class="material-symbols-outlined nexgen-close" id="close-btn">
+                    close
+                </span>
             <i class="fa-solid fa-microchip" style="color: #333333;"></i>
             </div>
-            <div class="nexgen-headings">
+            <div class="headings">
             <h4>NexGen</h4>
-            <p id="nexgen-price">$250</p>
-            <p style="color: red; font-size: 10px;" id="nexgen-change">-2.5 (2.87%)</p>
+            <p id="price" class="nexgen-stocktab-price">$250</p>
+            <p style="color: red; font-size: 10px;" id="change">-2.5 (2.87%)</p>
             </div>
-            <div class="nexgen-quantity-selector">
-                <button id="nexgen-increase">v</button>
-                <div class="nexgen-display-and-max">
-                    <button id="nexgen-max-buyable">Max Buyable</button>
-                    <p id="nexgen-display-quantity">0</p>
-                    <button id="nexgen-max-sellable">Max Sellable</button>
+            <div class="quantity-selector">
+                <button id="increase">v</button>
+                <div class="display-and-max">
+                    <button id="max-buyable">Max Buyable</button>
+                    <input class="quantity-input" type="text" value="0">
+                    <button id="max-sellable">Max Sellable</button>
                 </div>
-                <button id="nexgen-decrease">v</button>
+                <button id="decrease">v</button>
                 <h5>Price : $250046</h5>
             </div>
-            <div class="nexgen-buy-sell">
-                <div class="nexgen-buysell-btn">
-                <button id="nexgen-buy">Buy</button>
-                <button id="nexgen-sell">Sell</button>
+            <div class="buy-sell">
+                <div class="buysell-btn">
+                <button id="buy">Buy</button>
+                <button id="sell">Sell</button>
+                </div>
+            </div>
+        </div>
+         <!-- Ecogenix stock -->
+        <div class="ecogenix-stock">
+            <div class="profile">
+                <i class="fa-solid fa-dna" style="color: rgb(224, 41, 41);"></i>
+            </div>
+            <div class="headings">
+                <h4>Ecogenix</h4>
+                <p id="nexgen-price">$250</p>
+                <p style="color: red; font-size: 10px;" id="change">-2.5 (2.87%)</p>
+            </div>
+            <div class="quantity-selector">
+                <button id="increase">v</button>
+                <div class="display-and-max">
+                    <button id="max-buyable">Max Buyable</button>
+                    <input class="quantity-input" type="text" value="0">
+                    <button id="max-sellable">Max Sellable</button>
+                </div>
+                <button id="decrease">v</button>
+                <h5>Price : $250046</h5>
+            </div>
+            <div class="buy-sell">
+                <div class="buysell-btn">
+                <button id="buy">Buy</button>
+                <button id="sell">Sell</button>
                 </div>
             </div>
         
-         </div>
+        </div>
+         <!-- Green Power -->
+
+        <div class="greenpower-stock">
+            <div class="profile">
+                <i class="fa-solid fa-leaf" style="color: rgb(83, 221, 28);"></i>
+            </div>
+            <div class="headings">
+                <h4>GreenPower</h4>
+                <p id="nexgen-price">$250</p>
+                <p style="color: red; font-size: 10px;" id="change">-2.5 (2.87%)</p>
+            </div>
+            <div class="quantity-selector">
+                <button id="increase">v</button>
+                <div class="display-and-max">
+                    <button id="max-buyable">Max Buyable</button>
+                    <input class="quantity-input" type="text" value="0">
+                    <button id="max-sellable">Max Sellable</button>
+                </div>
+                <button id="decrease">v</button>
+                <h5>Price : $250046</h5>
+            </div>
+            <div class="buy-sell">
+                <div class="buysell-btn">
+                <button id="buy">Buy</button>
+                <button id="sell">Sell</button>
+                </div>
+            </div>
+        
+        </div>
+
+        <!-- Aria Apparel -->
+
+        <div class="ariaapparel-stock">
+            <div class="profile">
+                <i class="fa-solid fa-shirt" style="color: rgb(51, 51, 205);"></i>
+            </div>
+            <div class="headings">
+                <h4>Aria Apparel</h4>
+                <p id="nexgen-price">$250</p>
+                <p style="color: red; font-size: 10px;" id="change">-2.5 (2.87%)</p>
+            </div>
+            <div class="quantity-selector">
+                <button id="increase">v</button>
+                <div class="display-and-max">
+                    <button id="max-buyable">Max Buyable</button>
+                    <input class="quantity-input" type="text" value="0">
+                    <button id="max-sellable">Max Sellable</button>
+                </div>
+                <button id="decrease">v</button>
+                <h5>Price : $250046</h5>
+            </div>
+            <div class="buy-sell">
+                <div class="buysell-btn">
+                <button id="buy">Buy</button>
+                <button id="sell">Sell</button>
+                </div>
+            </div>
+        </div>
+
     </div>
+    <script type="module" src="buy-sell-stocks.js"></script>
    <script type="module" src="game-script.js"></script>
 </body>
 </html>

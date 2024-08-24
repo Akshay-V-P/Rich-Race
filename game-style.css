@@ -283,6 +283,8 @@ header h1 {
     border: 2px solid var(--borderblue);
 }
 
+/* Nexgen stock display */
+
 .nexgen-stock {
     position: absolute;
     background-color: var(--mainblue);
@@ -292,30 +294,43 @@ header h1 {
     border-radius: 25px;
     border: 2px solid var(--borderblue);
     box-shadow: 0 0 10px 1px #9eb0d8;
-    display: flex;
+    display: none;
     flex-wrap: wrap;
+    z-index: 1;
+    animation: 1s ease 0.5s;
 }
 
-.nexgen-profile {
+
+.profile {
     width: 50%;
     /* background-color: #333333; */
     height: 30%;
+    position: relative;
     display: flex;
     align-items: center;
 }
 
-.nexgen-profile i {
-    margin-left: 28px;
+#close-btn {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    color: #9eb0d8;
+    cursor: pointer;
+
 }
 
-.nexgen-headings {
+.profile i {
+    margin-left: 36px;
+}
+
+.headings {
     width: 50%;
     height: 30%;
     /* background-color: #9eb0d8; */
     text-align: left;
 }
 
-.nexgen-quantity-selector {
+.quantity-selector {
     width: 100%;
     height: 40%;
     display: flex;
@@ -325,29 +340,31 @@ header h1 {
     gap: 8px;
 }
 
-.nexgen-quantity-selector h5 {
+.quantity-selector h5 {
     margin: 0;
     padding: 0;
 }
 
-#nexgen-increase {
+#increase {
     width: 24px;
     transform: rotate(180deg);
     background: transparent;
     font-size: 16px;
     font-weight: 800;
     border: 0;
+    cursor: pointer;
 }
 
-#nexgen-decrease {
+#decrease {
     width: 24px;
     background: transparent;
     font-size: 16px;
     font-weight: 800;
     border: 0;
+    cursor: pointer;
 }
 
-.nexgen-display-and-max {
+.display-and-max {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -355,7 +372,7 @@ header h1 {
     height: 20%;
 }
 
-.nexgen-display-and-max button {
+.display-and-max button {
     width: 40px;
     height: 20px;
     font-size: 8px;
@@ -363,26 +380,28 @@ header h1 {
     color: white;
     border: 0;
     border-radius: 8px;
+    cursor: pointer;
 }
 
-.nexgen-display-and-max p {
+.display-and-max input {
     background-color: #9eb0d8;
     font-family: poppins;
-    min-width: 40px;
+    width: 40px;
+    max-width: 90px;
     text-align: center;
     height: 20px;
     border-radius: 4px;
     border: 2px solid #656464;
 }
 
-#nexgen-max-buyable{
+#max-buyable{
     background-color: green;
 }
-#nexgen-max-sellable{
+#max-sellable{
     background-color: red;
 }
 
-.nexgen-buy-sell {
+.buy-sell {
     /* background-color: aqua; */
     width: 100%;
     display: flex;
@@ -390,35 +409,31 @@ header h1 {
     justify-content: center;
 }
 
-.nexgen-buysell-btn {
+.buysell-btn {
     width: 80%;
     /* background-color: #333333; */
     display: flex;
     justify-content: space-around;
 }
 
-.nexgen-buysell-btn button {
+.buysell-btn button {
     width: 50px;
     height: 24px;
     border-radius: 4px;
     font-family: poppins;
+    cursor: pointer;
 }
 
-#nexgen-buy {
+#buy {
     background-color: green;
     border: 0;
     color: white;
 }
 
-#nexgen-sell {
+#sell {
     background-color: red;
     border: 0;
     color: white;
-}
-
-.nexgen-stock i {
-    font-size: 40px;
-
 }
 
 .nexgen-stock * {
@@ -426,8 +441,9 @@ header h1 {
 }
 
 .nexgen-stock i {
-    margin-left: 18px;
-    font-size: 40px;
+    margin-left: 38px;
+    margin-top: 20px;
+    font-size: 50px;
 }
 
 .nexgen-stock h4 {
@@ -444,6 +460,143 @@ header h1 {
 }
 
 .nexgen-stock p span {
+    font-size: 8px;
+    font-weight: 700;
+}
+
+/* Ecogenix stock display */
+
+.ecogenix-stock {
+    position: absolute;
+    background-color: var(--mainblue);
+    width: 250px;
+    height: 250px;
+    top: 175px;
+    right: 20px;
+    border-radius: 25px;
+    border: 2px solid var(--borderblue);
+    box-shadow: 0 0 10px 1px #9eb0d8;
+    display: none;
+    flex-wrap: wrap;
+    z-index: 1;
+
+}
+
+.ecogenix-stock * {
+    color: var(--mainblack);
+}
+
+.ecogenix-stock i {
+    margin-left: 38px;
+    margin-top: 20px;
+    font-size: 50px;
+}
+
+.ecogenix-stock h4 {
+    font-size: 16px;
+    margin: 16px 0 0 0;
+}
+
+.ecogenix-stock p {
+    padding: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.ecogenix-stock p span {
+    font-size: 8px;
+    font-weight: 700;
+}
+
+/* GreenPower */
+
+.greenpower-stock {
+    position: absolute;
+    background-color: var(--mainblue);
+    width: 250px;
+    height: 250px;
+    top: 224px;
+    border-radius: 25px;
+    border: 2px solid var(--borderblue);
+    box-shadow: 0 0 10px 1px #9eb0d8;
+    display: none;
+    flex-wrap: wrap;
+    z-index: 1;
+
+}
+
+.greenpower-stock * {
+    color: var(--mainblack);
+}
+
+.greenpower-stock i {
+    margin-left: 38px;
+    margin-top: 20px;
+    font-size: 50px;
+}
+
+.greenpower-stock h4 {
+    font-size: 16px;
+    margin: 16px 0 0 0;
+}
+
+.greenpower-stock p {
+    padding: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.greenpower-stock p span {
+    font-size: 8px;
+    font-weight: 700;
+}
+
+/* Ariaapparel */
+
+.ariaapparel-stock {
+    position: absolute;
+    background-color: var(--mainblue);
+    width: 250px;
+    height: 250px;
+    top: 224px;
+    right: 20px;
+    border-radius: 25px;
+    border: 2px solid var(--borderblue);
+    box-shadow: 0 0 10px 1px #9eb0d8;
+    display: none;
+    flex-wrap: wrap;
+    z-index: 1;
+
+}
+
+.ariaapparel-stock * {
+    color: var(--mainblack);
+}
+
+.ariaapparel-stock i {
+    margin-left: 38px;
+    margin-top: 20px;
+    font-size: 50px;
+}
+
+.ariaapparel-stock h4 {
+    font-size: 16px;
+    margin: 16px 0 0 0;
+}
+
+.ariaapparel-stock p {
+    padding: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.ariaapparel-stock p span {
     font-size: 8px;
     font-weight: 700;
 }
