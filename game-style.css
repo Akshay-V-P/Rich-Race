@@ -244,6 +244,7 @@ header h1 {
     position: absolute;
     left: 80%;
     font-size: 28px;
+    cursor: pointer;
 }
 
 .balance-details * {
@@ -269,6 +270,7 @@ header h1 {
 .action-div button {
     width: 70px;
     height: 30px;
+    cursor: pointer;
 }
 
 .month-display {
@@ -392,6 +394,10 @@ header h1 {
     height: 20px;
     border-radius: 4px;
     border: 2px solid #656464;
+}
+
+.display-and-max input:focus {
+    outline: none;
 }
 
 #max-buyable{

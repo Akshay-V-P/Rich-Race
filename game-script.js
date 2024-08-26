@@ -1,5 +1,5 @@
 import { selectRandomNews } from "./calculation-scripts.js"
-import { displayStockTab, hideStockTab, nexgenCloseBtn, nexgenhomediv } from "./buy-sell-stocks.js"
+import { ariaapparelhomediv, displayStockTab, ecogenixhomediv, greenpowerhomediv, hideStockTab, nexgenCloseBtn, ecogenixCloseBtn, greenpowerCloseBtn, ariaapparelCloseBtn, nexgenhomediv} from "./buy-sell-stocks.js"
 const newsTabRoute = document.getElementById("news-tab")
 
 // selects price displays
@@ -71,14 +71,30 @@ monthDisplay.innerHTML = "Month : "+localStorage.getItem("MonthCount")
 nexgenhomediv.addEventListener("click", ()=>{
     displayStockTab("nexgen")
 })
+ecogenixhomediv.addEventListener("click", ()=>{
+    displayStockTab("ecogenix")
+})
+greenpowerhomediv.addEventListener("click", ()=>{
+    displayStockTab("greenpower")
+})
+ariaapparelhomediv.addEventListener("click", ()=>{
+    displayStockTab("ariaapparel")
+})
 
 
 // close stock tab 
 nexgenCloseBtn.addEventListener("click", ()=>{
     hideStockTab("nexgen")
 })
-
-
+ecogenixCloseBtn.addEventListener("click", ()=>{
+    hideStockTab("ecogenix")
+})
+greenpowerCloseBtn.addEventListener("click", ()=>{
+    hideStockTab("greenpower")
+})
+ariaapparelCloseBtn.addEventListener("click", ()=>{
+    hideStockTab("ariaapparel")
+})
 
 
 nextBtn.addEventListener("click", ()=>{
