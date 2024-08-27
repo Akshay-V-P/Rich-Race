@@ -36,23 +36,15 @@ const inputBoxs = {'nexgen':nexgenQtySelectingBox,
             'ariaapparel':ariaapparelQtySelectingBox
         }
 
-const nexgenInceaseBtn = document.querySelector(".nexgen-increase"),
-      nexgenDecreaseBtn = document.querySelector(".nexgen-decrease")
-nexgenInceaseBtn.addEventListener("click", ()=>{
-    selectQuantity('nexgen', '+')
-})
-nexgenDecreaseBtn.addEventListener("click", ()=>{
-    selectQuantity('nexgen', '-')
-})
-
 // quantity selecting function 
 function selectQuantity(companiyName, direction){
     let valuetoincreament = eval(inputBoxs[companiyName].value+direction+"1")
-    if (valuetoincreament <0){
+    let maxQtyValue = maxBuyable(companiyName)
+    if (valuetoincreament <0 || valuetoincreament > maxQtyValue){
         return
     }
-    console.log(valuetoincreament)
     inputBoxs[companiyName].value = valuetoincreament
+    
 }
 
 
@@ -85,3 +77,70 @@ export function hideStockTab(target){
         ariaapparelStockContainer.style.display = "none"
     }
 }
+
+function maxBuyable(companiyName){
+    let maxBuyableQty = Math.floor(parseInt(localStorage.getItem('balance')/parseInt(localStorage.getItem(companiyName+'CurrentPrice'))))
+    return maxBuyableQty
+}
+
+// max buyable 
+const maxBuyableBtn = document.querySelectorAll("#max-buyable")
+// nexgen max buyable event
+maxBuyableBtn[0].addEventListener('click', ()=>{
+    inputBoxs['nexgen'].value = maxBuyable('nexgen')
+})
+
+//ecogenix max buyable event
+maxBuyableBtn[1].addEventListener('click', ()=>{
+    inputBoxs['ecogenix'].value = maxBuyable('ecogenix')
+})
+
+// greenpower max buyable event
+maxBuyableBtn[2].addEventListener('click', ()=>{
+    inputBoxs['greenpower'].value = maxBuyable('greenpower')
+})
+
+// ariaapparel max buyable event
+maxBuyableBtn[3].addEventListener('click', ()=>{
+    inputBoxs['ariaapparel'].value = maxBuyable('ariaapparel')
+})
+
+
+const increaseBtn = document.querySelectorAll("#increase") // selects all increase btn and store as []
+const decreaseBtn = document.querySelectorAll("#decrease")
+
+// nexgen quantity increase event
+increaseBtn[0].addEventListener("click", ()=>{
+    selectQuantity('nexgen', '+')
+})
+// nexgen quantity decrease event
+decreaseBtn[0].addEventListener("click", ()=>{
+    selectQuantity('nexgen', '-')
+})
+
+// ecogenix quantity increase event
+increaseBtn[1].addEventListener("click", ()=>{
+    selectQuantity('ecogenix', '+')
+})
+// ecogenix quantity decrease event
+decreaseBtn[1].addEventListener("click", ()=>{
+    selectQuantity('ecogenix', '-')
+})
+
+// greenpower quantity increase event
+increaseBtn[2].addEventListener("click", ()=>{
+    selectQuantity('greenpower', '+')
+})
+// greenpower quantity decrease event
+decreaseBtn[2].addEventListener("click", ()=>{
+    selectQuantity('greenpower', '-')
+})
+
+// ariaapparel quantity increase event
+increaseBtn[3].addEventListener("click", ()=>{
+    selectQuantity('ariaapparel', '+')
+})
+// ariaapparel quantity decrease event
+decreaseBtn[3].addEventListener("click", ()=>{
+    selectQuantity('ariaapparel', '-')
+})
