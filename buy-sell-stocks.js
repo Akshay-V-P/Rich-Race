@@ -1,13 +1,18 @@
+import { alertAMsg } from "./utills.js"
+
 const nexgenStockContainer = document.querySelector(".nexgen-stock")
 const ecogenixStockContainer = document.querySelector(".ecogenix-stock")
 const greenpowerStockContainer = document.querySelector(".greenpower-stock")
 const ariaapparelStockContainer = document.querySelector(".ariaapparel-stock")
 
 // click event div
+
+
 export const nexgenhomediv = document.querySelector(".nexgen")
 export const ecogenixhomediv = document.querySelector(".ecogenix")
 export const greenpowerhomediv = document.querySelector(".greenpower")
 export const ariaapparelhomediv = document.querySelector(".ariaapparel")
+
 
 // close button 
 export const nexgenCloseBtn = document.querySelector(".nexgen-close")
@@ -40,7 +45,11 @@ const inputBoxs = {'nexgen':nexgenQtySelectingBox,
 function selectQuantity(companiyName, direction){
     let valuetoincreament = eval(inputBoxs[companiyName].value+direction+"1")
     let maxQtyValue = maxBuyable(companiyName)
-    if (valuetoincreament <0 || valuetoincreament > maxQtyValue){
+    if (valuetoincreament <0){
+        alertAMsg("Quantity is zero")
+        return
+    }else if (valuetoincreament > maxQtyValue){
+        alertAMsg("You doesn't have enough balance to buy stock more than "+maxQtyValue)
         return
     }
     inputBoxs[companiyName].value = valuetoincreament

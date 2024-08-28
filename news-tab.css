@@ -15,7 +15,7 @@ body {
     user-select: none;
 }
 
-.container {
+.news-container {
     width: 360px;
     height: 90dvh;
     background-color: #d9d0c1;
@@ -28,7 +28,7 @@ body {
     border-radius: 10px;
 }
 
-.container * {
+.news-container * {
     margin: 0;
     padding: 0;
 }

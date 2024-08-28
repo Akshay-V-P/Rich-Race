@@ -1,5 +1,6 @@
 import { selectRandomNews } from "./calculation-scripts.js"
 import { ariaapparelhomediv, displayStockTab, ecogenixhomediv, greenpowerhomediv, hideStockTab, nexgenCloseBtn, ecogenixCloseBtn, greenpowerCloseBtn, ariaapparelCloseBtn, nexgenhomediv} from "./buy-sell-stocks.js"
+import { alertAMsg } from "./utills.js"
 const newsTabRoute = document.getElementById("news-tab")
 
 // selects price displays
@@ -48,7 +49,7 @@ if (localStorage.getItem('nexgenCurrentPrice')=== null){
 balanceRootDiv.addEventListener("click", (e)=>{
     balanceDetailDiv.style.display = "flex"
     balanceDetailsDisplayBal.innerHTML = "Balance : ₹"+localStorage.getItem("balance")
-    balanceDetailsSalary.innerHTML = "Salary: ₹"+localStorage.getItem("salary")+"/Month"
+    balanceDetailsSalary.innerHTML = "Salaryy: ₹"+localStorage.getItem("salary")+"/Month"
 })
 
 // close balance details tab
@@ -110,6 +111,7 @@ nextBtn.addEventListener("click", ()=>{
     }
     displayBalance()
     addAMonth()
+    
 
 })
 
@@ -178,6 +180,7 @@ function nextMonth(companieName, storageName){
     progressDisplayP.innerText = companieName+": "+price[0]
     progressDiv.appendChild(progressDisplayP)
 }
+
 
 
 
