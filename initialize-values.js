@@ -22,4 +22,10 @@ export function setInitialValues(){
     // month count
     localStorage.setItem("MonthCount", 0)
 
+    // holdings
+    localStorage.setItem("nexgenHoldings", 0)
+    localStorage.setItem("ecogenixHoldings", 0)
+    localStorage.setItem("greenpowerHoldings", 0)
+    localStorage.setItem("ariaapparelHoldings", 0)
+
 }

@@ -1,6 +1,4 @@
 import { selectRandomNews } from "./calculation-scripts.js"
-import { ariaapparelhomediv, displayStockTab, ecogenixhomediv, greenpowerhomediv, hideStockTab, nexgenCloseBtn, ecogenixCloseBtn, greenpowerCloseBtn, ariaapparelCloseBtn, nexgenhomediv} from "./buy-sell-stocks.js"
-import { alertAMsg } from "./utills.js"
 const newsTabRoute = document.getElementById("news-tab")
 
 // selects price displays
@@ -66,36 +64,6 @@ updateCurrentPrice()
 updatePriceChange()
 displayBalance()
 monthDisplay.innerHTML = "Month : "+localStorage.getItem("MonthCount")
-
-
-// stock tab open 
-nexgenhomediv.addEventListener("click", ()=>{
-    displayStockTab("nexgen")
-})
-ecogenixhomediv.addEventListener("click", ()=>{
-    displayStockTab("ecogenix")
-})
-greenpowerhomediv.addEventListener("click", ()=>{
-    displayStockTab("greenpower")
-})
-ariaapparelhomediv.addEventListener("click", ()=>{
-    displayStockTab("ariaapparel")
-})
-
-
-// close stock tab 
-nexgenCloseBtn.addEventListener("click", ()=>{
-    hideStockTab("nexgen")
-})
-ecogenixCloseBtn.addEventListener("click", ()=>{
-    hideStockTab("ecogenix")
-})
-greenpowerCloseBtn.addEventListener("click", ()=>{
-    hideStockTab("greenpower")
-})
-ariaapparelCloseBtn.addEventListener("click", ()=>{
-    hideStockTab("ariaapparel")
-})
 
 
 nextBtn.addEventListener("click", ()=>{
@@ -180,6 +148,9 @@ function nextMonth(companieName, storageName){
     progressDisplayP.innerText = companieName+": "+price[0]
     progressDiv.appendChild(progressDisplayP)
 }
+
+
+export {displayBalance}
 
 
 

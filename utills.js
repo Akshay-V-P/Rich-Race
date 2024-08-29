@@ -3,7 +3,6 @@ export function alertAMsg(message){
     let alertP = document.createElement("p")
     alertP.classList.add("alert-msg")
     alertP.innerText = message
-    console.log('helo')
     container.appendChild(alertP)
     setTimeout(() => {
         container.removeChild(alertP)

@@ -1,3 +1,4 @@
+import { displayBalance } from "./game-script.js"
 import { alertAMsg } from "./utills.js"
 
 const nexgenStockContainer = document.querySelector(".nexgen-stock")
@@ -5,20 +6,17 @@ const ecogenixStockContainer = document.querySelector(".ecogenix-stock")
 const greenpowerStockContainer = document.querySelector(".greenpower-stock")
 const ariaapparelStockContainer = document.querySelector(".ariaapparel-stock")
 
-// click event div
-
-
-export const nexgenhomediv = document.querySelector(".nexgen")
-export const ecogenixhomediv = document.querySelector(".ecogenix")
-export const greenpowerhomediv = document.querySelector(".greenpower")
-export const ariaapparelhomediv = document.querySelector(".ariaapparel")
-
+// stock tab open div
+const nexgenhomediv = document.querySelector(".nexgen")
+const ecogenixhomediv = document.querySelector(".ecogenix")
+const greenpowerhomediv = document.querySelector(".greenpower")
+const ariaapparelhomediv = document.querySelector(".ariaapparel")
 
 // close button 
-export const nexgenCloseBtn = document.querySelector(".nexgen-close")
-export const ecogenixCloseBtn = document.querySelector(".ecogenix-close")
-export const greenpowerCloseBtn = document.querySelector(".greenpower-close")
-export const ariaapparelCloseBtn = document.querySelector(".ariaapparel-close")
+const nexgenCloseBtn = document.querySelector(".nexgen-close")
+const ecogenixCloseBtn = document.querySelector(".ecogenix-close")
+const greenpowerCloseBtn = document.querySelector(".greenpower-close")
+const ariaapparelCloseBtn = document.querySelector(".ariaapparel-close")
 
 
 // item to update
@@ -27,6 +25,10 @@ const nexgenPriceDisplay = document.querySelector(".nexgen-stocktab-price")
 const ecogenixPriceDisplay = document.querySelector(".ecogenix-stocktab-price")
 const greenpowerPriceDisplay = document.querySelector(".greenpower-stocktab-price")
 const ariaapparelPriceDisplay = document.querySelector(".ariaapparel-stocktab-price")
+
+//Holdings display
+const holdingDisplays = document.querySelectorAll("#holding-disp")
+console.log(holdingDisplays)
 
 
 // quatity selecting input box
@@ -56,26 +58,34 @@ function selectQuantity(companiyName, direction){
     
 }
 
+function showHoldings(index){
+    holdingDisplays[index].innerHTML = "Holdings : "+localStorage.getItem("nexgenHoldings")
+}
+
 
 // function to open stocks tab respectively
-export function displayStockTab(target){
+function displayStockTab(target){
     if (target == "nexgen"){
         nexgenStockContainer.style.display = "flex";
         nexgenPriceDisplay.innerHTML = '₹'+localStorage.getItem("nexgenCurrentPrice")
+        showHoldings(0)
     }else if (target == "ecogenix"){
         ecogenixStockContainer.style.display = "flex"
         ecogenixPriceDisplay.innerHTML = '₹'+localStorage.getItem("ecogenixCurrentPrice")
+        showHoldings(1)
     }else if (target == "greenpower"){
         greenpowerStockContainer.style.display = "flex"
         greenpowerPriceDisplay.innerHTML = '₹'+localStorage.getItem("greenpowerCurrentPrice")
+        showHoldings(2)
     }else if (target == "ariaapparel"){
         ariaapparelStockContainer.style.display = "flex"
         ariaapparelPriceDisplay.innerHTML = '₹'+localStorage.getItem("ariaapparelCurrentPrice")
+        showHoldings(3)
     }
 }
 
 // function to close stock tab
-export function hideStockTab(target){
+function hideStockTab(target){
     if (target == "nexgen"){
         nexgenStockContainer.style.display = "none"
     }else if (target == "ecogenix"){
@@ -92,26 +102,78 @@ function maxBuyable(companiyName){
     return maxBuyableQty
 }
 
+const stockTabPriceDisps = document.querySelectorAll("#price-disp")
+console.log(stockTabPriceDisps)
+
+//buy stock
+function buyStock(companiyName, priceDispIndex){
+    let maxQty = maxBuyable(companiyName)
+    let qtyToBuy = parseInt(inputBoxs[companiyName].value);
+    console.log(qtyToBuy)
+    if (qtyToBuy){
+        if (qtyToBuy > maxQty){
+            alertAMsg("Insufficiant Balance")
+            return
+        }
+        let stockValue = parseInt(localStorage.getItem(companiyName+"CurrentPrice")) * qtyToBuy;
+        localStorage.setItem("balance", parseInt(localStorage.getItem("balance"))-stockValue)
+        localStorage.setItem(companiyName+"Holdings", parseInt(localStorage.getItem(companiyName+"Holdings"))+qtyToBuy)
+        displayBalance()
+        inputBoxs[companiyName].value = ""
+        showHoldings(priceDispIndex)
+    }
+    alertAMsg("Select quantity")
+    return
+}
+
+function displayPriceForQty(companieName, pTagIndex){
+    let price = parseInt(localStorage.getItem(companieName+"CurrentPrice"))*parseInt(inputBoxs[companieName].value)
+    stockTabPriceDisps[pTagIndex].innerHTML = "Price : ₹"+price
+    console.log(price)
+    console.log(pTagIndex)
+    console.log(stockTabPriceDisps[pTagIndex])
+
+}
+
+const buyBtns = document.querySelectorAll("#buy")
+// buy btn event
+buyBtns[0].addEventListener("click", ()=>{
+    buyStock("nexgen", 0)
+})
+buyBtns[1].addEventListener("click", ()=>{
+    buyStock("ecogenix", 1)
+})
+buyBtns[2].addEventListener("click", ()=>{
+    buyStock("greenpower", 2)
+})
+buyBtns[3].addEventListener("click", ()=>{
+    buyStock("ariaapparel", 3)
+})
+
 // max buyable 
 const maxBuyableBtn = document.querySelectorAll("#max-buyable")
 // nexgen max buyable event
 maxBuyableBtn[0].addEventListener('click', ()=>{
     inputBoxs['nexgen'].value = maxBuyable('nexgen')
+    displayPriceForQty("nexgen", 0)
 })
 
 //ecogenix max buyable event
 maxBuyableBtn[1].addEventListener('click', ()=>{
     inputBoxs['ecogenix'].value = maxBuyable('ecogenix')
+    displayPriceForQty("ecogenix", 1)
 })
 
 // greenpower max buyable event
 maxBuyableBtn[2].addEventListener('click', ()=>{
     inputBoxs['greenpower'].value = maxBuyable('greenpower')
+    displayPriceForQty("greenpower", 2)
 })
 
 // ariaapparel max buyable event
 maxBuyableBtn[3].addEventListener('click', ()=>{
     inputBoxs['ariaapparel'].value = maxBuyable('ariaapparel')
+    displayPriceForQty("ariaapparel", 3)
 })
 
 
@@ -121,35 +183,73 @@ const decreaseBtn = document.querySelectorAll("#decrease")
 // nexgen quantity increase event
 increaseBtn[0].addEventListener("click", ()=>{
     selectQuantity('nexgen', '+')
+    displayPriceForQty("nexgen", 0)
 })
 // nexgen quantity decrease event
 decreaseBtn[0].addEventListener("click", ()=>{
     selectQuantity('nexgen', '-')
+    displayPriceForQty("nexgen", 0)
 })
 
 // ecogenix quantity increase event
 increaseBtn[1].addEventListener("click", ()=>{
     selectQuantity('ecogenix', '+')
+    displayPriceForQty("ecogenix", 1)
 })
 // ecogenix quantity decrease event
 decreaseBtn[1].addEventListener("click", ()=>{
     selectQuantity('ecogenix', '-')
+    displayPriceForQty("ecogenix", 1)
 })
 
 // greenpower quantity increase event
 increaseBtn[2].addEventListener("click", ()=>{
     selectQuantity('greenpower', '+')
+    displayPriceForQty("greenpower", 2)
 })
 // greenpower quantity decrease event
 decreaseBtn[2].addEventListener("click", ()=>{
     selectQuantity('greenpower', '-')
+    displayPriceForQty("greenpower", 2)
 })
 
 // ariaapparel quantity increase event
 increaseBtn[3].addEventListener("click", ()=>{
     selectQuantity('ariaapparel', '+')
+    displayPriceForQty("ariaapparel", 3)
 })
 // ariaapparel quantity decrease event
 decreaseBtn[3].addEventListener("click", ()=>{
     selectQuantity('ariaapparel', '-')
+    displayPriceForQty("ariaapparel", 3)
+})
+
+
+// stock tab open 
+nexgenhomediv.addEventListener("click", ()=>{
+    displayStockTab("nexgen")
+})
+ecogenixhomediv.addEventListener("click", ()=>{
+    displayStockTab("ecogenix")
+})
+greenpowerhomediv.addEventListener("click", ()=>{
+    displayStockTab("greenpower")
+})
+ariaapparelhomediv.addEventListener("click", ()=>{
+    displayStockTab("ariaapparel")
+})
+
+
+// close stock tab 
+nexgenCloseBtn.addEventListener("click", ()=>{
+    hideStockTab("nexgen")
+})
+ecogenixCloseBtn.addEventListener("click", ()=>{
+    hideStockTab("ecogenix")
+})
+greenpowerCloseBtn.addEventListener("click", ()=>{
+    hideStockTab("greenpower")
+})
+ariaapparelCloseBtn.addEventListener("click", ()=>{
+    hideStockTab("ariaapparel")
 })
