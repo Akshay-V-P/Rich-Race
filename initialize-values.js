@@ -28,4 +28,25 @@ export function setInitialValues(){
     localStorage.setItem("greenpowerHoldings", 0)
     localStorage.setItem("ariaapparelHoldings", 0)
 
+    //balance
+    localStorage.setItem("balance", 24000)
+
+    //price change index
+    localStorage.setItem("nexGenpriceChangeIndex", 0)
+    localStorage.setItem("ecoGenixpriceChangeIndex", 0)
+    localStorage.setItem("greenPowerpriceChangeIndex", 0)
+    localStorage.setItem("ariaApparelpriceChangeIndex", 0)
+
+    //expense
+    localStorage.setItem("expense", 15000)
+
+    //salary collected
+    localStorage.setItem("ifSalaryCollected", 'no')
+
+    //salary
+    localStorage.setItem("salary", 24000)
+
+    //initiallized
+    localStorage.setItem("initiallized", 'yes')
+
 }

@@ -1,5 +1,13 @@
 import { selectRandomNews } from "./calculation-scripts.js"
+import { setInitialValues } from "./initialize-values.js"
+import { alertAMsg } from "./utills.js"
 const newsTabRoute = document.getElementById("news-tab")
+if (localStorage.getItem("initiallized")==null){
+    localStorage.setItem("initiallized", 'no')
+}
+if (localStorage.getItem("initiallized")=='no'){
+    setInitialValues()
+}
 
 // selects price displays
 const nexgenDisplay = document.getElementById("nexgen-price")
@@ -32,21 +40,34 @@ const progressDiv = document.querySelector(".progress-display")
 // month display
 const monthDisplay = document.querySelector(".month-display")
 
+const helloName = document.getElementById("hello-name")
+helloName.innerHTML = "Hello, "+localStorage.getItem("name")
 
-// temporary initialisation
-if (localStorage.getItem('nexgenCurrentPrice')=== null){
-    localStorage.setItem("nexgenCurrentPrice", 1030)
-    localStorage.setItem("ecogenixCurrentPrice" , 640)
-    localStorage.setItem("greenpowerCurrentPrice" , 450)
-    localStorage.setItem("ariaapparelCurrentPrice" , 230)
-}
+const profilePhoto = document.querySelector(".profile-foto img")
+profilePhoto.src = localStorage.getItem("profileImgSrc")
 
 
+const balanceTabSalaryDisplay = document.getElementById("balance-salary-display")
+const balanceTabExpenseDisplay = document.getElementById("balance-expense-display")
+localStorage.setItem("expense", 15000)
 // opening balance details tab
 balanceRootDiv.addEventListener("click", (e)=>{
     balanceDetailDiv.style.display = "flex"
     balanceDetailsDisplayBal.innerHTML = "Balance : ₹"+Number(localStorage.getItem("balance")).toLocaleString('en')
+    balanceTabSalaryDisplay.innerHTML = Number(localStorage.getItem("salary")).toLocaleString('en',{style : 'currency', currency : 'INR'})
+    balanceTabExpenseDisplay.innerHTML = Number(localStorage.getItem("expense")).toLocaleString('en',{style : 'currency', currency : 'INR'})
 })
+
+const salaryCollectBtn = document.querySelector(".collect-slry")
+const payExpenseBtn = document.querySelector(".pay-expen")
+salaryCollectBtn.addEventListener('click', ()=>{
+    collectSalary()
+    localStorage.setItem('ifSalaryCollected', 'yes')
+})
+payExpenseBtn.addEventListener('click', ()=>{
+    payExpense()
+})
+
 
 // close balance details tab
 balanceDetailClose.addEventListener("click", ()=>{
@@ -65,18 +86,20 @@ monthDisplay.innerHTML = "Month : "+localStorage.getItem("MonthCount")
 
 
 nextBtn.addEventListener("click", ()=>{
-    nextMonth('nexGen', 'nexgenCurrentPrice')
-    nextMonth('ecoGenix', 'ecogenixCurrentPrice')
-    nextMonth('greenPower', 'greenpowerCurrentPrice')
-    nextMonth('ariaApparel', 'ariaapparelCurrentPrice')
-    updateCurrentPrice()
-    updatePriceChange()
-
     if (localStorage.getItem("ifSalaryCollected")==="no"){// command for me : check later why false is not working
-        collectSalary()
+        alertAMsg("You haven't collected salary\nCollect salary from 'your balance' Tab👇")
+        return
+    }else{
+        nextMonth('nexGen', 'nexgenCurrentPrice')
+        nextMonth('ecoGenix', 'ecogenixCurrentPrice')
+        nextMonth('greenPower', 'greenpowerCurrentPrice')
+        nextMonth('ariaApparel', 'ariaapparelCurrentPrice')
+        updateCurrentPrice()
+        updatePriceChange()
+        displayBalance()
+        addAMonth()
+        localStorage.setItem("ifSalaryCollected", 'no')
     }
-    displayBalance()
-    addAMonth()
     
 
 })
@@ -85,6 +108,14 @@ nextBtn.addEventListener("click", ()=>{
 function collectSalary(){
     let addSalary = parseFloat(localStorage.getItem("balance"))+parseFloat(localStorage.getItem("salary"))
     localStorage.setItem("balance", addSalary)
+    displayBalance()
+    balanceDetailsDisplayBal.innerHTML = "Balance : ₹"+Number(localStorage.getItem("balance")).toLocaleString('en')
+}
+
+function payExpense(){
+    localStorage.setItem('balance', parseInt(localStorage.getItem('balance')-parseInt(localStorage.getItem('expense'))))
+    displayBalance()
+    balanceDetailsDisplayBal.innerHTML = "Balance : ₹"+Number(localStorage.getItem("balance")).toLocaleString('en')
 }
 
 // add a month to count

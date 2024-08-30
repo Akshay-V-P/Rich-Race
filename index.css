@@ -87,6 +87,14 @@ header h1 {
     outline: none;
 }
 
+#male-selector img{
+    opacity: 1;
+}
+
+#female-selector img {
+    opacity: 1;
+}
+
 @media (width < 480px) {
     .container {
         width: 90%; 
