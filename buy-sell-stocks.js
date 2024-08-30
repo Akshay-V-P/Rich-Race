@@ -59,23 +59,32 @@ function showHoldings(companyName,index){
 }
 
 
+const stockTabChangeDisplays = document.querySelectorAll("#change")
 // function to open stocks tab respectively
 function displayStockTab(target){
     if (target == "nexgen"){
         nexgenStockContainer.style.display = "flex";
         nexgenPriceDisplay.innerHTML = '₹'+localStorage.getItem("nexgenCurrentPrice")
+        stockTabChangeDisplays[0].innerHTML = localStorage.getItem("nexGenPriceVariation")
+        stockTabChangeDisplays[0].style.color = localStorage.getItem("nexGenVariationColor")
         showHoldings("nexgen",0)
     }else if (target == "ecogenix"){
         ecogenixStockContainer.style.display = "flex"
         ecogenixPriceDisplay.innerHTML = '₹'+localStorage.getItem("ecogenixCurrentPrice")
+        stockTabChangeDisplays[1].innerHTML = localStorage.getItem("ecoGenixPriceVariation")
+        stockTabChangeDisplays[1].style.color = localStorage.getItem("ecoGenixVariationColor")
         showHoldings("ecogenix",1)
     }else if (target == "greenpower"){
         greenpowerStockContainer.style.display = "flex"
         greenpowerPriceDisplay.innerHTML = '₹'+localStorage.getItem("greenpowerCurrentPrice")
+        stockTabChangeDisplays[2].innerHTML = localStorage.getItem("greenPowerPriceVariation")
+        stockTabChangeDisplays[2].style.color = localStorage.getItem("greenPowerVariationColor")
         showHoldings("greenpower",2)
     }else if (target == "ariaapparel"){
         ariaapparelStockContainer.style.display = "flex"
         ariaapparelPriceDisplay.innerHTML = '₹'+localStorage.getItem("ariaapparelCurrentPrice")
+        stockTabChangeDisplays[3].innerHTML = localStorage.getItem("ariaApparelPriceVariation")
+        stockTabChangeDisplays[3].style.color = localStorage.getItem("ariaApparelVariationColor")
         showHoldings("ariaapparel",3)
     }
 }

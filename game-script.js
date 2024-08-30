@@ -49,9 +49,9 @@ profilePhoto.src = localStorage.getItem("profileImgSrc")
 
 const balanceTabSalaryDisplay = document.getElementById("balance-salary-display")
 const balanceTabExpenseDisplay = document.getElementById("balance-expense-display")
-localStorage.setItem("expense", 15000)
+
 // opening balance details tab
-balanceRootDiv.addEventListener("click", (e)=>{
+balanceRootDiv.addEventListener("click", ()=>{
     balanceDetailDiv.style.display = "flex"
     balanceDetailsDisplayBal.innerHTML = "Balance : ₹"+Number(localStorage.getItem("balance")).toLocaleString('en')
     balanceTabSalaryDisplay.innerHTML = Number(localStorage.getItem("salary")).toLocaleString('en',{style : 'currency', currency : 'INR'})
@@ -61,11 +61,16 @@ balanceRootDiv.addEventListener("click", (e)=>{
 const salaryCollectBtn = document.querySelector(".collect-slry")
 const payExpenseBtn = document.querySelector(".pay-expen")
 salaryCollectBtn.addEventListener('click', ()=>{
-    collectSalary()
+    if (localStorage.getItem("ifSalaryCollected")=='no'){
+        collectSalary()
+    }
     localStorage.setItem('ifSalaryCollected', 'yes')
 })
 payExpenseBtn.addEventListener('click', ()=>{
-    payExpense()
+    if (localStorage.getItem("ifExpensePaid")=='no'){
+        payExpense()
+    }
+    localStorage.setItem("ifExpensePaid", 'yes')
 })
 
 
@@ -99,6 +104,7 @@ nextBtn.addEventListener("click", ()=>{
         displayBalance()
         addAMonth()
         localStorage.setItem("ifSalaryCollected", 'no')
+        localStorage.setItem("ifExpensePaid", 'no')
     }
     
 

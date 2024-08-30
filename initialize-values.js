@@ -41,7 +41,10 @@ export function setInitialValues(){
     localStorage.setItem("expense", 15000)
 
     //salary collected
-    localStorage.setItem("ifSalaryCollected", 'no')
+    localStorage.setItem("ifSalaryCollected", 'yes')
+
+    //expense paid
+    localStorage.setItem("ifExpensePaid", 'yes')
 
     //salary
     localStorage.setItem("salary", 24000)
