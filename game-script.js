@@ -22,7 +22,6 @@ const salaryHomeDisplay = document.getElementById("home-salary")
 const balanceDetailDiv = document.querySelector(".balance-details")
 const balanceDetailClose = document.querySelector(".material-symbols-outlined")
 const balanceDetailsDisplayBal = document.querySelector(".balance-disp")
-const balanceDetailsSalary = document.querySelectorAll(".salary-display")
 
 // next button
 const nextBtn = document.querySelector(".next-month")
@@ -46,8 +45,7 @@ if (localStorage.getItem('nexgenCurrentPrice')=== null){
 // opening balance details tab
 balanceRootDiv.addEventListener("click", (e)=>{
     balanceDetailDiv.style.display = "flex"
-    balanceDetailsDisplayBal.innerHTML = "Balance : ₹"+localStorage.getItem("balance")
-    balanceDetailsSalary.innerHTML = "Salaryy: ₹"+localStorage.getItem("salary")+"/Month"
+    balanceDetailsDisplayBal.innerHTML = "Balance : ₹"+Number(localStorage.getItem("balance")).toLocaleString('en')
 })
 
 // close balance details tab
@@ -96,16 +94,16 @@ function addAMonth(){
 }
 
 function displayBalance(){
-    balanceHomeDisplay.innerText = '₹'+localStorage.getItem("balance")
-    salaryHomeDisplay.innerText = '₹'+localStorage.getItem("salary")+"/Month"
+    balanceHomeDisplay.innerText = '₹'+Number(localStorage.getItem("balance")).toLocaleString('en')
+    salaryHomeDisplay.innerText = '₹'+Number(localStorage.getItem("salary")).toLocaleString('en')+"/Month"
 }
 
 // update price to ui
 function updateCurrentPrice(){ 
-    nexgenDisplay.innerText = '₹'+localStorage.getItem("nexgenCurrentPrice")
-    ecogenixDisplay.innerText = '₹'+localStorage.getItem("ecogenixCurrentPrice")
-    greenpowerDisplay.innerText = '₹'+localStorage.getItem("greenpowerCurrentPrice")
-    ariaapparelDisplay.innerText = '₹'+localStorage.getItem("ariaapparelCurrentPrice")
+    nexgenDisplay.innerText = '₹'+Number(localStorage.getItem("nexgenCurrentPrice")).toLocaleString('en')
+    ecogenixDisplay.innerText = '₹'+Number(localStorage.getItem("ecogenixCurrentPrice")).toLocaleString('en')
+    greenpowerDisplay.innerText = '₹'+Number(localStorage.getItem("greenpowerCurrentPrice")).toLocaleString('en')
+    ariaapparelDisplay.innerText = '₹'+Number(localStorage.getItem("ariaapparelCurrentPrice")).toLocaleString('en')
 }
 
 // updates price change 

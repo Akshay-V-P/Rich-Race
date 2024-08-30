@@ -155,7 +155,7 @@ function sellStock(companyName, priceDispIndex){
 function displayPriceForQty(companieName, pTagIndex, defaultInputValue){
     console.log("im working")
     let price = parseInt(localStorage.getItem(companieName+"CurrentPrice"))*parseInt(inputBoxs[companieName].value || defaultInputValue)
-    stockTabPriceDisps[pTagIndex].innerHTML = "Price : ₹"+price
+    stockTabPriceDisps[pTagIndex].innerHTML = "Price : ₹"+price.toLocaleString('en')
     console.log(price)
 }
 
@@ -222,18 +222,22 @@ const maxSellableBtn = document.querySelectorAll("#max-sellable")
 //nexgen max sellable event
 maxSellableBtn[0].addEventListener("click", ()=>{
     inputBoxs['nexgen'].value = localStorage.getItem('nexgenHoldings')
+    displayPriceForQty('nexgen', 0)
 })
 //nexgen max sellable event
 maxSellableBtn[1].addEventListener("click", ()=>{
     inputBoxs['ecogenix'].value = localStorage.getItem('ecogenixHoldings')
+    displayPriceForQty('ecogenix', 1)
 })
 //nexgen max sellable event
 maxSellableBtn[2].addEventListener("click", ()=>{
     inputBoxs['greenpower'].value = localStorage.getItem('greenpowerHoldings')
+    displayPriceForQty('greenpower', 2)
 })
 //nexgen max sellable event
 maxSellableBtn[3].addEventListener("click", ()=>{
     inputBoxs['ariaapparel'].value = localStorage.getItem('ariaapparelHoldings')
+    displayPriceForQty('ariaapparel', 3)
 })
 
 
