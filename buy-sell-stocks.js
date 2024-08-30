@@ -46,20 +46,16 @@ const inputBoxs = {'nexgen':nexgenQtySelectingBox,
 // quantity selecting function 
 function selectQuantity(companiyName, direction){
     let valuetoincreament = eval(inputBoxs[companiyName].value+direction+"1")
-    let maxQtyValue = maxBuyable(companiyName)
     if (valuetoincreament <0){
         alertAMsg("Quantity is zero")
-        return
-    }else if (valuetoincreament > maxQtyValue){
-        alertAMsg("You doesn't have enough balance to buy stock more than "+maxQtyValue)
         return
     }
     inputBoxs[companiyName].value = valuetoincreament
     
 }
 
-function showHoldings(index){
-    holdingDisplays[index].innerHTML = "Holdings : "+localStorage.getItem("nexgenHoldings")
+function showHoldings(companyName,index){
+    holdingDisplays[index].innerHTML = "Holdings : "+localStorage.getItem(companyName+"Holdings")
 }
 
 
@@ -68,19 +64,19 @@ function displayStockTab(target){
     if (target == "nexgen"){
         nexgenStockContainer.style.display = "flex";
         nexgenPriceDisplay.innerHTML = '₹'+localStorage.getItem("nexgenCurrentPrice")
-        showHoldings(0)
+        showHoldings("nexgen",0)
     }else if (target == "ecogenix"){
         ecogenixStockContainer.style.display = "flex"
         ecogenixPriceDisplay.innerHTML = '₹'+localStorage.getItem("ecogenixCurrentPrice")
-        showHoldings(1)
+        showHoldings("ecogenix",1)
     }else if (target == "greenpower"){
         greenpowerStockContainer.style.display = "flex"
         greenpowerPriceDisplay.innerHTML = '₹'+localStorage.getItem("greenpowerCurrentPrice")
-        showHoldings(2)
+        showHoldings("greenpower",2)
     }else if (target == "ariaapparel"){
         ariaapparelStockContainer.style.display = "flex"
         ariaapparelPriceDisplay.innerHTML = '₹'+localStorage.getItem("ariaapparelCurrentPrice")
-        showHoldings(3)
+        showHoldings("ariaapparel",3)
     }
 }
 
@@ -97,8 +93,8 @@ function hideStockTab(target){
     }
 }
 
-function maxBuyable(companiyName){
-    let maxBuyableQty = Math.floor(parseInt(localStorage.getItem('balance')/parseInt(localStorage.getItem(companiyName+'CurrentPrice'))))
+function maxBuyable(companyName){
+    let maxBuyableQty = Math.floor(parseInt(localStorage.getItem('balance')/parseInt(localStorage.getItem(companyName+'CurrentPrice'))))
     return maxBuyableQty
 }
 
@@ -106,33 +102,61 @@ const stockTabPriceDisps = document.querySelectorAll("#price-disp")
 console.log(stockTabPriceDisps)
 
 //buy stock
-function buyStock(companiyName, priceDispIndex){
-    let maxQty = maxBuyable(companiyName)
-    let qtyToBuy = parseInt(inputBoxs[companiyName].value);
-    console.log(qtyToBuy)
+function buyStock(companyName, priceDispIndex){
+    let maxQty = maxBuyable(companyName)
+    let qtyToBuy = parseInt(inputBoxs[companyName].value);
+    let broughtSomeStock = false
     if (qtyToBuy){
         if (qtyToBuy > maxQty){
             alertAMsg("Insufficiant Balance")
             return
         }
-        let stockValue = parseInt(localStorage.getItem(companiyName+"CurrentPrice")) * qtyToBuy;
+        let stockValue = parseInt(localStorage.getItem(companyName+"CurrentPrice")) * qtyToBuy;
         localStorage.setItem("balance", parseInt(localStorage.getItem("balance"))-stockValue)
-        localStorage.setItem(companiyName+"Holdings", parseInt(localStorage.getItem(companiyName+"Holdings"))+qtyToBuy)
+        localStorage.setItem(companyName+"Holdings", parseInt(localStorage.getItem(companyName+"Holdings"))+qtyToBuy)
         displayBalance()
-        inputBoxs[companiyName].value = ""
-        showHoldings(priceDispIndex)
+        inputBoxs[companyName].value = ""
+        showHoldings(companyName, priceDispIndex)
+        broughtSomeStock = true
+        displayPriceForQty(companyName, priceDispIndex, 0)
+        alertAMsg("Brought "+qtyToBuy+" "+companyName+" stocks")
+    }else if (broughtSomeStock == false){
+        alertAMsg("Select quantity")
     }
-    alertAMsg("Select quantity")
     return
 }
 
-function displayPriceForQty(companieName, pTagIndex){
-    let price = parseInt(localStorage.getItem(companieName+"CurrentPrice"))*parseInt(inputBoxs[companieName].value)
+//sell stock
+function sellStock(companyName, priceDispIndex){
+    let maxQty = localStorage.getItem(companyName+"Holdings")
+    let qtyTosell = parseInt(inputBoxs[companyName].value);
+    let soldSomeStock = false
+    if (qtyTosell){
+        if (qtyTosell > maxQty){
+            alertAMsg("You have only "+maxQty+" stocks to sell")
+            return
+        }
+        let stockValue = parseInt(localStorage.getItem(companyName+"CurrentPrice")) * qtyTosell;
+        localStorage.setItem("balance", parseInt(localStorage.getItem("balance"))+stockValue)
+        localStorage.setItem(companyName+"Holdings", parseInt(localStorage.getItem(companyName+"Holdings"))-qtyTosell)
+        displayBalance()
+        inputBoxs[companyName].value = ""
+        showHoldings(companyName, priceDispIndex)
+        soldSomeStock = true
+        displayPriceForQty(companyName, priceDispIndex, 0)
+        alertAMsg("Sold "+qtyTosell+" "+companyName+" stocks")
+    }else if (soldSomeStock == false){
+        alertAMsg("Select quantity")
+    }
+    
+    return
+}
+
+function displayPriceForQty(companieName, pTagIndex, defaultInputValue){
+    console.log("im working")
+    let price = parseInt(localStorage.getItem(companieName+"CurrentPrice"))*parseInt(inputBoxs[companieName].value || defaultInputValue)
     stockTabPriceDisps[pTagIndex].innerHTML = "Price : ₹"+price
     console.log(price)
-    console.log(pTagIndex)
-    console.log(stockTabPriceDisps[pTagIndex])
-
 }
 
 const buyBtns = document.querySelectorAll("#buy")
@@ -148,6 +172,21 @@ buyBtns[2].addEventListener("click", ()=>{
 })
 buyBtns[3].addEventListener("click", ()=>{
     buyStock("ariaapparel", 3)
+})
+
+const sellBtns = document.querySelectorAll("#sell")
+// sell btn event
+sellBtns[0].addEventListener("click", ()=>{
+    sellStock("nexgen", 0)
+})
+sellBtns[1].addEventListener("click", ()=>{
+    sellStock("ecogenix", 1)
+})
+sellBtns[2].addEventListener("click", ()=>{
+    sellStock("greenpower", 2)
+})
+sellBtns[3].addEventListener("click", ()=>{
+    sellStock("ariaapparel", 3)
 })
 
 // max buyable 
@@ -175,6 +214,28 @@ maxBuyableBtn[3].addEventListener('click', ()=>{
     inputBoxs['ariaapparel'].value = maxBuyable('ariaapparel')
     displayPriceForQty("ariaapparel", 3)
 })
+
+
+// Max sellable btns
+const maxSellableBtn = document.querySelectorAll("#max-sellable")
+
+//nexgen max sellable event
+maxSellableBtn[0].addEventListener("click", ()=>{
+    inputBoxs['nexgen'].value = localStorage.getItem('nexgenHoldings')
+})
+//nexgen max sellable event
+maxSellableBtn[1].addEventListener("click", ()=>{
+    inputBoxs['ecogenix'].value = localStorage.getItem('ecogenixHoldings')
+})
+//nexgen max sellable event
+maxSellableBtn[2].addEventListener("click", ()=>{
+    inputBoxs['greenpower'].value = localStorage.getItem('greenpowerHoldings')
+})
+//nexgen max sellable event
+maxSellableBtn[3].addEventListener("click", ()=>{
+    inputBoxs['ariaapparel'].value = localStorage.getItem('ariaapparelHoldings')
+})
+
 
 
 const increaseBtn = document.querySelectorAll("#increase") // selects all increase btn and store as []

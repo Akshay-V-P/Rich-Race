@@ -29,7 +29,7 @@ body {
 
 #game-name{
     text-align: center;
-    font-size: 28px;
+    font-size: 20px;
     margin-top: 10px;
     margin-bottom: 2px;
     color: #5974ad;
@@ -678,7 +678,7 @@ header h1 {
         font-size: 60px;
     }
     #game-name {
-        font-size: 34px;
+        font-size: 20px;
     }
     header h1 {
         font-size: 28px;
