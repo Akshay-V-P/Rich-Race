@@ -10,7 +10,7 @@ export function setInitialValues(){
     // set current price
     localStorage.setItem("nexgenCurrentPrice", 1030)
     localStorage.setItem("ecogenixCurrentPrice" , 640)
-    localStorage.setItem("greenpowerCurrnetPrice" , 450)
+    localStorage.setItem("greenpowerCurrentPrice" , 450)
     localStorage.setItem("ariaapparelCurrentPrice" , 230)
 
     // set price change

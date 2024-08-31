@@ -1,8 +1,9 @@
 :root {
-    --mainwhite : #f1f1f1;
-    --mainblue : #f0f4f9;
-    --borderblue : #d5dceb;
-    --mainblack : #333333;
+    --mainlightcolor : #bebebe;
+    --mainbgcolor : #212121;
+    --maincolor : #2f2f2f;
+    --bordercolor : hsla(0, 0%, 100%, .1);
+    --textcolor : #9b9b9b;
 }
 
 body {
@@ -22,9 +23,10 @@ body {
     margin: auto;
     display: flex;
     flex-direction: column;
-    border: 2px solid var(--borderblue);
+    border: 2px solid var(--bordercolor);
     position: relative;
     border-radius: 10px;
+    background-color: var(--mainbgcolor);
 }
 
 #game-name{
@@ -32,15 +34,15 @@ body {
     font-size: 20px;
     margin-top: 10px;
     margin-bottom: 2px;
-    color: #5974ad;
+    color: var(--mainlightcolor);
 }
 
 .balance-display {
     width: 100%;
-    background-color: var(--mainblue);
+    background-color: var(--maincolor);
     height: 10%;
     margin-top: 3%;
-    border: 2px solid var(--borderblue);
+    border: 2px solid var(--bordercolor);
     border-radius: 25px;
     display: flex;
     align-items: center;
@@ -55,7 +57,7 @@ body {
     margin-left: 30px;
     width: 55px;
     height: 55px;
-    background-color: var(--borderblue);
+    background-color: var(--bordercolor);
     border-radius: 50px;
     display: flex;
     justify-content: center;
@@ -81,14 +83,14 @@ body {
     margin: 0;
     padding: 0;
     font-size: 16px;
-    color: var(--mainblack);
+    color: var(--textcolor);
 }
 
 .balance p {
     margin: 0;
     padding: 0;
     font-size: 8px;
-    color: var(--mainblack);
+    color: var(--textcolor);
     font-weight: 700;
 }
 
@@ -102,8 +104,8 @@ body {
 }
 
 .stock-display div {
-    background-color: var(--mainblue);
-    border: 2px solid var(--borderblue);
+    background-color: var(--maincolor);
+    border: 2px solid var(--bordercolor);
     border-radius: 25px;
     display: flex;
     justify-content: space-around;
@@ -118,7 +120,7 @@ body {
 
 #item-details * {
     margin-left: 18px;
-    color: var(--mainblack);
+    color: var(--textcolor);
 }
 
 .stock-display i {
@@ -148,10 +150,10 @@ body {
     margin-top: 3%;
     width: 100%;
     height: 25%;
-    background-color: var(--mainblue);
-    border-top: 2px solid var(--borderblue);
-    border-left: 2px solid var(--borderblue);
-    border-right: 2px solid var(--borderblue);
+    background-color: var(--maincolor);
+    border-top: 2px solid var(--bordercolor);
+    border-left: 2px solid var(--bordercolor);
+    border-right: 2px solid var(--bordercolor);
     border-radius: 25px 25px 0 0 ;
     padding-top: 8px;
     overflow-y: scroll;
@@ -171,8 +173,8 @@ body {
     position: absolute;
     width: calc(100% - 2px);
     height: 10%;
-    background-color:#9eb0d8 ;
-    border: 2px solid var(--borderblue);
+    background-color: var(--maincolor) ;
+    border: 2px solid var(--bordercolor);
     left: 0;
     bottom: 0;
     border-radius: 25px 25px 10px 10px ;
@@ -184,7 +186,7 @@ body {
 
 .items-tab span {
     font-size: 32px;
-    color: white;
+    color: rgb(133, 133, 133);
 }
 
 .items-tab div {
@@ -198,7 +200,7 @@ body {
     padding: 0;
     margin: 0;
     font-size: 12px;
-    color: white;
+    color: rgb(133, 133, 133);
 }
 
 header {
@@ -208,19 +210,19 @@ header {
 header h1 {
     margin-top: 20px;
     font-family: poppins;
-    color: rgb(158, 176, 216);
+    color: var(--mainlightcolor);
     font-size: 24px;
 }
 
 .next-month {
     width: 100px;
     height: 100px;
-    background-color: var(--mainblue);
+    background-color: var(--maincolor);
     position: absolute;
     bottom: 5%;
     left: calc(50% - 50px);
     border-radius: 50%;
-    border: 7px solid var(--borderblue);
+    border: 7px solid var(--bordercolor);
     /* box-shadow: 0px 20px 20px 5px rgba(70, 74, 111, 0.6); */
     box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
     display: flex;
@@ -228,7 +230,7 @@ header h1 {
     justify-content: center;
     font-size: 15px;
     font-family: Poppins;
-    color: #9eb0d8;
+    color: var(--textcolor);
     cursor: pointer;
     text-wrap: nowrap;
 
@@ -239,8 +241,8 @@ header h1 {
     width: 90%;
     height: 300px;
     left: 5%;
-    background-color: var(--mainblue);
-    border: 2px solid var(--borderblue);
+    background-color: var(--maincolor);
+    border: 2px solid var(--bordercolor);
     border-radius: 20px;
     top: 10%;
     display: none;
@@ -259,7 +261,7 @@ header h1 {
 .balance-details * {
     margin: 0 0 5px 24px;
     padding: 0;
-    color: var(--mainblack);
+    color: var(--textcolor);
 }
 
 .action-div {
@@ -287,24 +289,24 @@ header h1 {
     left: 300px;
     top: 70px;
     font-size: 12px;
-    background-color: #9eb0d8;
+    background-color: var(--maincolor);
     padding: 0 8px 0 8px;
     border-radius: 8px;
-    color: white;
-    border: 2px solid var(--borderblue);
+    color: var(--textcolor);
+    border: 2px solid var(--bordercolor);
 }
 
 /* Nexgen stock display */
 
 .nexgen-stock {
     position: absolute;
-    background-color: var(--mainblue);
+    background-color: var(--mainbgcolor);
     width: 250px;
     height: 250px;
     top: 175px;
     border-radius: 25px;
-    border: 2px solid var(--borderblue);
-    box-shadow: 0 0 10px 1px #9eb0d8;
+    border: 2px solid var(--bordercolor);
+    box-shadow: 0 0 10px 1px #020202;
     display: none;
     flex-wrap: wrap;
     z-index: 1;
@@ -325,7 +327,7 @@ header h1 {
     position: absolute;
     top: 5px;
     left: 5px;
-    color: #9eb0d8;
+    color: var(--bordercolor);
     cursor: pointer;
 
 }
@@ -388,7 +390,7 @@ header h1 {
     height: 20px;
     font-size: 8px;
     text-align: center;
-    color: white;
+    color: var(--textcolor);
     border: 0;
     border-radius: 4px;
     cursor: pointer;
@@ -397,14 +399,14 @@ header h1 {
 }
 
 .display-and-max input {
-    background-color: #9eb0d8;
+    background-color: var(--textcolor);
     font-family: poppins;
     width: 40px;
     max-width: 90px;
     text-align: center;
     height: 20px;
     border-radius: 4px;
-    border: 2px solid #656464;
+    border: 2px solid var(--mainlightcolor);
 }
 
 .display-and-max input:focus {
@@ -412,13 +414,13 @@ header h1 {
 }
 
 #max-buyable{
-    background-color: #5974ad;
-    color: rgb(234, 227, 227);
+    background-color: var(--maincolor);
+    color: var(--textcolor);
 }
 
 #max-sellable{
-    background-color: #5974ad;
-    color: rgb(234, 227, 227);
+    background-color: var(--maincolor);
+    color: var(--textcolor);
 }
 
 .buy-sell {
@@ -447,19 +449,19 @@ header h1 {
 }
 
 #buy {
-    background-color: green;
+    background-color: rgb(47, 104, 47);
     border: 0;
-    color: white;
+    color: var(--mainlightcolor);
 }
 
 #sell {
-    background-color: red;
+    background-color: rgb(160, 39, 39);
     border: 0;
-    color: white;
+    color: var(--mainlightcolor);
 }
 
 .nexgen-stock * {
-    color: var(--mainblack);
+    color: var(--textcolor);
 }
 
 .nexgen-stock i {
@@ -490,14 +492,14 @@ header h1 {
 
 .ecogenix-stock {
     position: absolute;
-    background-color: var(--mainblue);
+    background-color: var(--mainbgcolor);
     width: 250px;
     height: 250px;
     top: 175px;
     right: 20px;
     border-radius: 25px;
-    border: 2px solid var(--borderblue);
-    box-shadow: 0 0 10px 1px #9eb0d8;
+    border: 2px solid var(--bordercolor);
+    box-shadow: 0 0 10px 1px #020202;
     display: none;
     flex-wrap: wrap;
     z-index: 1;
@@ -506,7 +508,7 @@ header h1 {
 }
 
 .ecogenix-stock * {
-    color: var(--mainblack);
+    color: var(--textcolor);
 }
 
 .ecogenix-stock i {
@@ -537,13 +539,13 @@ header h1 {
 
 .greenpower-stock {
     position: absolute;
-    background-color: var(--mainblue);
+    background-color: var(--mainbgcolor);
     width: 250px;
     height: 250px;
     top: 224px;
     border-radius: 25px;
-    border: 2px solid var(--borderblue);
-    box-shadow: 0 0 10px 1px #9eb0d8;
+    border: 2px solid var(--bordercolor);
+    box-shadow: 0 0 10px 1px #020202;
     display: none;
     flex-wrap: wrap;
     z-index: 1;
@@ -552,7 +554,7 @@ header h1 {
 }
 
 .greenpower-stock * {
-    color: var(--mainblack);
+    color: var(--textcolor);
 }
 
 .greenpower-stock i {
@@ -583,14 +585,14 @@ header h1 {
 
 .ariaapparel-stock {
     position: absolute;
-    background-color: var(--mainblue);
+    background-color: var(--mainbgcolor);
     width: 250px;
     height: 250px;
     top: 224px;
     right: 20px;
     border-radius: 25px;
-    border: 2px solid var(--borderblue);
-    box-shadow: 0 0 10px 1px #9eb0d8;
+    border: 2px solid var(--bordercolor);
+    box-shadow: 0 0 10px 1px #020202;
     display: none;
     flex-wrap: wrap;
     z-index: 1;
@@ -599,7 +601,7 @@ header h1 {
 }
 
 .ariaapparel-stock * {
-    color: var(--mainblack);
+    color: var(--textcolor);
 }
 
 .ariaapparel-stock i {
@@ -635,8 +637,9 @@ header h1 {
     position: absolute;
     top: 100px;
     left: calc(50% - 110px);
-    background-color: white;
-    border: 2px solid var(--borderblue);
+    background-color: var(--textcolor);
+    border: 2px solid var(--mainlightcolor);
+    font-weight: 700;
     margin: 0;
     text-align: center;
     text-wrap: wrap;
@@ -704,5 +707,20 @@ header h1 {
         height: 80px;
         left: calc(50% - 45px);
         font-size: 13px;
+    }
+
+}
+
+@media (width < 390px){
+    .month-display {
+        position: absolute;
+        left: 265px;
+        top: 80px;
+        font-size: 12px;
+        background-color: var(--maincolor);
+        padding: 0 8px 0 8px;
+        border-radius: 8px;
+        color: var(--textcolor);
+        border: 2px solid var(--bordercolor);
     }
 }
