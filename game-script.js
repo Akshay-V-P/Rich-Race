@@ -1,6 +1,6 @@
 import { selectRandomNews } from "./calculation-scripts.js"
 import { setInitialValues } from "./initialize-values.js"
-import { alertAMsg } from "./utills.js"
+import { alertAMsg, toCurrrency } from "./utills.js"
 const newsTabRoute = document.getElementById("news-tab")
 if (localStorage.getItem("initiallized")==null){
     localStorage.setItem("initiallized", 'no')
@@ -8,6 +8,10 @@ if (localStorage.getItem("initiallized")==null){
 if (localStorage.getItem("initiallized")=='no'){
     setInitialValues()
 }
+
+// test zone
+// ----------------------------------------------------------
+// ----------------------------------------------------------
 
 // selects price displays
 const nexgenDisplay = document.getElementById("nexgen-price")
@@ -53,7 +57,7 @@ const balanceTabExpenseDisplay = document.getElementById("balance-expense-displa
 // opening balance details tab
 balanceRootDiv.addEventListener("click", ()=>{
     balanceDetailDiv.style.display = "flex"
-    balanceDetailsDisplayBal.innerHTML = "Balance : ₹"+Number(localStorage.getItem("balance")).toLocaleString('en')
+    balanceDetailsDisplayBal.innerHTML = "Balance : "+toCurrrency()
     balanceTabSalaryDisplay.innerHTML = Number(localStorage.getItem("salary")).toLocaleString('en',{style : 'currency', currency : 'INR'})
     balanceTabExpenseDisplay.innerHTML = Number(localStorage.getItem("expense")).toLocaleString('en',{style : 'currency', currency : 'INR'})
 })
@@ -103,6 +107,7 @@ nextBtn.addEventListener("click", ()=>{
         updatePriceChange()
         displayBalance()
         addAMonth()
+        payExpense()
         localStorage.setItem("ifSalaryCollected", 'no')
         localStorage.setItem("ifExpensePaid", 'no')
     }
@@ -115,13 +120,13 @@ function collectSalary(){
     let addSalary = parseFloat(localStorage.getItem("balance"))+parseFloat(localStorage.getItem("salary"))
     localStorage.setItem("balance", addSalary)
     displayBalance()
-    balanceDetailsDisplayBal.innerHTML = "Balance : ₹"+Number(localStorage.getItem("balance")).toLocaleString('en')
+    balanceDetailsDisplayBal.innerHTML = "Balance : "+toCurrrency()
 }
 
 function payExpense(){
     localStorage.setItem('balance', parseInt(localStorage.getItem('balance')-parseInt(localStorage.getItem('expense'))))
     displayBalance()
-    balanceDetailsDisplayBal.innerHTML = "Balance : ₹"+Number(localStorage.getItem("balance")).toLocaleString('en')
+    balanceDetailsDisplayBal.innerHTML = "Balance : "+toCurrrency()
 }
 
 // add a month to count
@@ -131,7 +136,7 @@ function addAMonth(){
 }
 
 function displayBalance(){
-    balanceHomeDisplay.innerText = '₹'+Number(localStorage.getItem("balance")).toLocaleString('en')
+    balanceHomeDisplay.innerText = toCurrrency()
     salaryHomeDisplay.innerText = '₹'+Number(localStorage.getItem("salary")).toLocaleString('en')+"/Month"
 }
 
@@ -183,7 +188,6 @@ function nextMonth(companieName, storageName){
     progressDisplayP.innerText = companieName+": "+price[0]
     progressDiv.appendChild(progressDisplayP)
 }
-
 
 export {displayBalance}
 
