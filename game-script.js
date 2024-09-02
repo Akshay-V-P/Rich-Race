@@ -57,7 +57,7 @@ const balanceTabExpenseDisplay = document.getElementById("balance-expense-displa
 // opening balance details tab
 balanceRootDiv.addEventListener("click", ()=>{
     balanceDetailDiv.style.display = "flex"
-    balanceDetailsDisplayBal.innerHTML = "Balance : "+toCurrrency()
+    balanceDetailsDisplayBal.innerHTML = 'BAL :  '+toCurrrency()
     balanceTabSalaryDisplay.innerHTML = Number(localStorage.getItem("salary")).toLocaleString('en',{style : 'currency', currency : 'INR'})
     balanceTabExpenseDisplay.innerHTML = Number(localStorage.getItem("expense")).toLocaleString('en',{style : 'currency', currency : 'INR'})
 })
@@ -96,7 +96,10 @@ monthDisplay.innerHTML = "Month : "+localStorage.getItem("MonthCount")
 
 nextBtn.addEventListener("click", ()=>{
     if (localStorage.getItem("ifSalaryCollected")==="no"){// command for me : check later why false is not working
-        alertAMsg("You haven't collected salary\nCollect salary from 'your balance' Tab👇")
+        alertAMsg("You haven't collected salary\nCollect salary from 'your Balance' Tab👇")
+        return
+    }if (localStorage.getItem('ifExpensePaid')==='no'){
+        alertAMsg("You haven't Paid Salary\nPay expense from 'Your balance' Tab👇")
         return
     }else{
         nextMonth('nexGen', 'nexgenCurrentPrice')
@@ -107,7 +110,6 @@ nextBtn.addEventListener("click", ()=>{
         updatePriceChange()
         displayBalance()
         addAMonth()
-        payExpense()
         localStorage.setItem("ifSalaryCollected", 'no')
         localStorage.setItem("ifExpensePaid", 'no')
     }

@@ -112,27 +112,31 @@ console.log(stockTabPriceDisps)
 
 //buy stock
 function buyStock(companyName, priceDispIndex){
-    let maxQty = maxBuyable(companyName)
-    let qtyToBuy = parseInt(inputBoxs[companyName].value);
-    let broughtSomeStock = false
-    if (qtyToBuy){
-        if (qtyToBuy > maxQty){
-            alertAMsg("Insufficiant Balance")
-            return
+    if (localStorage.getItem('ifExpensePaid')==='yes'){
+        let maxQty = maxBuyable(companyName)
+        let qtyToBuy = parseInt(inputBoxs[companyName].value);
+        let broughtSomeStock = false
+        if (qtyToBuy){
+            if (qtyToBuy > maxQty){
+                alertAMsg("Insufficiant Balance")
+                return
+            }
+            let stockValue = parseInt(localStorage.getItem(companyName+"CurrentPrice")) * qtyToBuy;
+            localStorage.setItem("balance", parseInt(localStorage.getItem("balance"))-stockValue)
+            localStorage.setItem(companyName+"Holdings", parseInt(localStorage.getItem(companyName+"Holdings"))+qtyToBuy)
+            displayBalance()
+            inputBoxs[companyName].value = ""
+            showHoldings(companyName, priceDispIndex)
+            broughtSomeStock = true
+            displayPriceForQty(companyName, priceDispIndex, 0)
+            alertAMsg("Brought "+qtyToBuy+" "+companyName+" stocks")
+        }else if (broughtSomeStock == false){
+            alertAMsg("Select quantity")
         }
-        let stockValue = parseInt(localStorage.getItem(companyName+"CurrentPrice")) * qtyToBuy;
-        localStorage.setItem("balance", parseInt(localStorage.getItem("balance"))-stockValue)
-        localStorage.setItem(companyName+"Holdings", parseInt(localStorage.getItem(companyName+"Holdings"))+qtyToBuy)
-        displayBalance()
-        inputBoxs[companyName].value = ""
-        showHoldings(companyName, priceDispIndex)
-        broughtSomeStock = true
-        displayPriceForQty(companyName, priceDispIndex, 0)
-        alertAMsg("Brought "+qtyToBuy+" "+companyName+" stocks")
-    }else if (broughtSomeStock == false){
-        alertAMsg("Select quantity")
+        return
+    }else{
+        alertAMsg("You haven't paid your Monthly Expenses")
     }
-    return
 }
 
 //sell stock
