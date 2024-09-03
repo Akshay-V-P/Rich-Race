@@ -32,7 +32,7 @@ const salaryHomeDisplay = document.getElementById("home-salary")
 
 // balance details 
 const balanceDetailDiv = document.querySelector(".balance-details")
-const balanceDetailClose = document.querySelector(".material-symbols-outlined")
+const balanceDetailClose = document.querySelector("#close-balance-tab")
 const balanceDetailsDisplayBal = document.querySelector(".balance-disp")
 
 // next button
