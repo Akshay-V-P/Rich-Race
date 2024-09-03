@@ -51,6 +51,24 @@ const profilePhoto = document.querySelector(".profile-foto img")
 profilePhoto.src = localStorage.getItem("profileImgSrc")
 
 
+// opening and closing menu tab 
+//---------------------------------------------------
+const openMenuBtn = document.querySelector('.menu-btn')
+const menuDisplayDiv = document.querySelector('.menu-tab')
+const closeMenuTab = document.querySelector(".close-menu")
+openMenuBtn.addEventListener("click", ()=>{
+    menuDisplayDiv.style.animation = "slidingUp 0.2s ease-in-out"
+    menuDisplayDiv.style.display = "grid"
+})
+closeMenuTab.addEventListener("click", ()=>{
+    menuDisplayDiv.style.animation = "slideDown 0.5s ease-in-out"
+    setTimeout(() => {
+        menuDisplayDiv.style.display = "none"
+    }, 490);
+})
+//---------------------------------------------------
+
+
 const balanceTabSalaryDisplay = document.getElementById("balance-salary-display")
 const balanceTabExpenseDisplay = document.getElementById("balance-expense-display")
 

@@ -220,7 +220,7 @@ header h1 {
     background-color: var(--maincolor);
     position: absolute;
     bottom: 5%;
-    left: calc(50% - 50px);
+    left: calc(50% - 56px);
     border-radius: 50%;
     border: 7px solid var(--bordercolor);
     /* box-shadow: 0px 20px 20px 5px rgba(70, 74, 111, 0.6); */
@@ -310,7 +310,7 @@ header h1 {
     display: none;
     flex-wrap: wrap;
     z-index: 1;
-    animation: slideDown 0.2s ease-in-out;
+    animation: scaleOut 0.2s ease-in-out;
 }
 
 
@@ -503,7 +503,7 @@ header h1 {
     display: none;
     flex-wrap: wrap;
     z-index: 1;
-    animation: slideDown 0.2s ease-in-out;
+    animation: scaleOut 0.2s ease-in-out;
 
 }
 
@@ -549,7 +549,7 @@ header h1 {
     display: none;
     flex-wrap: wrap;
     z-index: 1;
-    animation: slideDown 0.2s ease-in-out;
+    animation: scaleOut 0.2s ease-in-out;
 
 }
 
@@ -596,7 +596,7 @@ header h1 {
     display: none;
     flex-wrap: wrap;
     z-index: 1;
-    animation: slideDown 0.2s ease-in-out;
+    animation: scaleOut 0.2s ease-in-out;
 
 }
 
@@ -653,7 +653,64 @@ header h1 {
     animation: slideUp 0.2s ease-in-out;
 }
 
-@keyframes slideDown {
+.menu-tab {
+    box-sizing: border-box;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 40%;
+    z-index: 5;
+    border: 2px solid var(--bordercolor);
+    background-color: var(--maincolor);
+    border-radius: 10px;
+    color: var(--textcolor);
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 10px;
+    box-shadow: 0px -5px 8px -4px rgba(0,0,0,0.61);
+    -webkit-box-shadow: 0px -5px 8px -4px rgba(0,0,0,0.61);
+    -moz-box-shadow: 0px -5px 8px -4px rgba(0,0,0,0.61);
+    animation: none 0.2s ease-in-out;
+}
+
+.menu-tab span {
+    font-size: 40px;
+}
+
+.menu-tab i {
+    font-size: 40px;
+}
+
+.menu-tab p {
+    font-size: 12px;
+}
+
+.close-menu {
+    position: absolute;
+    top: -60px;
+    left: calc(50% - 26px);
+    background-color: var(--maincolor);
+    width: 50px;
+    height: 50px;
+    border-radius: 50px !important;
+    border: 2px solid var(--bordercolor) !important;
+    font-size: 10px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.menu-tab div {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #383838;
+    border-radius: 10px;
+}
+
+@keyframes scaleOut {
     0% {
       transform: scale(0.97);
       opacity: 0.8;
@@ -675,6 +732,28 @@ header h1 {
     }
   }
 
+  @keyframes slidingUp {
+    0% {
+      height: 30%;
+      opacity: 0.2;
+    }
+    100% {
+      height: 40%;
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideDown {
+    0% {
+      height: 40%;
+      opacity: 1;
+    }
+    100% {
+      height: 25%;
+      opacity: 0.5;
+    }
+  }
+
 @media (width < 512px) {
     .container {
         border: 0;
@@ -683,10 +762,6 @@ header h1 {
     
     .items-tab {
         border-radius: 25px 25px 0px 0px ;
-    }
-
-    .stock-display i {
-        font-size: 60px;
     }
     #game-name {
         font-size: 20px;
