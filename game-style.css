@@ -50,7 +50,8 @@ body {
 }
 
 .balance-display span {
-    margin-left: 28%;
+    margin-left: 24%;
+    color: var(--mainlightcolor);
 }
 
 .profile-foto {
