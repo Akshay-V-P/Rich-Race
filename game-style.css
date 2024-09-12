@@ -44,7 +44,7 @@ body {
     height: 10%;
     margin-top: 3%;
     border: 2px solid var(--bordercolor);
-    border-radius: 25px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -108,7 +108,7 @@ body {
 .stock-display div {
     background-color: var(--maincolor);
     border: 2px solid var(--bordercolor);
-    border-radius: 25px;
+    border-radius: 12px;
     display: flex;
     justify-content: space-around;
     flex-direction: column;
@@ -156,7 +156,7 @@ body {
     border-top: 2px solid var(--bordercolor);
     border-left: 2px solid var(--bordercolor);
     border-right: 2px solid var(--bordercolor);
-    border-radius: 25px 25px 0 0 ;
+    border-radius: 12px 12px 0 0 ;
     padding-top: 8px;
     overflow-y: scroll;
 }
@@ -179,7 +179,7 @@ body {
     border: 2px solid var(--bordercolor);
     left: 0;
     bottom: 0;
-    border-radius: 25px 25px 10px 10px ;
+    border-radius: 12px 12px 10px 10px ;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -245,7 +245,7 @@ header h1 {
     left: 5%;
     background-color: var(--maincolor);
     border: 2px solid var(--bordercolor);
-    border-radius: 20px;
+    border-radius: 12px;
     top: 10%;
     display: none;
     flex-direction: column;
@@ -288,12 +288,12 @@ header h1 {
 
 .month-display {
     position: absolute;
-    left: 300px;
+    right: 45px;
     top: 70px;
     font-size: 12px;
     background-color: var(--maincolor);
     padding: 0 8px 0 8px;
-    border-radius: 8px;
+    border-radius: 4px;
     color: var(--textcolor);
     border: 2px solid var(--bordercolor);
 }
@@ -306,7 +306,7 @@ header h1 {
     width: 250px;
     height: 250px;
     top: 175px;
-    border-radius: 25px;
+    border-radius: 12px;
     border: 2px solid var(--bordercolor);
     box-shadow: 0 0 10px 1px #020202;
     display: none;
@@ -420,9 +420,17 @@ header h1 {
     color: var(--textcolor);
 }
 
+#max-buyable:focus{
+    background-color: rgb(73, 73, 196);
+}
+
 #max-sellable{
     background-color: var(--maincolor);
     color: var(--textcolor);
+}
+
+#max-sellable:focus {
+    background-color: rgb(73, 73, 196);
 }
 
 .buy-sell {
@@ -499,7 +507,7 @@ header h1 {
     height: 250px;
     top: 175px;
     right: 20px;
-    border-radius: 25px;
+    border-radius: 12px;
     border: 2px solid var(--bordercolor);
     box-shadow: 0 0 10px 1px #020202;
     display: none;
@@ -545,7 +553,7 @@ header h1 {
     width: 250px;
     height: 250px;
     top: 224px;
-    border-radius: 25px;
+    border-radius: 12px;
     border: 2px solid var(--bordercolor);
     box-shadow: 0 0 10px 1px #020202;
     display: none;
@@ -592,7 +600,7 @@ header h1 {
     height: 250px;
     top: 224px;
     right: 20px;
-    border-radius: 25px;
+    border-radius: 12px;
     border: 2px solid var(--bordercolor);
     box-shadow: 0 0 10px 1px #020202;
     display: none;
