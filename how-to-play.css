@@ -105,6 +105,11 @@ img {
 }
 
 
+.footer {
+    text-align: center;
+    border: 2px solid var(--textcolor);
+}
+
 
 @media (width < 512px) {
     .container {
