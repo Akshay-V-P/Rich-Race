@@ -117,6 +117,9 @@ img {
         border-radius: 0px;
         padding: 0 8% ;
     }
+    img {
+        width: 260px;
+    }
 }
 
 @media (width > 512px) {
