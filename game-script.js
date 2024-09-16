@@ -137,7 +137,7 @@ nextBtn.addEventListener("click", ()=>{
         localStorage.setItem("ifSalaryCollected", 'no')
         localStorage.setItem("ifExpensePaid", 'no')
     }
-    if((localStorage.getItem("MonthCount") <= 5) && (localStorage.getItem("MonthCount")%2 == 1)){
+    if((localStorage.getItem("MonthCount") <= 5) && (localStorage.getItem("MonthCount")%2 == 1) || localStorage.getItem("MonthCount") == 0){
         popupObject.style.display = "flex"
         popupTale.style.display = "block"
 
