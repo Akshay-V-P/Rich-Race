@@ -9,6 +9,11 @@ if (localStorage.getItem("initiallized")=='no'){
     setInitialValues()
 }
 
+const nameOfPlayer =  document.getElementById('nameofplayer')
+nameOfPlayer.innerHTML = localStorage.getItem("name")
+const popupObject = document.querySelector(".help-popup")
+const popupTale = document.querySelector(".triangle")
+
 // test zone
 // ----------------------------------------------------------
 
@@ -131,6 +136,15 @@ nextBtn.addEventListener("click", ()=>{
         addAMonth()
         localStorage.setItem("ifSalaryCollected", 'no')
         localStorage.setItem("ifExpensePaid", 'no')
+    }
+    if((localStorage.getItem("MonthCount") <= 5) && (localStorage.getItem("MonthCount")%2 == 1)){
+        popupObject.style.display = "flex"
+        popupTale.style.display = "block"
+
+        setTimeout(() => {
+            popupObject.style.display = "none"
+            popupTale.style.display = "none"
+        }, 8000);
     }
     
 
