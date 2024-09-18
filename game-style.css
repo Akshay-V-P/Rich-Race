@@ -768,7 +768,7 @@ header h1 {
     width: 95px ;
     height: 35px;
     background-color: var(--textcolor);
-    display: none !important;
+    display: none;
     align-items: center;
     justify-content: center;
     border-radius: 8px;
