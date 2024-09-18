@@ -1,4 +1,4 @@
-import { displayBalance } from "./game-script.js"
+import clickBubbleSfx, { displayBalance } from "./game-script.js"
 import { alertAMsg } from "./utills.js"
 
 const nexgenStockContainer = document.querySelector(".nexgen-stock")
@@ -175,15 +175,19 @@ function displayPriceForQty(companieName, pTagIndex, defaultInputValue){
 const buyBtns = document.querySelectorAll("#buy")
 // buy btn event
 buyBtns[0].addEventListener("click", ()=>{
+    clickBubbleSfx.play()
     buyStock("nexgen", 0)
 })
 buyBtns[1].addEventListener("click", ()=>{
+    clickBubbleSfx.play()
     buyStock("ecogenix", 1)
 })
 buyBtns[2].addEventListener("click", ()=>{
+    clickBubbleSfx.play()
     buyStock("greenpower", 2)
 })
 buyBtns[3].addEventListener("click", ()=>{
+    clickBubbleSfx.play()
     buyStock("ariaapparel", 3)
 })
 
@@ -305,15 +309,19 @@ decreaseBtn[3].addEventListener("click", ()=>{
 
 // stock tab open 
 nexgenhomediv.addEventListener("click", ()=>{
+    clickBubbleSfx.play()
     displayStockTab("nexgen")
 })
 ecogenixhomediv.addEventListener("click", ()=>{
+    clickBubbleSfx.play()
     displayStockTab("ecogenix")
 })
 greenpowerhomediv.addEventListener("click", ()=>{
+    clickBubbleSfx.play()
     displayStockTab("greenpower")
 })
 ariaapparelhomediv.addEventListener("click", ()=>{
+    clickBubbleSfx.play()
     displayStockTab("ariaapparel")
 })
 

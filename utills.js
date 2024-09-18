@@ -1,6 +1,6 @@
 export function alertAMsg(message){
     const container = document.querySelector(".container")
-    const notificationSfx = new Audio("sfx/Notification-sfx.wav")
+    const notificationSfx = new Audio("sfx/Notification-sfx.mp3")
     notificationSfx.play()
     let alertP = document.createElement("p")
     alertP.classList.add("alert-msg")

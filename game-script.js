@@ -24,6 +24,9 @@ if (localStorage.getItem("MonthCount") == 0){
     gamestartarrow.style.display = "block"
 }
 
+// sound effect
+const clickBubbleSfx = new Audio("sfx/click-bubble-sound.mp3")
+
 // test zone
 // ----------------------------------------------------------
 
@@ -73,6 +76,7 @@ const openMenuBtn = document.querySelector('.menu-btn')
 const menuDisplayDiv = document.querySelector('.menu-tab')
 const closeMenuTab = document.querySelector(".close-menu")
 openMenuBtn.addEventListener("click", ()=>{
+    clickBubbleSfx.play()
     menuDisplayDiv.style.animation = "slidingUp 0.2s ease-in-out"
     menuDisplayDiv.style.display = "grid"
 })
@@ -90,6 +94,7 @@ const balanceTabExpenseDisplay = document.getElementById("balance-expense-displa
 
 // opening balance details tab
 balanceRootDiv.addEventListener("click", ()=>{
+    clickBubbleSfx.play()
     balanceDetailDiv.style.display = "flex"
     balanceDetailsDisplayBal.innerHTML = 'BAL :  '+toCurrrency()
     balanceTabSalaryDisplay.innerHTML = Number(localStorage.getItem("salary")).toLocaleString('en',{style : 'currency', currency : 'INR'})
@@ -99,12 +104,14 @@ balanceRootDiv.addEventListener("click", ()=>{
 const salaryCollectBtn = document.querySelector(".collect-slry")
 const payExpenseBtn = document.querySelector(".pay-expen")
 salaryCollectBtn.addEventListener('click', ()=>{
+    clickBubbleSfx.play()
     if (localStorage.getItem("ifSalaryCollected")=='no'){
         collectSalary()
     }
     localStorage.setItem('ifSalaryCollected', 'yes')
 })
 payExpenseBtn.addEventListener('click', ()=>{
+    clickBubbleSfx.play()
     if (localStorage.getItem("ifExpensePaid")=='no'){
         payExpense()
     }
@@ -119,6 +126,7 @@ balanceDetailClose.addEventListener("click", ()=>{
 
 // navigate to news tab
 newsTabRoute.addEventListener("click", ()=>{
+    clickBubbleSfx.play()
     window.location.href = "news-tab.html"
 })
 
@@ -129,6 +137,7 @@ monthDisplay.innerHTML = "Month : "+localStorage.getItem("MonthCount")
 
 
 nextBtn.addEventListener("click", ()=>{
+    clickBubbleSfx.play()
     gamestartdiv.style.display = "none"
     gamestartarrow.style.display = "none"
     if (localStorage.getItem("ifSalaryCollected")==="no"){// command for me : check later why false is not working
@@ -237,7 +246,7 @@ function nextMonth(companieName, storageName){
 }
 
 export {displayBalance}
-
+export default clickBubbleSfx
 
 
 
