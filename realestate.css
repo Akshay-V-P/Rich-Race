@@ -1,0 +1,119 @@
+:root {
+    --mainlightcolor : #bebebe;
+    --mainbgcolor : #212121;
+    --maincolor : #2f2f2f;
+    --bordercolor : hsla(0, 0%, 100%, .1);
+    --textcolor : #9b9b9b;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    max-width: 100%;
+    max-height: 100dvh;
+    user-select: none;
+    font-family: Poppins;
+    color: var(--textcolor);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.container {
+    max-width: 100%;
+    height: 100dvh;
+    padding: 0 3% ;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    padding: 10px 40px;
+    border: 2px solid var(--bordercolor);
+    position: relative;
+    border-radius: 10px;
+    background-color: var(--mainbgcolor);
+    overflow-y: scroll;
+}
+
+.container img {
+    width: 180px;
+}
+
+
+
+.container h2 {
+    margin: 8px 0 0 0;
+}
+
+.container h4 {
+    margin: 8px 0 0 0;
+}
+
+
+.container #everyhouse {
+    border: 1px solid var(--bordercolor);
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 12px;
+}
+
+.buythehouse {
+    border: 1px solid var(--bordercolor);
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 6px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.buythehouse button {
+    width: 80px;
+    height: 30px;
+    border-radius: 4px;
+    border: 0;
+}
+
+#buyhousebtn {
+    background-color: rgb(43, 162, 43);
+    color: var(--mainlightcolor);
+}
+
+#sellhousebtn {
+    background-color: rgb(156, 47, 47);
+    color: var(--mainlightcolor);
+}
+
+#renthousebtn {
+    background-color: rgb(197, 123, 58);
+    color: var(--mainlightcolor);
+}
+
+@media (width < 512px) {
+    .container {
+        border: 0;
+        border-radius: 0px;
+    }
+    
+}
+
+@media (width > 512px) {
+    .container {
+        max-height: 90dvh;
+        max-width: 360px;
+        margin: 5dvh auto auto auto;
+    }
+
+}
+
+.container::-webkit-scrollbar {
+    display: none;
+}
+  
+  /* Hide scrollbar for IE, Edge, and Firefox */
+.container {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+}

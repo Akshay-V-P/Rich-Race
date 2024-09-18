@@ -763,6 +763,40 @@ header h1 {
 
  }
 
+ .startgame {
+    position: absolute;
+    width: 95px ;
+    height: 35px;
+    background-color: var(--textcolor);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    bottom: 22%;
+    left: calc(50% - 48px);
+    z-index: 20;
+ }
+
+ .startgame p {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    text-align: center;
+ }
+
+ .gamestartarrow {
+    display: none;
+    position: absolute;
+        width: 0px;
+        height: 0px;
+        border-style: solid;
+        border-width: 18px 25px 0 25px;
+        border-color: var(--textcolor) transparent transparent transparent;
+        bottom: 20.2%;
+    left: calc(50% - 25px);
+    z-index: 19;
+ }
+
 @keyframes scaleOut {
     0% {
       transform: scale(0.97);

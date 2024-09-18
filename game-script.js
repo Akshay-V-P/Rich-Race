@@ -14,6 +14,16 @@ nameOfPlayer.innerHTML = localStorage.getItem("name")
 const popupObject = document.querySelector(".help-popup")
 const popupTale = document.querySelector(".triangle")
 
+
+
+const gamestartdiv = document.querySelector(".startgame")
+const gamestartarrow = document.querySelector(".gamestartarrow")
+
+if (localStorage.getItem("MonthCount") == 0){
+    gamestartdiv.style.display = "flex"
+    gamestartarrow.style.display = "block"
+}
+
 // test zone
 // ----------------------------------------------------------
 
@@ -119,6 +129,8 @@ monthDisplay.innerHTML = "Month : "+localStorage.getItem("MonthCount")
 
 
 nextBtn.addEventListener("click", ()=>{
+    gamestartdiv.style.display = "none"
+    gamestartarrow.style.display = "none"
     if (localStorage.getItem("ifSalaryCollected")==="no"){// command for me : check later why false is not working
         alertAMsg("You haven't collected salary\nCollect salary from 'your Balance' Tab👇")
         return
