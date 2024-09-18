@@ -38,7 +38,7 @@ export function setInitialValues(){
     localStorage.setItem("ariaApparelpriceChangeIndex", 0)
 
     //expense
-    localStorage.setItem("expense", 15000)
+    localStorage.setItem("expense", 20000)
 
     //salary collected
     localStorage.setItem("ifSalaryCollected", 'yes')

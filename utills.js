@@ -17,9 +17,9 @@ export function toCurrrency(){
     let length = balanceValue.length
     let formattedValue 
     if ((length > 5) && (length < 8)){
-        decorator = 'L'
+        decorator = ' L'
     }else if (length > 7 ){
-        decorator = 'Cr'
+        decorator = ' Cr'
     }else{
         decorator = ''
     }

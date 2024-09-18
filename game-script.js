@@ -96,7 +96,7 @@ const balanceTabExpenseDisplay = document.getElementById("balance-expense-displa
 balanceRootDiv.addEventListener("click", ()=>{
     clickBubbleSfx.play()
     balanceDetailDiv.style.display = "flex"
-    balanceDetailsDisplayBal.innerHTML = 'BAL :  '+toCurrrency()
+    balanceDetailsDisplayBal.innerHTML = 'BAL : <br> '+toCurrrency()
     balanceTabSalaryDisplay.innerHTML = Number(localStorage.getItem("salary")).toLocaleString('en',{style : 'currency', currency : 'INR'})
     balanceTabExpenseDisplay.innerHTML = Number(localStorage.getItem("expense")).toLocaleString('en',{style : 'currency', currency : 'INR'})
 })
@@ -176,13 +176,13 @@ function collectSalary(){
     let addSalary = parseFloat(localStorage.getItem("balance"))+parseFloat(localStorage.getItem("salary"))
     localStorage.setItem("balance", addSalary)
     displayBalance()
-    balanceDetailsDisplayBal.innerHTML = "Balance : "+toCurrrency()
+    balanceDetailsDisplayBal.innerHTML = "Bal :<br>"+toCurrrency()
 }
 
 function payExpense(){
     localStorage.setItem('balance', parseInt(localStorage.getItem('balance')-parseInt(localStorage.getItem('expense'))))
     displayBalance()
-    balanceDetailsDisplayBal.innerHTML = "Balance : "+toCurrrency()
+    balanceDetailsDisplayBal.innerHTML = "Bal :<br>"+toCurrrency()
 }
 
 // add a month to count
