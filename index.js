@@ -25,7 +25,7 @@ const inputArea = document.getElementById("input-box")
 const submitBtn = document.querySelector(".submit-btn")
 submitBtn.addEventListener("click", ()=>{
     submitDetails()
-    window.location.href = 'game.html'
+    window.location.href = 'select-profession.html'
 })
 
 

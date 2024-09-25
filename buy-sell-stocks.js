@@ -49,6 +49,9 @@ function selectQuantity(companiyName, direction){
     if (valuetoincreament <0){
         alertAMsg("Quantity is zero")
         return
+    }else if (valuetoincreament > 100000){
+        alertAMsg("You can't Buy quantity More than 100000")
+        return
     }
     inputBoxs[companiyName].value = valuetoincreament
     
@@ -104,6 +107,9 @@ function hideStockTab(target){
 
 function maxBuyable(companyName){
     let maxBuyableQty = Math.floor(parseInt(localStorage.getItem('balance')/parseInt(localStorage.getItem(companyName+'CurrentPrice'))))
+    if (maxBuyableQty > 100000){
+        maxBuyableQty = 100000
+    }
     return maxBuyableQty
 }
 

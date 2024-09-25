@@ -1,4 +1,4 @@
 
 if (localStorage.getItem('name')){
-    window.location.href = 'game.html'
+    window.location.href = 'select-profession.html'
 }

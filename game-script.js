@@ -147,6 +147,7 @@ nextBtn.addEventListener("click", ()=>{
         alertAMsg("You haven't Paid Salary\nPay expense from 'Your balance' Tab👇")
         return
     }else{
+        progressDiv.innerHTML = ''
         nextMonth('nexGen', 'nexgenCurrentPrice')
         nextMonth('ecoGenix', 'ecogenixCurrentPrice')
         nextMonth('greenPower', 'greenpowerCurrentPrice')
@@ -176,13 +177,13 @@ function collectSalary(){
     let addSalary = parseFloat(localStorage.getItem("balance"))+parseFloat(localStorage.getItem("salary"))
     localStorage.setItem("balance", addSalary)
     displayBalance()
-    balanceDetailsDisplayBal.innerHTML = "Bal :<br>"+toCurrrency()
+    balanceDetailsDisplayBal.innerHTML = "BAL :<br>"+toCurrrency()
 }
 
 function payExpense(){
     localStorage.setItem('balance', parseInt(localStorage.getItem('balance')-parseInt(localStorage.getItem('expense'))))
     displayBalance()
-    balanceDetailsDisplayBal.innerHTML = "Bal :<br>"+toCurrrency()
+    balanceDetailsDisplayBal.innerHTML = "BAL :<br>"+toCurrrency()
 }
 
 // add a month to count

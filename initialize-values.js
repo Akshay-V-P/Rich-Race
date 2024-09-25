@@ -29,7 +29,7 @@ export function setInitialValues(){
     localStorage.setItem("ariaapparelHoldings", 0)
 
     //balance
-    localStorage.setItem("balance", 24000)
+    localStorage.setItem("balance", 0)
 
     //price change index
     localStorage.setItem("nexGenpriceChangeIndex", 0)
@@ -37,19 +37,15 @@ export function setInitialValues(){
     localStorage.setItem("greenPowerpriceChangeIndex", 0)
     localStorage.setItem("ariaApparelpriceChangeIndex", 0)
 
-    //expense
-    localStorage.setItem("expense", 20000)
-
     //salary collected
     localStorage.setItem("ifSalaryCollected", 'yes')
 
     //expense paid
     localStorage.setItem("ifExpensePaid", 'yes')
 
-    //salary
-    localStorage.setItem("salary", 24000)
-
     //initiallized
     localStorage.setItem("initiallized", 'yes')
+
+    console.log("IM working")
 
 }

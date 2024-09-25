@@ -170,6 +170,7 @@ body {
     font-size: 8px;
     margin: 3px 0 0 8px;
     text-wrap: wrap;
+    color: var(--textcolor);
 }
 
 .items-tab {
@@ -222,7 +223,7 @@ header h1 {
     height: 100px;
     background-color: var(--maincolor);
     position: absolute;
-    bottom: 5%;
+    bottom: 1%;
     left: calc(50% - 56px);
     border-radius: 50%;
     border: 7px solid var(--bordercolor);
