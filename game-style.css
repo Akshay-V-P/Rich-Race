@@ -50,6 +50,10 @@ body {
     cursor: pointer;
 }
 
+.balance-display:active {
+    transform: scale(0.95);
+}
+
 .balance-display span {
     margin-right: 8px;
     color: var(--mainlightcolor);
@@ -114,6 +118,10 @@ body {
     justify-content: space-around;
     flex-direction: column;
     cursor: pointer;
+}
+
+.stock-display div:active {
+    transform: scale(.95);
 }
 
 #item-details {
@@ -238,6 +246,10 @@ header h1 {
     cursor: pointer;
     text-wrap: nowrap;
 
+}
+
+.next-month:active {
+    transform: scale(.95);
 }
 
 .balance-details {
