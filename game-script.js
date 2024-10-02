@@ -9,8 +9,11 @@ if (localStorage.getItem("initiallized")=='no'){
     setInitialValues()
 }
 
-const nameOfPlayer =  document.getElementById('nameofplayer')
-nameOfPlayer.innerHTML = localStorage.getItem("name")
+
+
+const nameOfPlayer = document.querySelector('#nameofplayer')
+console.log(nameOfPlayer)
+nameOfPlayer.innerText = localStorage.getItem("name") || 'akshay'
 const popupObject = document.querySelector(".help-popup")
 const popupTale = document.querySelector(".triangle")
 
@@ -96,7 +99,7 @@ const balanceTabExpenseDisplay = document.getElementById("balance-expense-displa
 balanceRootDiv.addEventListener("click", ()=>{
     clickBubbleSfx.play()
     balanceDetailDiv.style.display = "flex"
-    balanceDetailsDisplayBal.innerHTML = 'BAL : <br> '+toCurrrency()
+    balanceDetailsDisplayBal.innerHTML = 'BAL : <br> '+toCurrrency(localStorage.getItem('balance'))
     balanceTabSalaryDisplay.innerHTML = Number(localStorage.getItem("salary")).toLocaleString('en',{style : 'currency', currency : 'INR'})
     balanceTabExpenseDisplay.innerHTML = Number(localStorage.getItem("expense")).toLocaleString('en',{style : 'currency', currency : 'INR'})
 })
@@ -177,13 +180,13 @@ function collectSalary(){
     let addSalary = parseFloat(localStorage.getItem("balance"))+parseFloat(localStorage.getItem("salary"))
     localStorage.setItem("balance", addSalary)
     displayBalance()
-    balanceDetailsDisplayBal.innerHTML = "BAL :<br>"+toCurrrency()
+    balanceDetailsDisplayBal.innerHTML = "BAL :<br>"+toCurrrency(localStorage.getItem('balance'))
 }
 
 function payExpense(){
     localStorage.setItem('balance', parseInt(localStorage.getItem('balance')-parseInt(localStorage.getItem('expense'))))
     displayBalance()
-    balanceDetailsDisplayBal.innerHTML = "BAL :<br>"+toCurrrency()
+    balanceDetailsDisplayBal.innerHTML = "BAL :<br>"+toCurrrency(localStorage.getItem('balance'))
 }
 
 // add a month to count
@@ -193,7 +196,7 @@ function addAMonth(){
 }
 
 function displayBalance(){
-    balanceHomeDisplay.innerText = toCurrrency()
+    balanceHomeDisplay.innerText = toCurrrency(localStorage.getItem('balance'))
     salaryHomeDisplay.innerText = '₹'+Number(localStorage.getItem("salary")).toLocaleString('en')+"/Month"
 }
 

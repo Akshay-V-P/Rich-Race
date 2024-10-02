@@ -46,6 +46,13 @@ export function setInitialValues(){
     //initiallized
     localStorage.setItem("initiallized", 'yes')
 
-    console.log("IM working")
+    //house initial price
+    const houseNameDB = {
+        'names' : ['smallhouse1','smallhouse2','smallhouse3','mediumhouse1','mediumhouse2','mediumhouse3','largehouse1','largehouse2','largehouse3'],
+        'price' : [682000, 1380000, 4600000, 7295000, 12300000, 36500000, 287500000, 845500000, 1234300000]
+    }
+    for (let i=0; i<=houseNameDB.names.length;i++){
+        localStorage.setItem(houseNameDB.names[i], houseNameDB.price[i])
+    }
 
 }

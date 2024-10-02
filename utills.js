@@ -1,4 +1,5 @@
 export function alertAMsg(message){
+    console.log(message)
     const container = document.querySelector(".container")
     const notificationSfx = new Audio("sfx/Notification-sfx.mp3")
     notificationSfx.play()
@@ -11,8 +12,11 @@ export function alertAMsg(message){
     }, 3000);
 }
 
-export function toCurrrency(){
-    let balanceValue = localStorage.getItem("balance")
+export function toCurrrency(currencyValue){
+    if (currencyValue == undefined){
+        return 'null'
+    }
+    let balanceValue = currencyValue
     let decorator 
     let length = balanceValue.length
     let formattedValue 
