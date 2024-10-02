@@ -2,6 +2,9 @@ import { selectRandomNews } from "./calculation-scripts.js"
 import { setInitialValues } from "./initialize-values.js"
 import { alertAMsg, toCurrrency } from "./utills.js"
 const newsTabRoute = document.getElementById("news-tab")
+if (localStorage.getItem("name")==null){
+    window.location.href = "index.html"
+}
 if (localStorage.getItem("initiallized")==null){
     localStorage.setItem("initiallized", 'no')
 }
