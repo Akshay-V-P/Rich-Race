@@ -1,8 +1,8 @@
 :root {
     --mainlightcolor : #bebebe;
-    --mainbgcolor : #212121;
-    --maincolor : #2f2f2f;
-    --bordercolor : hsla(0, 0%, 100%, .1);
+    --mainbgcolor : linear-gradient(to right top, #212121, #212121, #212121, #212121, #212121, #232325, #262628, #28282c, #2d2d34, #33333d, #383846, #3e3e4f);
+    --maincolor : #2a2a30;
+    --bordercolor : #3e3e4f;
     --textcolor : #9b9b9b;
 }
 
@@ -15,6 +15,7 @@ body {
     user-select: none;
     font-family: Poppins;
     -webkit-tap-highlight-color: transparent;
+    background-image: linear-gradient(to right top, #212121, #232323, #252425, #262628, #28282a, #2a2a2e, #2d2d31, #2f2f35, #33333b, #363642, #3a3a48, #3e3e4f);
 }
 
 .container {
@@ -22,12 +23,15 @@ body {
     height: 100dvh;
     padding: 0 3% ;
     margin: auto;
+    border: 2px solid var(--bordercolor);
     display: flex;
     flex-direction: column;
-    border: 2px solid var(--bordercolor);
+    box-shadow: -3px 4px 2px -2px rgba(13,13,13,0.3),
+            -8px 10px 8px rgba(0,0,0,0.1),
+            3px 3px 10px #383846;
     position: relative;
     border-radius: 10px;
-    background-color: var(--mainbgcolor);
+    background-image: var(--mainbgcolor);
 }
 
 #game-name{
@@ -319,13 +323,13 @@ header h1 {
 
 .nexgen-stock {
     position: absolute;
-    background-color: var(--mainbgcolor);
+    background-color: var(--maincolor);
     width: 250px;
     height: 250px;
     top: 175px;
     border-radius: 12px;
     border: 2px solid var(--bordercolor);
-    box-shadow: 0 0 10px 1px #020202;
+    box-shadow: 0 0 10px 1px rgba(13,13,13,0.5);
     display: none;
     flex-wrap: wrap;
     z-index: 1;
@@ -335,7 +339,6 @@ header h1 {
 
 .profile {
     width: 50%;
-    /* background-color: #333333; */
     height: 30%;
     position: relative;
     display: flex;
@@ -358,7 +361,6 @@ header h1 {
 .headings {
     width: 50%;
     height: 30%;
-    /* background-color: #9eb0d8; */
     text-align: left;
 }
 
@@ -519,14 +521,14 @@ header h1 {
 
 .ecogenix-stock {
     position: absolute;
-    background-color: var(--mainbgcolor);
+    background-color: var(--maincolor);
     width: 250px;
     height: 250px;
     top: 175px;
     right: 20px;
     border-radius: 12px;
     border: 2px solid var(--bordercolor);
-    box-shadow: 0 0 10px 1px #020202;
+    box-shadow: 0 0 10px 1px rgba(13,13,13,0.5);
     display: none;
     flex-wrap: wrap;
     z-index: 1;
@@ -566,13 +568,13 @@ header h1 {
 
 .greenpower-stock {
     position: absolute;
-    background-color: var(--mainbgcolor);
+    background-color: var(--maincolor);
     width: 250px;
     height: 250px;
     top: 224px;
     border-radius: 12px;
     border: 2px solid var(--bordercolor);
-    box-shadow: 0 0 10px 1px #020202;
+    box-shadow: 0 0 10px 1px rgba(13,13,13,0.5);
     display: none;
     flex-wrap: wrap;
     z-index: 1;
@@ -612,14 +614,14 @@ header h1 {
 
 .ariaapparel-stock {
     position: absolute;
-    background-color: var(--mainbgcolor);
+    background-color: var(--maincolor);
     width: 250px;
     height: 250px;
     top: 224px;
     right: 20px;
     border-radius: 12px;
     border: 2px solid var(--bordercolor);
-    box-shadow: 0 0 10px 1px #020202;
+    box-shadow: 0 0 10px 1px rgba(13,13,13,0.5);
     display: none;
     flex-wrap: wrap;
     z-index: 1;
