@@ -1,9 +1,9 @@
 :root {
     --mainlightcolor : #bebebe;
-    --mainbgcolor : linear-gradient(to right top, #212121, #212121, #212121, #212121, #212121, #232325, #262628, #28282c, #2d2d34, #33333d, #383846, #3e3e4f);
-    --maincolor : #2a2a30;
-    --bordercolor : #3e3e4f;
-    --textcolor : #9b9b9b;
+    --mainbgcolor : #161920;
+    --maincolor : #212530;
+    --bordercolor : #2b313f;
+    --textcolor : #bebebe;
 }
 
 body {
@@ -31,7 +31,7 @@ body {
             3px 3px 10px #383846;
     position: relative;
     border-radius: 10px;
-    background-image: var(--mainbgcolor);
+    background-color: var(--mainbgcolor);
 }
 
 #game-name{
@@ -40,6 +40,7 @@ body {
     margin-top: 10px;
     margin-bottom: 2px;
     color: var(--mainlightcolor);
+   
 }
 
 .balance-display {
@@ -666,8 +667,9 @@ header h1 {
     position: absolute;
     top: 100px;
     left: calc(50% - 110px);
-    background-color: var(--textcolor);
-    border: 2px solid var(--mainlightcolor);
+    background-color: var(--maincolor);
+    border: 2px solid var(--bordercolor);
+    color: var(--textcolor);
     font-weight: 700;
     margin: 0;
     text-align: center;
@@ -735,7 +737,7 @@ header h1 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid #383838;
+    border: 1px solid var(--bordercolor);
     border-radius: 10px;
 }
 

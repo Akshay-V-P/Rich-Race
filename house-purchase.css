@@ -1,9 +1,9 @@
 :root {
     --mainlightcolor : #bebebe;
-    --mainbgcolor : linear-gradient(to right top, #212121, #212121, #212121, #212121, #212121, #232325, #262628, #28282c, #2d2d34, #33333d, #383846, #3e3e4f);
-    --maincolor : #2a2a30;
-    --bordercolor : #3e3e4f;
-    --textcolor : #9b9b9b;
+    --mainbgcolor : #161920;
+    --maincolor : #212530;
+    --bordercolor : #2b313f;
+    --textcolor : #bebebe;
 }
 
 body {
