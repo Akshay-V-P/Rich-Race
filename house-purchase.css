@@ -163,7 +163,6 @@ body {
     font-family: Poppins;
     color: var(--textcolor);
     border-radius: 8px;
-    border: 1px solid var(--bordercolor);
     z-index: 10;
     padding: 4px;
 }
@@ -225,26 +224,91 @@ body {
     transform: translateY(2px);
 }
 
-.alert-msg {
-    position: absolute;
-    top: 100px;
-    left: calc(50% - 110px);
-    background-color: var(--textcolor);
-    border: 2px solid var(--mainlightcolor);
-    font-weight: 700;
-    margin: 0;
-    text-align: center;
-    text-wrap: wrap;
-    width: 200px;
-    padding: 1px 10px 1px 10px;
-    font-size: 10px;
-    border-radius: 8px;
-    font-family: poppins;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-    z-index: 30;
-    animation: slideUp 0.2s ease-in-out;
-
+#rent {
+    background-color: rgb(162, 118, 36);
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 0px 1px, rgba(0, 0, 0, 0.3) 0px 0px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    display: none;
 }
+
+#rent:active {
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 0px 1px, rgba(0, 0, 0, 0.3) 0px 0px 13px -3px;
+    transform: translateY(2px);
+}
+
+
+.alertpopup {
+    position: sticky;
+    top: 50%;
+    left: 50%;
+    transform: translate(-33%, -50%);
+    width: 60%;
+    padding: 12px;
+    box-sizing: border-box;
+    background-color: var(--maincolor);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--textcolor);
+    border-radius: 8px;
+    border: 2px solid var(--bordercolor);
+    box-shadow: rgb(40, 59, 79) 0px 20px 30px -10px,
+    rgb(13, 13, 14, 0.8) 0px 0px 100px 50px;
+}
+
+.alertpopup .okbutton {
+    width: 60px;
+    height: 30px;
+    background: rgb(19,18,42);
+    background: linear-gradient(47deg, rgba(19,18,42,1) 0%, rgba(9,9,121,1) 23%, rgba(42,148,202,1) 100%);
+    border: 0;
+    border-radius: 4px;
+    color: var(--textcolor);
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 0px 1px, rgba(0, 0, 0, 0.3) 0px 0px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    font-weight: 600;
+    font-size: 16px;
+    font-family: poppins;
+}
+
+
+/* buy buttons */
+.buysmallhouse1 {
+    display: block;
+}
+
+.buysmallhouse2 {
+    display: block;
+}
+
+.buysmallhouse3 {
+    display: block;
+}
+
+.buymediumhouse1 {
+    display: block;
+}
+
+.buymediumhouse2 {
+    display: block;
+}
+
+.buymediumhouse3 {
+    display: block;
+}
+
+.buylargehouse1 {
+    display: block;
+}
+
+.buylargehouse2 {
+    display: block;
+}
+
+.buylargehouse3 {
+    display: block;
+}
+
 
 @keyframes slideUp {
     0% {

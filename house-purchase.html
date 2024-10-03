@@ -7,15 +7,23 @@
     <link rel="stylesheet" href="house-purchase.css">
 
      <!-- Fonts -->
+      <!-- Poppins -->
      <link rel="preconnect" href="https://fonts.googleapis.com">
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
      <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
      <script src="https://kit.fontawesome.com/7db23ae92b.js" crossorigin="anonymous"></script>
+    <!-- IBM Plex Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
 
 </head>
 <body>
     <div class="container">
+        <div class="alertpopup">
+            
+        </div>
         <div class="blur-background"></div>
         <div class="alertbuy">
             <h2>Would you like to Buy this Property?</h2>
@@ -28,8 +36,8 @@
             <div class="img">
                 <img src="img/House-imgs/small-house-1.png" alt="">
             </div>
-            <div class="buttonsdiv">
-                <button id="buyBtn" name="smallhouse1">Buy</button>
+            <div class="buttonsdiv smallhouse1">
+                <button id="buyBtn" name="smallhouse1" class="buysmallhouse1">Buy</button>
                 <button id="sellBtn" name="smallhouse1">Sell</button>
             </div>
             <div class="headingsdiv">
@@ -47,8 +55,8 @@
             <div class="img">
                 <img src="img/House-imgs/small-house-2.png" alt="">
             </div>
-            <div class="buttonsdiv">
-                <button id="buyBtn" name="smallhouse2">Buy</button>
+            <div class="buttonsdiv smallhouse2">
+                <button id="buyBtn" name="smallhouse2" class="buysmallhouse2">Buy</button>
                 <button id="sellBtn" name="smallhouse2">Sell</button>
             </div>
             <div class="headingsdiv">
@@ -66,8 +74,8 @@
             <div class="img">
                 <img src="img/House-imgs/small-house-3.png" alt="">
             </div>
-            <div class="buttonsdiv">
-                <button id="buyBtn" name="smallhouse3">Buy</button>
+            <div class="buttonsdiv smallhouse3">
+                <button id="buyBtn" name="smallhouse3" class="buysmallhouse3">Buy</button>
                 <button id="sellBtn" name="smallhouse3">Sell</button>
             </div>
             <div class="headingsdiv">
@@ -85,8 +93,8 @@
             <div class="img">
                 <img src="img/House-imgs/medium-house-1.png" alt="">
             </div>
-            <div class="buttonsdiv">
-                <button id="buyBtn" name="mediumhouse1">Buy</button>
+            <div class="buttonsdiv mediumhouse1">
+                <button id="buyBtn" name="mediumhouse1" class="buymediumhouse1">Buy</button>
                 <button id="sellBtn" name="mediumhouse1">Sell</button>
             </div>
             <div class="headingsdiv">
@@ -104,8 +112,8 @@
             <div class="img">
                 <img src="img/House-imgs/medium-house-2.png" alt="">
             </div>
-            <div class="buttonsdiv">
-                <button id="buyBtn" name="mediumhouse2">Buy</button>
+            <div class="buttonsdiv mediumhouse2">
+                <button id="buyBtn" name="mediumhouse2" class="buymediumhouse2">Buy</button>
                 <button id="sellBtn" name="mediumhouse2">Sell</button>
             </div>
             <div class="headingsdiv">
@@ -123,8 +131,8 @@
             <div class="img">
                 <img src="img/House-imgs/medium-house-3.png" alt="">
             </div>
-            <div class="buttonsdiv">
-                <button id="buyBtn" name="mediumhouse3">Buy</button>
+            <div class="buttonsdiv mediumhouse3">
+                <button id="buyBtn" name="mediumhouse3" class="buymediumhouse3">Buy</button>
                 <button id="sellBtn" name="mediumhouse3">Sell</button>
             </div>
             <div class="headingsdiv">
@@ -142,8 +150,8 @@
             <div class="img">
                 <img src="img/House-imgs/large-house-1.png" alt="">
             </div>
-            <div class="buttonsdiv">
-                <button id="buyBtn" name="largehouse1">Buy</button>
+            <div class="buttonsdiv largehouse1">
+                <button id="buyBtn" name="largehouse1" class="buylargehouse1">Buy</button>
                 <button id="sellBtn" name="largehouse1">Sell</button>
             </div>
             <div class="headingsdiv">
@@ -161,8 +169,8 @@
             <div class="img">
                 <img src="img/House-imgs/large-house-2.png" alt="">
             </div>
-            <div class="buttonsdiv">
-                <button id="buyBtn" name="largehouse2">Buy</button>
+            <div class="buttonsdiv largehouse2">
+                <button id="buyBtn" name="largehouse2" class="buylargehouse2">Buy</button>
                 <button id="sellBtn" name="largehouse2">Sell</button>
             </div>
             <div class="headingsdiv">
@@ -180,8 +188,8 @@
             <div class="img">
                 <img src="img/House-imgs/large-house-3.png" alt="">
             </div>
-            <div class="buttonsdiv">
-                <button id="buyBtn" name="largehouse3">Buy</button>
+            <div class="buttonsdiv largehouse3">
+                <button id="buyBtn" name="largehouse3" class="buylargehouse3">Buy</button>
                 <button id="sellBtn" name="largehouse3">Sell</button>
             </div>
             <div class="headingsdiv">
@@ -195,6 +203,7 @@
                 </div>
             </div>
         </div>
+        <!-- if adding new button in the housecontainer, must add class like eg]- buylargehouse3  -->
         <div class="housecontainer"></div>
     </div>
     <script type="module" src="house-purchase.js" ></script>
