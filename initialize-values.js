@@ -1,3 +1,8 @@
+export const houseNameDB = {
+    'names' : ['smallhouse1','smallhouse2','smallhouse3','mediumhouse1','mediumhouse2','mediumhouse3','largehouse1','largehouse2','largehouse3'],
+    'price' : [682000, 1380000, 4600000, 7295000, 12300000, 36500000, 287500000, 845500000, 1234300000]
+}
+
 // setting up every initial values to localStorage
 export function setInitialValues(){
     
@@ -43,15 +48,15 @@ export function setInitialValues(){
     //expense paid
     localStorage.setItem("ifExpensePaid", 'yes')
 
+    //house purchase data 
+    localStorage.setItem('houseOwns', JSON.stringify([]))
+
     //initiallized
     localStorage.setItem("initiallized", 'yes')
 
     //house initial price
-    const houseNameDB = {
-        'names' : ['smallhouse1','smallhouse2','smallhouse3','mediumhouse1','mediumhouse2','mediumhouse3','largehouse1','largehouse2','largehouse3'],
-        'price' : [682000, 1380000, 4600000, 7295000, 12300000, 36500000, 287500000, 845500000, 1234300000]
-    }
-    for (let i=0; i<=houseNameDB.names.length;i++){
+    
+    for (let i=0; i<houseNameDB.names.length;i++){
         localStorage.setItem(houseNameDB.names[i], houseNameDB.price[i])
     }
 

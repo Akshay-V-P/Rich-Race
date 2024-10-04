@@ -1,4 +1,4 @@
-import { selectRandomNews } from "./calculation-scripts.js"
+import { incrementHouseValue, selectRandomNews } from "./calculation-scripts.js"
 import { setInitialValues } from "./initialize-values.js"
 import { alertAMsg, toCurrrency } from "./utills.js"
 const newsTabRoute = document.getElementById("news-tab")
@@ -162,6 +162,7 @@ nextBtn.addEventListener("click", ()=>{
         updatePriceChange()
         displayBalance()
         addAMonth()
+        incrementHouseValue()
         localStorage.setItem("ifSalaryCollected", 'no')
         localStorage.setItem("ifExpensePaid", 'no')
     }

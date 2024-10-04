@@ -1,3 +1,4 @@
+import { houseNameDB } from "./initialize-values.js";
 import { companies } from "./news-db.js";
 import { Variations } from "./price-var-db.js";
 
@@ -19,5 +20,14 @@ export function selectRandomNews(companyName, storageName) {
     }
     localStorage.setItem(companyName+"priceChangeIndex", randomIndex) // need to initialize in initialize-value.js
     return [currentNews, priceChange, priceChangeArr[1], priceChangeArr[0], tempPrice] // [current news, Current Price, Price changed this month, operator eg:+ or -, last price]
+}
+
+export function incrementHouseValue(){ // currently this is increamenting every month, will change to every year
+    houseNameDB.names.forEach(houseName =>{
+        let currentValue = Number(localStorage.getItem(houseName))
+        let incrementedValue = Math.floor((currentValue / 100)+currentValue)
+        console.log(incrementedValue)
+        localStorage.setItem(houseName, incrementedValue)
+    })
 }
 
