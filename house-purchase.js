@@ -91,10 +91,9 @@ function sellHouse(houseEvent){
     let houseOwn = JSON.parse(localStorage.getItem('houseOwns'))
     if (houseOwn.includes(houseName)== true){
         let balanceValue = Number(localStorage.getItem('balance')) + Number(localStorage.getItem(houseName))
-        console.log(typeof(balanceValue))
         localStorage.setItem('balance', balanceValue)
-        houseOwn.pop(houseName)
-        console.log(houseOwn);
+        let indexOfData = houseOwn.indexOf(houseName)
+        houseOwn.splice(indexOfData, 1)
         
         localStorage.setItem('houseOwns', JSON.stringify(houseOwn))
         alertThePopup(`<p>You sold ${houseName} for ${localStorage.getItem(houseName)}<br> <span style="color : green">Current Balance : ${localStorage.getItem('balance')}</span></p>`)
