@@ -11,12 +11,21 @@ const alertBuy = document.querySelector('.alertbuy')
 const noBtn = document.getElementById('no')
 const yesBtn = document.getElementById('yes')
 const priceDisplays = document.querySelectorAll('#price')
+const alertSell = document.querySelector('.alertsell')
+const sellYes = document.querySelector('.sellyes')
+const sellNo = document.querySelector('.sellno')
+
+// global var
+let buttondiv
+let currentBuyBtn
+let currentRentBtn
+let buttonName
+
 
 // utills constants
 const alertpopup = document.querySelector(".alertpopup")
 
 
-let buttonName
 
 checkHouseOwns()
 // house name database ---------------------------------------
@@ -42,8 +51,9 @@ buyBtns.forEach(btn => {
 sellBtns.forEach(btn =>{
     btn.addEventListener('click', (event)=>{
         sellBtnSfx.play()
-        sellHouse(event)
-        
+        buttonName = event.target.name
+        blurBg.style.display = 'block'
+        alertSell.style.display = 'flex'
     })
 })
 
@@ -62,9 +72,22 @@ yesBtn.addEventListener('click', ()=>{
     blurBg.style.display = 'none'
 })
 
+sellNo.addEventListener('click', ()=>{
+    sellBtnSfx.play()
+    alertSell.style.display = 'none'
+    blurBg.style.display = 'none'
+})
+console.log(sellYes)
+sellYes.addEventListener('click', ()=>{
+    sellHouse(buttonName)
+    sellBtnSfx.play()
+    alertSell.style.display = 'none'
+    blurBg.style.display = 'none'
+})
+
 
 function sellHouse(houseEvent){
-    let houseName = houseEvent.target.name
+    let houseName = houseEvent
     let houseOwn = JSON.parse(localStorage.getItem('houseOwns'))
     if (houseOwn.includes(houseName)== true){
         let balanceValue = Number(localStorage.getItem('balance')) + Number(localStorage.getItem(houseName))
@@ -75,7 +98,11 @@ function sellHouse(houseEvent){
         
         localStorage.setItem('houseOwns', JSON.stringify(houseOwn))
         alertThePopup(`<p>You sold ${houseName} for ${localStorage.getItem(houseName)}<br> <span style="color : green">Current Balance : ${localStorage.getItem('balance')}</span></p>`)
-        checkHouseOwns()
+        buttondiv = document.querySelector('.'+houseName)
+        currentBuyBtn = buttondiv.querySelector('.buy'+houseName)
+        currentRentBtn = buttondiv.querySelector('.rent'+houseName)
+        currentBuyBtn.style.display = 'block'
+        currentRentBtn.style.display = 'none'
     }else{
         alertThePopup(`<p>You dosen't own this property</p>`)
     }
@@ -84,7 +111,13 @@ function sellHouse(houseEvent){
 
 function buyHouse(houseName){
     let houseOwnData = JSON.parse(localStorage.getItem('houseOwns'))
-    if (houseOwnData.includes(houseName) == true){
+    let dataExists 
+    try {
+        dataExists = houseOwnData.includes(houseName)
+    } catch (error) {
+        console.log('No data error :'+error)
+    }
+    if ( dataExists){
         alertThePopup(`<p>You have already purchased this property</p>`)
         return
     }
@@ -99,6 +132,12 @@ function buyHouse(houseName){
             localStorage.setItem('houseOwns', JSON.stringify(houseOwnData))
             checkHouseOwns()
         }
+        buttondiv = document.querySelector('.'+houseName)
+        currentBuyBtn = buttondiv.querySelector('.buy'+houseName)
+        currentRentBtn = buttondiv.querySelector('.rent'+houseName)
+        currentBuyBtn.style.display = 'none'
+        currentRentBtn.style.display = 'block'
+
         alertThePopup(`<p>You have purchased ${houseName} for ${toCurrrency(localStorage.getItem(houseName))}<br> <span style="color : green">Current Balance : ${toCurrrency(localStorage.getItem("balance"))}</span></p>`)
     }else{
         alertThePopup(`<p>You can't purchase this property<br><span style="color : red">Insufficiant Balance</span></p>`)
@@ -106,9 +145,12 @@ function buyHouse(houseName){
 }
 
 function checkHouseOwns(){
+    if (localStorage.getItem('houseOwns')== null){
+        return
+    }
     let houseOwn = JSON.parse(localStorage.getItem('houseOwns'))
     houseOwn.forEach((house)=>{
-        let buttondiv = document.querySelector('.'+house)
+        buttondiv = document.querySelector('.'+house)
         let isRentBtn = buttondiv.querySelector('.rent'+house)
         if (isRentBtn != null){
             return
