@@ -26,8 +26,9 @@ export function incrementHouseValue(){ // currently this is increamenting every 
     houseNameDB.names.forEach(houseName =>{
         let currentValue = Number(localStorage.getItem(houseName))
         let incrementedValue = Math.floor((currentValue / 100)+currentValue)
-        console.log(incrementedValue)
         localStorage.setItem(houseName, incrementedValue)
     })
 }
+
+
 

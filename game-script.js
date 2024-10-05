@@ -253,6 +253,16 @@ function nextMonth(companieName, storageName){
     progressDiv.appendChild(progressDisplayP)
 }
 
+
+function displayHouseMaintenanceCost(){
+    let houseOwn = JSON.parse(localStorage.getItem('houseOwns'))
+    if (!houseOwn.length){
+        return
+    }else{
+        
+    }
+}
+
 export {displayBalance}
 export default clickBubbleSfx
 

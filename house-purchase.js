@@ -28,6 +28,7 @@ const alertpopup = document.querySelector(".alertpopup")
 
 
 checkHouseOwns()
+displayExpenseRent()
 // house name database ---------------------------------------
 
 // -----------------------------------------------------------
@@ -102,6 +103,8 @@ function sellHouse(houseEvent){
         currentRentBtn = buttondiv.querySelector('.rent'+houseName)
         currentBuyBtn.style.display = 'block'
         currentRentBtn.style.display = 'none'
+        let newExpense = Number(localStorage.getItem('expense')) - Number(localStorage.getItem('expense'+houseName))
+        localStorage.setItem('expense', newExpense)
     }else{
         alertThePopup(`<p>You dosen't own this property</p>`)
     }
@@ -129,6 +132,8 @@ function buyHouse(houseName){
         }else{
             houseOwnData.push(houseName)
             localStorage.setItem('houseOwns', JSON.stringify(houseOwnData))
+            let newExpense = Number(localStorage.getItem('expense')) + Number(localStorage.getItem('expense'+houseName))
+            localStorage.setItem('expense', newExpense)
             checkHouseOwns()
         }
         buttondiv = document.querySelector('.'+houseName)
@@ -169,7 +174,16 @@ function checkHouseOwns(){
     })
 }
 
+// displays expense and rentearnings
+function displayExpenseRent(){
+    buyBtns.forEach(btn =>{
+        let expenseBtn = document.querySelector('.expense'+btn.name)
+        expenseBtn.innerHTML = "Expense/M : "+toCurrrency(localStorage.getItem('expense'+btn.name))
 
+        let rentearningsBtn = document.querySelector('.rentearnings'+btn.name)
+        rentearningsBtn.innerHTML = "Rent/M : "+toCurrrency(localStorage.getItem('rentearnings'+btn.name))
+    })
+}
 
 //--------------  utills functions -----------------
 function alertThePopup(displayText){
