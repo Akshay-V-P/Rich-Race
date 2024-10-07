@@ -107,7 +107,6 @@ body {
     border: 1px solid var(--bordercolor);
     border-radius: 4px;
     padding-left: 10px;
-    padding-top: 6px;
     padding-right: 6px;
     display: flex;
     align-items: center;
@@ -135,6 +134,7 @@ body {
     background-color: rgb(170, 46, 46);
     color: var(--maincolor);
     box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 0px 1px, rgba(0, 0, 0, 0.3) 0px 0px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    display: none;
 }
 
 #buyBtn:active {
@@ -292,6 +292,7 @@ body {
     background-color: rgb(162, 118, 36);
     box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 0px 1px, rgba(0, 0, 0, 0.3) 0px 0px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     display: none;
+    line-height: 12px;
 }
 
 #rent:active {
@@ -371,6 +372,11 @@ body {
 
 .buylargehouse3 {
     display: block;
+}
+
+#Purchaseinticator {
+    margin: 0;
+    padding: 0;
 }
 
 

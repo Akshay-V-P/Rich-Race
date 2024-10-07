@@ -19,6 +19,8 @@ const sellNo = document.querySelector('.sellno')
 let buttondiv
 let currentBuyBtn
 let currentRentBtn
+let currentSellbtn
+let currentPurchaseInticator
 let buttonName
 
 
@@ -101,8 +103,13 @@ function sellHouse(houseEvent){
         buttondiv = document.querySelector('.'+houseName)
         currentBuyBtn = buttondiv.querySelector('.buy'+houseName)
         currentRentBtn = buttondiv.querySelector('.rent'+houseName)
+        currentSellbtn = buttondiv.querySelector('#sellBtn')
+        currentPurchaseInticator = document.querySelector('.'+houseName+'purchased')
+
+        currentPurchaseInticator.innerHTML = ''
         currentBuyBtn.style.display = 'block'
         currentRentBtn.style.display = 'none'
+        currentSellbtn.style.display = 'none'
         let newExpense = Number(localStorage.getItem('expense')) - Number(localStorage.getItem('expense'+houseName))
         localStorage.setItem('expense', newExpense)
     }else{
@@ -134,6 +141,7 @@ function buyHouse(houseName){
             localStorage.setItem('houseOwns', JSON.stringify(houseOwnData))
             let newExpense = Number(localStorage.getItem('expense')) + Number(localStorage.getItem('expense'+houseName))
             localStorage.setItem('expense', newExpense)
+            localStorage.setItem(houseName+'rentstatus', 'Rent out')
             checkHouseOwns()
         }
         buttondiv = document.querySelector('.'+houseName)
@@ -154,6 +162,13 @@ function checkHouseOwns(){
     }
     let houseOwn = JSON.parse(localStorage.getItem('houseOwns'))
     houseOwn.forEach((house)=>{
+        sellBtns.forEach((btn)=>{
+            if(btn.name == house){
+                btn.style.display = 'block'
+            }
+        })
+        let purchasedP = document.querySelector('.'+house+'purchased')
+        purchasedP.innerHTML = 'Purchased'
         buttondiv = document.querySelector('.'+house)
         let isRentBtn = buttondiv.querySelector('.rent'+house)
         if (isRentBtn != null){
@@ -164,14 +179,35 @@ function checkHouseOwns(){
         let rentButton = document.createElement('button')
         rentButton.id = 'rent'
         rentButton.classList.add('rent'+house)
-        rentButton.innerText = "Rent"
+        rentButton.innerText = localStorage.getItem(house+'rentstatus')
         rentButton.style.display = 'block'
         buttondiv.appendChild(rentButton)
-        rentButton.addEventListener("click", ()=>{
+        rentButton.addEventListener("click", (event)=>{
             buyBtnSfx.play()
-            console.log(rentButton.className)
+            let classNameOfBtn = event.target.className.slice(4)
+            if (event.target.innerHTML == 'Rent out'){
+                rentHouse(event, classNameOfBtn)
+                localStorage.setItem(house+'rentstatus', 'End Rental')
+                rentButton.innerHTML = localStorage.getItem(house+'rentstatus')
+            }else if (event.target.innerHTML == 'End Rental'){
+                endRental(classNameOfBtn)
+                localStorage.setItem(house+'rentstatus', 'Rent out')
+                rentButton.innerHTML = localStorage.getItem(house+'rentstatus')
+            }
         })
     })
+}
+
+// end rental fuction
+function endRental(classNameOfBtn){
+    let newSalary = Number(localStorage.getItem('salary')) - Number(localStorage.getItem('rentearnings'+classNameOfBtn))
+    localStorage.setItem('salary', newSalary)
+}
+
+// rent house function
+function rentHouse(classNameOfBtn){
+    let newSalary = Number(localStorage.getItem('salary')) + Number(localStorage.getItem('rentearnings'+classNameOfBtn))
+    localStorage.setItem('salary', newSalary)
 }
 
 // displays expense and rentearnings
