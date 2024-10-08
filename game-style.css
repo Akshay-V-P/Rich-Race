@@ -838,6 +838,67 @@ header h1 {
     font-size: 12px;
  }
 
+ .feedbackContainer {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--textcolor);
+    background-color: var(--maincolor);
+    padding: 24px;
+    display: none;
+    flex-direction: column;
+    gap: 24px;
+    box-sizing: border-box;
+    width: 80%;
+    border-radius: 12px;
+    border: 1px solid var(--bordercolor);
+    box-shadow: 0 0 20px 50px rgba(27, 26, 26, 0.25);
+    z-index: 50;
+    animation: slideUp 0.2s ease-in-out;
+ }
+
+ .feedbackContainer * {
+    margin: 0;
+    padding: 0;
+ }
+
+ .feedbackContainer h2 {
+    font-size: 16px;
+ }
+
+ .feedbackContainer p {
+    font-size: 12px;
+ }
+
+ .footerfeedback {
+    display: flex;
+    justify-content: space-between;
+ }
+
+ #feedbackdownarrow {
+    transform: rotate(90deg);
+    font-size: 20px;
+    margin-right: 16px;
+ }
+
+ #feedbackinstruction {
+    font-size: 14px;
+    border: 1px solid rgb(41, 78, 187);
+    padding: 8px;
+    border-radius: 6px;
+ }
+
+ #feedbackheading {
+    text-align: center;
+ }
+
+ .feedbackContainer span {
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    color: var(--textcolor);
+ }
 
 @keyframes scaleOut {
     0% {

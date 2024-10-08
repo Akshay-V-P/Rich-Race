@@ -13,6 +13,16 @@ if (localStorage.getItem("initiallized")=='no'){
     setInitialValuesOnce()
 }
 
+const feedbackCloseBtn = document.getElementById('feedbackClose')
+const feedbackContainer = document.querySelector('.feedbackContainer')
+
+// close feedback popup event
+feedbackCloseBtn.addEventListener('click', ()=>{
+    feedbackContainer.style.display = 'none'
+})
+
+
+
 
 
 const nameOfPlayer = document.querySelector('#nameofplayer')
@@ -169,6 +179,10 @@ nextBtn.addEventListener("click", ()=>{
         incrementHouseValue()
         localStorage.setItem("ifSalaryCollected", 'no')
         localStorage.setItem("ifExpensePaid", 'no')
+        if ((Number(localStorage.getItem('year')) == 0) && (Number(localStorage.getItem('MonthCount')) == 2)){
+            console.log("flex")
+            feedbackContainer.style.display = 'flex'
+        }
 
     }
     if(localStorage.getItem('helpNeeded') == 'true' && (localStorage.getItem("MonthCount") <= 5) && (localStorage.getItem("MonthCount")%2 == 1)){
