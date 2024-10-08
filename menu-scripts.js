@@ -3,6 +3,7 @@ import { setInitialValues } from "./initialize-values.js"
 const howToPlayDiv = document.querySelector(".how-to-play")
 const restartbtn = document.querySelector(".restart-game") // restart button
 const realEstateBtn = document.querySelector('.house-purchase')
+const feedbackBtn = document.querySelector('.feedback')
 
 howToPlayDiv.addEventListener('click', ()=>{
     localStorage.setItem('helpNeeded', false)
@@ -17,4 +18,8 @@ restartbtn.addEventListener("click", ()=>{
 
 realEstateBtn.addEventListener('click', ()=>{
     window.location.href = "house-purchase.html"
+})
+
+feedbackBtn.addEventListener('click', ()=>{
+    window.location.href = "https://testimonial.to/rich-race"
 })
