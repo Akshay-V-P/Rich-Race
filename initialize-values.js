@@ -3,7 +3,7 @@ export const houseNameDB = {
     'price' : [682000, 1380000, 4600000, 7295000, 12300000, 36500000, 287500000, 845500000, 1234300000]
 }
 
-const expenseNrentEarnings = {
+export const expenseNrentEarnings = {
     'expense' : [5000,10000,15000,20000,35000,56000,110000,237000,1300000],
     'rentearnings': [25000,40000,65000,98000,156000,267000,488900,1500000,4450000]
 }
@@ -72,4 +72,9 @@ export function setInitialValues(){
         localStorage.setItem('rentearnings'+houseNameDB.names[i], expenseNrentEarnings.rentearnings[i])
     }
 
+}
+
+export function setInitialValuesOnce(){
+    // help accessed
+    localStorage.setItem('helpNeeded', true)
 }

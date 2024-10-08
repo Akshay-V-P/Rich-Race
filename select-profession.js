@@ -36,6 +36,7 @@ professionDivs[2].addEventListener('click', ()=>{
 enterGame.addEventListener('click', ()=>{
     localStorage.setItem('salary', selectedProfession.salary)
     localStorage.setItem('expense', selectedProfession.expense)
+    localStorage.setItem('personalExpense', selectedProfession.expense)
     localStorage.setItem('professionSelected', true)
     window.location.href = 'game.html'
 })

@@ -1,5 +1,5 @@
 import { incrementHouseValue, selectRandomNews } from "./calculation-scripts.js"
-import { setInitialValues } from "./initialize-values.js"
+import { expenseNrentEarnings, houseNameDB, setInitialValues, setInitialValuesOnce } from "./initialize-values.js"
 import { alertAMsg, toCurrrency } from "./utills.js"
 const newsTabRoute = document.getElementById("news-tab")
 if (localStorage.getItem("name")==null){
@@ -10,12 +10,13 @@ if (localStorage.getItem("initiallized")==null){
 }
 if (localStorage.getItem("initiallized")=='no'){
     setInitialValues()
+    setInitialValuesOnce()
 }
 
 
 
 const nameOfPlayer = document.querySelector('#nameofplayer')
-nameOfPlayer.innerText = localStorage.getItem("name") || 'akshay'
+nameOfPlayer.innerText = localStorage.getItem("name")
 const popupObject = document.querySelector(".help-popup")
 const popupTale = document.querySelector(".triangle")
 
@@ -58,6 +59,8 @@ const salaryHomeDisplay = document.getElementById("home-salary")
 const balanceDetailDiv = document.querySelector(".balance-details")
 const balanceDetailClose = document.querySelector("#close-balance-tab")
 const balanceDetailsDisplayBal = document.querySelector(".balance-disp")
+const houseExpenseP = document.querySelector('.houseExpense')
+const personalExpense = document.querySelector('.personalExpense')
 
 // next button
 const nextBtn = document.querySelector(".next-month")
@@ -104,6 +107,8 @@ balanceRootDiv.addEventListener("click", ()=>{
     balanceDetailsDisplayBal.innerHTML = 'BAL : <br> '+toCurrrency(localStorage.getItem('balance'))
     balanceTabSalaryDisplay.innerHTML = Number(localStorage.getItem("salary")).toLocaleString('en',{style : 'currency', currency : 'INR'})
     balanceTabExpenseDisplay.innerHTML = Number(localStorage.getItem("expense")).toLocaleString('en',{style : 'currency', currency : 'INR'})
+    houseExpenseP.innerHTML = 'House Maintenance cost : ' + (displayHouseMaintenanceCost() || '0')
+    personalExpense.innerHTML = 'Monthly Expanse : '+ localStorage.getItem('personalExpense')
 })
 
 const salaryCollectBtn = document.querySelector(".collect-slry")
@@ -164,8 +169,9 @@ nextBtn.addEventListener("click", ()=>{
         incrementHouseValue()
         localStorage.setItem("ifSalaryCollected", 'no')
         localStorage.setItem("ifExpensePaid", 'no')
+
     }
-    if((localStorage.getItem("MonthCount") <= 5) && (localStorage.getItem("MonthCount")%2 == 1) || localStorage.getItem("MonthCount") == 0){
+    if(localStorage.getItem('helpNeeded') == 'true' && (localStorage.getItem("MonthCount") <= 5) && (localStorage.getItem("MonthCount")%2 == 1) || localStorage.getItem("MonthCount") == 0){
         popupObject.style.display = "flex"
         popupTale.style.display = "block"
 
@@ -269,9 +275,17 @@ function displayHouseMaintenanceCost(){
     if (!houseOwn.length){
         return
     }else{
-        
+        let indexOfcurrentElement
+        let totalValue = 0
+        houseOwn.forEach(element => {
+            indexOfcurrentElement = houseNameDB.names.indexOf(element)
+            totalValue += expenseNrentEarnings.expense[indexOfcurrentElement]
+            console.log(totalValue)
+        });
+        return totalValue
     }
 }
+
 
 export {displayBalance}
 export default clickBubbleSfx
