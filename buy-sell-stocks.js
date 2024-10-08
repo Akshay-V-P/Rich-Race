@@ -28,7 +28,7 @@ const ariaapparelPriceDisplay = document.querySelector(".ariaapparel-stocktab-pr
 
 //Holdings display
 const holdingDisplays = document.querySelectorAll("#holding-disp")
-console.log(holdingDisplays)
+
 
 
 // quatity selecting input box
@@ -114,7 +114,6 @@ function maxBuyable(companyName){
 }
 
 const stockTabPriceDisps = document.querySelectorAll("#price-disp")
-console.log(stockTabPriceDisps)
 
 //buy stock
 function buyStock(companyName, priceDispIndex){
@@ -172,7 +171,6 @@ function sellStock(companyName, priceDispIndex){
 }
 
 function displayPriceForQty(companieName, pTagIndex, defaultInputValue){
-    console.log("im working")
     let price = parseInt(localStorage.getItem(companieName+"CurrentPrice"))*parseInt(inputBoxs[companieName].value || defaultInputValue)
     stockTabPriceDisps[pTagIndex].innerHTML = "Price : ₹"+price.toLocaleString('en')
     console.log(price)

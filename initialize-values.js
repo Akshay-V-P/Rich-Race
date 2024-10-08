@@ -31,6 +31,7 @@ export function setInitialValues(){
     
     // month count
     localStorage.setItem("MonthCount", 0)
+    localStorage.setItem('year', 0)
 
     // holdings
     localStorage.setItem("nexgenHoldings", 0)

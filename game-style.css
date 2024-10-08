@@ -260,7 +260,6 @@ header h1 {
 .balance-details {
     position: absolute;
     width: 90%;
-    height: 300px;
     left: 5%;
     background-color: var(--maincolor);
     border: 2px solid var(--bordercolor);
@@ -268,8 +267,10 @@ header h1 {
     top: 10%;
     display: none;
     flex-direction: column;
-    padding-top: 20px;
+    padding: 10px;
     z-index: 10;
+    box-sizing: border-box;
+
 }
 
 .balance-details span {

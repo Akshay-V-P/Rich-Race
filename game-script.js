@@ -15,7 +15,6 @@ if (localStorage.getItem("initiallized")=='no'){
 
 
 const nameOfPlayer = document.querySelector('#nameofplayer')
-console.log(nameOfPlayer)
 nameOfPlayer.innerText = localStorage.getItem("name") || 'akshay'
 const popupObject = document.querySelector(".help-popup")
 const popupTale = document.querySelector(".triangle")
@@ -195,8 +194,19 @@ function payExpense(){
 
 // add a month to count
 function addAMonth(){
-    localStorage.setItem("MonthCount",parseInt(localStorage.getItem("MonthCount"))+1)
-    monthDisplay.innerHTML = "Month : "+localStorage.getItem("MonthCount")
+    let currentMonth = Number(localStorage.getItem('MonthCount'))
+    currentMonth += 1
+   if (currentMonth == 13){
+        localStorage.setItem('year', Number(localStorage.getItem('year'))+1)
+        localStorage.setItem('MonthCount', 0)
+   }else{
+    localStorage.setItem('MonthCount', currentMonth)
+   }
+   if (Number(localStorage.getItem('year')) > 0) {
+        monthDisplay.innerHTML = localStorage.getItem('year')+'Y '+localStorage.getItem('MonthCount')+'m'
+   }else{
+    monthDisplay.innerHTML = 'Month : '+localStorage.getItem('MonthCount')
+   }
 }
 
 function displayBalance(){

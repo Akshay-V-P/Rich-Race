@@ -379,6 +379,10 @@ body {
     padding: 0;
 }
 
+.topcontainerprice {
+    font-size: 24px;
+}
+
 
 @keyframes slideUp {
     0% {
@@ -400,6 +404,10 @@ body {
     .buttonsdiv button {
         font-size: 16px;
         
+    }
+
+    .topcontainerprice {
+        font-size: 20px;
     }
 }
 

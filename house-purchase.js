@@ -186,7 +186,7 @@ function checkHouseOwns(){
             buyBtnSfx.play()
             let classNameOfBtn = event.target.className.slice(4)
             if (event.target.innerHTML == 'Rent out'){
-                rentHouse(event, classNameOfBtn)
+                rentHouse(classNameOfBtn)
                 localStorage.setItem(house+'rentstatus', 'End Rental')
                 rentButton.innerHTML = localStorage.getItem(house+'rentstatus')
             }else if (event.target.innerHTML == 'End Rental'){
