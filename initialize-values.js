@@ -12,14 +12,14 @@ export const expenseNrentEarnings = {
 export function setInitialValues(){
     
     // set default price
-    localStorage.setItem("nexgenStartingPrice", 1030)
-    localStorage.setItem("ecogenixStartingPrice" , 640)
+    localStorage.setItem("nexgenStartingPrice", 2534)
+    localStorage.setItem("ecogenixStartingPrice" , 1058)
     localStorage.setItem("greenpowerStartingPrice" , 450)
     localStorage.setItem("ariaapperalStartingPrice" , 230)
 
     // set current price
-    localStorage.setItem("nexgenCurrentPrice", 1030)
-    localStorage.setItem("ecogenixCurrentPrice" , 640)
+    localStorage.setItem("nexgenCurrentPrice", 2534)
+    localStorage.setItem("ecogenixCurrentPrice" , 1058)
     localStorage.setItem("greenpowerCurrentPrice" , 450)
     localStorage.setItem("ariaapparelCurrentPrice" , 230)
 
@@ -56,6 +56,9 @@ export function setInitialValues(){
 
     //house purchase data 
     localStorage.setItem('houseOwns', JSON.stringify([]))
+
+    //shownnews 
+    localStorage.setItem('gotadrop', false)
 
     //initiallized
     localStorage.setItem("initiallized", 'yes')

@@ -171,7 +171,7 @@ nextBtn.addEventListener("click", ()=>{
         localStorage.setItem("ifExpensePaid", 'no')
 
     }
-    if(localStorage.getItem('helpNeeded') == 'true' && (localStorage.getItem("MonthCount") <= 5) && (localStorage.getItem("MonthCount")%2 == 1) || localStorage.getItem("MonthCount") == 0){
+    if(localStorage.getItem('helpNeeded') == 'true' && (localStorage.getItem("MonthCount") <= 5) && (localStorage.getItem("MonthCount")%2 == 1)){
         popupObject.style.display = "flex"
         popupTale.style.display = "block"
 
@@ -205,6 +205,10 @@ function addAMonth(){
    if (currentMonth == 13){
         localStorage.setItem('year', Number(localStorage.getItem('year'))+1)
         localStorage.setItem('MonthCount', 0)
+        localStorage.setItem('nexGenshown', false)
+        localStorage.setItem('ecoGenixshown', false)
+        localStorage.setItem('greenPowershown', false)
+        localStorage.setItem('ariaApparelshown', false)
    }else{
     localStorage.setItem('MonthCount', currentMonth)
    }

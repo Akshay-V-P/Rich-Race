@@ -5,10 +5,16 @@ import { Variations } from "./price-var-db.js";
 
 // select a randow news from news db
 export function selectRandomNews(companyName, storageName) {
+    console.log(storageName, companyName)
     let currentNews = ''
     let tempPrice = localStorage.getItem(storageName) // takes last price of stock from localstorage
 
     let randomIndex = parseInt(Math.floor(Math.random() * 20));
+    if (randomIndex == 6 && localStorage.getItem('gotadrop') == 'true'){
+        return selectRandomNews(companyName, storageName)
+    }else if (randomIndex == 6){
+        localStorage.setItem(companyName+'shown', true)
+    }
     currentNews = companies[companyName][randomIndex]; 
     let priceChangeArr = Variations[localStorage.getItem(companyName+"priceChangeIndex")]
     let priceChange
