@@ -1,14 +1,15 @@
 :root {
-    --mainwhite : #f1f1f1;
-    --mainblue : #f0f4f9;
-    --borderblue : #d5dceb;
-    --mainblack : #202020;
+    --mainlightcolor : #bebebe;
+    --mainbgcolor : #161920;
+    --maincolor : #212530;
+    --bordercolor : #2b313f;
+    --textcolor : #bebebe;
 }
 
 body {
     width: 100%; 
     height: 100dvh;
-    background-color: var(--mainwhite);
+    background-color: var(--mainbgcolor);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -34,6 +35,7 @@ header h1 {
     align-items: center;
     justify-content: center;
     gap: 10dvh;
+    position: relative;
 }
 
 .container input {
@@ -42,25 +44,25 @@ header h1 {
     font-size: 20px;
     font-family: Poppins;
     padding-left: 10px;
-    border: 1px solid var(--borderblue);
+    border: 1px solid var(--bordercolor);
     border-radius: 3px;
-    background: var(--mainblue);
-    color: var(--mainblack);
+    background: var(--maincolor);
+    color: var(--textcolor);
 }
 
 .container button {
     width: 110px;
     height: 40px;
     font-size: 20px;
-    color: var(--mainblack);
+    color: var(--textcolor);
     border-radius: 3px;
-    background-color: var(--mainblue);
-    border: 1px solid #9eb0d8;
+    background-color: var(--maincolor);
+    border: 1px solid var(--bordercolor);
 }
 
 .container button:hover {
     background-color: #9eb0d8;
-    border: 1px solid var(--borderblue);
+    border: 1px solid var(--mainlightcolor);
     color: white;
 }
 
@@ -80,7 +82,7 @@ header h1 {
 
 .gender-selector img:focus, .gender-selector img:active
  {
-    filter: drop-shadow(2px 0px 0 black) drop-shadow(0px 2px 0 black) drop-shadow(-2px -0px 0 black) drop-shadow(-0px -2px 0 black);
+    filter: drop-shadow(2px 0px 0 var(--maincolor)) drop-shadow(0px 2px 0 var(--maincolor)) drop-shadow(-2px -0px 0 var(--maincolor)) drop-shadow(-0px -2px 0 var(--maincolor));
 }
 
 .container input:focus {
@@ -93,6 +95,15 @@ header h1 {
 
 #female-selector img {
     opacity: 1;
+}
+
+.required {
+    position: absolute;
+    display: none;
+    color: rgb(214, 42, 42);
+    left: 12%;
+    top: 16%;
+    margin: 0;
 }
 
 @media (width < 480px) {

@@ -179,7 +179,7 @@ nextBtn.addEventListener("click", ()=>{
         incrementHouseValue()
         localStorage.setItem("ifSalaryCollected", 'no')
         localStorage.setItem("ifExpensePaid", 'no')
-        if ((Number(localStorage.getItem('year')) == 0) && (Number(localStorage.getItem('MonthCount')) == 2)){
+        if ((localStorage.getItem('wroteToDev') == 'false') && (Number(localStorage.getItem('MonthCount')) == 2)){
             console.log("flex")
             feedbackContainer.style.display = 'flex'
         }

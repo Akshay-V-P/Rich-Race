@@ -63,6 +63,8 @@ export function setInitialValues(){
     //initiallized
     localStorage.setItem("initiallized", 'yes')
 
+    // wrote feedback to dev
+    localStorage.setItem('wroteToDev', false)
     //house initial price
     
     for (let i=0; i<houseNameDB.names.length;i++){

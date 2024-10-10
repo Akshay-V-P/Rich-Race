@@ -20,6 +20,7 @@ realEstateBtn.addEventListener('click', ()=>{
     window.location.href = "house-purchase.html"
 })
 
-feedbackBtn.addEventListener('click', ()=>{
+feedbackBtn.addEventListener('click', () => {
+    localStorage.setItem('wroteToDev', true)
     window.location.href = "https://testimonial.to/rich-race"
 })

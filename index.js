@@ -1,5 +1,6 @@
 // check if the user already exist
 const inputArea = document.getElementById("input-box")
+const requiredP = document.querySelector('.required')
 
 
     const maleSelector = document.getElementById("male-selector")
@@ -25,13 +26,23 @@ const inputArea = document.getElementById("input-box")
 const submitBtn = document.querySelector(".submit-btn")
 submitBtn.addEventListener("click", ()=>{
     submitDetails()
+    if (!inputArea.value) {
+        return
+    }
     window.location.href = 'select-profession.html'
 })
 
 
     // function for store user details in local storage
-    function submitDetails() {
+function submitDetails() {
+        if (!inputArea.value) {
+            requiredP.style.display = 'block'
+            return
+        }
         let name = inputArea.value;
+        if ((name.toUpperCase()) == 'SNEHA') {
+            name = name + '❤️'
+        }
         localStorage.setItem("name", name);
         localStorage.setItem("gender", gender);
         if (gender == 'Male'){
