@@ -118,9 +118,10 @@ balanceRootDiv.addEventListener("click", ()=>{
     balanceTabSalaryDisplay.innerHTML = Number(localStorage.getItem("salary")).toLocaleString('en',{style : 'currency', currency : 'INR'})
     houseExpenseP.innerHTML = 'House Maintenance cost : ' + (displayHouseMaintenanceCost() || '0')
     personalExpense.innerHTML = 'Monthly Expanse : ' + localStorage.getItem('personalExpense')
-
     if (Number(localStorage.getItem("MonthCount")) == 0) {
-        balanceTabExpenseDisplay.innerHTML = (Number(localStorage.getItem("expense")) + (Number(localStorage.getItem('personalExpense')) * 3)).toLocaleString('en',{style : 'currency', currency : 'INR'})
+        let unExpectedExp = ((Number(localStorage.getItem('salary')) / 100) * 85) * 2
+        console.log(unExpectedExp)
+        balanceTabExpenseDisplay.innerHTML = (Number(localStorage.getItem("expense")) + unExpectedExp).toLocaleString('en',{style : 'currency', currency : 'INR'})
     } else {
         balanceTabExpenseDisplay.innerHTML = Number(localStorage.getItem("expense")).toLocaleString('en',{style : 'currency', currency : 'INR'})
     }
@@ -213,7 +214,7 @@ function collectSalary(){
 
 function payExpense() {
     if (Number(localStorage.getItem('MonthCount')) == 0) {
-        let minusValue = Number(localStorage.getItem('expense')) + (Number(localStorage.getItem('personalExpense')) * 3)
+        let minusValue = Number(localStorage.getItem('expense')) + (((Number(localStorage.getItem('salary')) / 100) * 85) * 2)
         localStorage.setItem('balance', parseInt(localStorage.getItem('balance')- minusValue))    
     } else {
         localStorage.setItem('balance', parseInt(localStorage.getItem('balance')-parseInt(localStorage.getItem('expense'))))
