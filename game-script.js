@@ -116,9 +116,14 @@ balanceRootDiv.addEventListener("click", ()=>{
     balanceDetailDiv.style.display = "flex"
     balanceDetailsDisplayBal.innerHTML = 'BAL : <br> '+toCurrrency(localStorage.getItem('balance'))
     balanceTabSalaryDisplay.innerHTML = Number(localStorage.getItem("salary")).toLocaleString('en',{style : 'currency', currency : 'INR'})
-    balanceTabExpenseDisplay.innerHTML = Number(localStorage.getItem("expense")).toLocaleString('en',{style : 'currency', currency : 'INR'})
     houseExpenseP.innerHTML = 'House Maintenance cost : ' + (displayHouseMaintenanceCost() || '0')
-    personalExpense.innerHTML = 'Monthly Expanse : '+ localStorage.getItem('personalExpense')
+    personalExpense.innerHTML = 'Monthly Expanse : ' + localStorage.getItem('personalExpense')
+
+    if (Number(localStorage.getItem("MonthCount")) == 0) {
+        balanceTabExpenseDisplay.innerHTML = (Number(localStorage.getItem("expense")) + (Number(localStorage.getItem('personalExpense')) * 3)).toLocaleString('en',{style : 'currency', currency : 'INR'})
+    } else {
+        balanceTabExpenseDisplay.innerHTML = Number(localStorage.getItem("expense")).toLocaleString('en',{style : 'currency', currency : 'INR'})
+    }
 })
 
 const salaryCollectBtn = document.querySelector(".collect-slry")
@@ -206,8 +211,13 @@ function collectSalary(){
     balanceDetailsDisplayBal.innerHTML = "BAL :<br>"+toCurrrency(localStorage.getItem('balance'))
 }
 
-function payExpense(){
-    localStorage.setItem('balance', parseInt(localStorage.getItem('balance')-parseInt(localStorage.getItem('expense'))))
+function payExpense() {
+    if (Number(localStorage.getItem('MonthCount')) == 0) {
+        let minusValue = Number(localStorage.getItem('expense')) + (Number(localStorage.getItem('personalExpense')) * 3)
+        localStorage.setItem('balance', parseInt(localStorage.getItem('balance')- minusValue))    
+    } else {
+        localStorage.setItem('balance', parseInt(localStorage.getItem('balance')-parseInt(localStorage.getItem('expense'))))
+    }
     displayBalance()
     balanceDetailsDisplayBal.innerHTML = "BAL :<br>"+toCurrrency(localStorage.getItem('balance'))
 }
