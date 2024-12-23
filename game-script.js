@@ -46,6 +46,7 @@ const clickBubbleSfx = new Audio("sfx/click-bubble-sound.mp3")
 // test zone
 // ----------------------------------------------------------
 
+
 // ----------------------------------------------------------
 
 // selects price displays
@@ -109,23 +110,31 @@ closeMenuTab.addEventListener("click", ()=>{
 
 const balanceTabSalaryDisplay = document.getElementById("balance-salary-display")
 const balanceTabExpenseDisplay = document.getElementById("balance-expense-display")
+const networthDisplay = document.querySelector('.networthDisplay')
 
 // opening balance details tab
-balanceRootDiv.addEventListener("click", ()=>{
+balanceRootDiv.addEventListener("click", displayBalanceDetails)
+
+function displayBalanceDetails() {
     clickBubbleSfx.play()
     balanceDetailDiv.style.display = "flex"
+    updateBalanceDetails()
+}
+
+function updateBalanceDetails() {
     balanceDetailsDisplayBal.innerHTML = 'BAL : <br> '+toCurrrency(localStorage.getItem('balance'))
     balanceTabSalaryDisplay.innerHTML = Number(localStorage.getItem("salary")).toLocaleString('en',{style : 'currency', currency : 'INR'})
     houseExpenseP.innerHTML = 'House Maintenance cost : ' + (displayHouseMaintenanceCost() || '0')
     personalExpense.innerHTML = 'Monthly Expanse : ' + localStorage.getItem('personalExpense')
     if (Number(localStorage.getItem("MonthCount")) == 0) {
         let unExpectedExp = ((Number(localStorage.getItem('salary')) / 100) * 85) * 2
-        console.log(unExpectedExp)
         balanceTabExpenseDisplay.innerHTML = (Number(localStorage.getItem("expense")) + unExpectedExp).toLocaleString('en',{style : 'currency', currency : 'INR'})
     } else {
         balanceTabExpenseDisplay.innerHTML = Number(localStorage.getItem("expense")).toLocaleString('en',{style : 'currency', currency : 'INR'})
     }
-})
+    netWorth()
+    networthDisplay.innerHTML = toCurrrency(localStorage.getItem('netWorth'))
+}
 
 const salaryCollectBtn = document.querySelector(".collect-slry")
 const payExpenseBtn = document.querySelector(".pay-expen")
@@ -186,7 +195,6 @@ nextBtn.addEventListener("click", ()=>{
         localStorage.setItem("ifSalaryCollected", 'no')
         localStorage.setItem("ifExpensePaid", 'no')
         if ((localStorage.getItem('wroteToDev') == 'false') && (Number(localStorage.getItem('MonthCount')) == 2)){
-            console.log("flex")
             feedbackContainer.style.display = 'flex'
         }
 
@@ -200,6 +208,11 @@ nextBtn.addEventListener("click", ()=>{
             popupTale.style.display = "none"
         }, 8000);
     }
+    if (localStorage.getItem('houseOwns')) {
+        console.log("Rich bouy")
+    }
+    netWorth()
+    updateBalanceDetails()
     
 
 })
@@ -219,7 +232,9 @@ function payExpense() {
     } else {
         localStorage.setItem('balance', parseInt(localStorage.getItem('balance')-parseInt(localStorage.getItem('expense'))))
     }
+    localStorage.setItem('netWorth', Number(localStorage.getItem('netWorth') - Number(localStorage.getItem('expense'))))
     displayBalance()
+    updateBalanceDetails()
     balanceDetailsDisplayBal.innerHTML = "BAL :<br>"+toCurrrency(localStorage.getItem('balance'))
 }
 
@@ -298,7 +313,7 @@ function nextMonth(companieName, storageName){
     progressDiv.appendChild(progressDisplayP)
 }
 
-
+// house maintenance cost calculator
 function displayHouseMaintenanceCost(){
     let houseOwn = JSON.parse(localStorage.getItem('houseOwns'))
     if (!houseOwn.length){
@@ -309,11 +324,37 @@ function displayHouseMaintenanceCost(){
         houseOwn.forEach(element => {
             indexOfcurrentElement = houseNameDB.names.indexOf(element)
             totalValue += expenseNrentEarnings.expense[indexOfcurrentElement]
-            console.log(totalValue)
         });
         return totalValue
     }
 }
+
+
+// calculate total networth
+function netWorth() {
+    let houseWealthData = JSON.parse(localStorage.getItem('houseOwns')).length === 0 ? 0 : JSON.parse(localStorage.getItem('houseOwns'));
+    let totalWealth
+    let houseWealth = 0
+    let stockHoldings = 0
+    if (houseWealthData != 0) {
+        houseWealthData.forEach((houseName) => {
+            houseWealth += Number(localStorage.getItem(houseName))
+        })
+    }
+    stockHoldings += Number(localStorage.getItem('nexgenHoldings')) * Number(localStorage.getItem('nexgenCurrentPrice'))
+    stockHoldings += Number(localStorage.getItem('ecogenixHoldings')) * Number(localStorage.getItem('ecogenixCurrentPrice'))
+    stockHoldings += Number(localStorage.getItem('greenpowerHoldings')) * Number(localStorage.getItem('greenpowerCurrentPrice'))
+    stockHoldings += Number(localStorage.getItem('ariaapparelHoldings')) * Number(localStorage.getItem('ariaapparelCurrentPrice'))
+
+    totalWealth = houseWealth + stockHoldings
+    if (localStorage.getItem('ifSalaryCollected') == 'no') {
+        totalWealth += Number(localStorage.getItem('salary'))
+    }
+    totalWealth += Number(localStorage.getItem('balance'))
+    localStorage.setItem('netWorth', totalWealth)
+    
+}
+
 
 
 export {displayBalance}

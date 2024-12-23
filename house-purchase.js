@@ -110,8 +110,11 @@ function sellHouse(houseEvent){
         currentBuyBtn.style.display = 'block'
         currentRentBtn.style.display = 'none'
         currentSellbtn.style.display = 'none'
-        let newExpense = Number(localStorage.getItem('expense')) - Number(localStorage.getItem('expense'+houseName))
-        localStorage.setItem('expense', newExpense)
+        console.log("check on sell house")
+        if (localStorage.getItem(houseName + 'rentstatus') == 'End Rental') {
+            endRental(houseName)
+        }
+        console.log('expense minus')
     }else{
         alertThePopup(`<p>You dosen't own this property</p>`)
     }

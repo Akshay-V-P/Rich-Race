@@ -5,7 +5,6 @@ import { Variations } from "./price-var-db.js";
 
 // select a randow news from news db
 export function selectRandomNews(companyName, storageName) {
-    console.log(storageName, companyName)
     let currentNews = ''
     let tempPrice = localStorage.getItem(storageName) // takes last price of stock from localstorage
 
