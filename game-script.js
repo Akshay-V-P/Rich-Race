@@ -113,13 +113,12 @@ const balanceTabExpenseDisplay = document.getElementById("balance-expense-displa
 const networthDisplay = document.querySelector('.networthDisplay')
 
 // opening balance details tab
-balanceRootDiv.addEventListener("click", displayBalanceDetails)
-
-function displayBalanceDetails() {
+balanceRootDiv.addEventListener("click", () => {
     clickBubbleSfx.play()
     balanceDetailDiv.style.display = "flex"
     updateBalanceDetails()
-}
+})
+
 
 function updateBalanceDetails() {
     balanceDetailsDisplayBal.innerHTML = 'BAL : <br> '+toCurrrency(localStorage.getItem('balance'))

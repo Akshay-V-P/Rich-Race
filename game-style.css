@@ -709,7 +709,6 @@ header h1 {
     left: 0px;
     bottom: 0px;
     width: 100%;
-    height: 40%;
     z-index: 5;
     border: 2px solid var(--bordercolor);
     background-color: var(--maincolor);
@@ -758,6 +757,11 @@ header h1 {
     justify-content: center;
     border: 1px solid var(--bordercolor);
     border-radius: 10px;
+}
+
+#contentContainer {
+    padding: 10px;
+    max-height: 80px;
 }
 
 .help-popup {
