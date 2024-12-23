@@ -110,7 +110,7 @@ function sellHouse(houseEvent){
         currentBuyBtn.style.display = 'block'
         currentRentBtn.style.display = 'none'
         currentSellbtn.style.display = 'none'
-        console.log("check on sell house")
+        localStorage.setItem('expense', Number(localStorage.getItem('expense'))-Number(localStorage.getItem('expense'+ houseName)))
         if (localStorage.getItem(houseName + 'rentstatus') == 'End Rental') {
             endRental(houseName)
         }
