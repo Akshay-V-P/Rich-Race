@@ -29,7 +29,7 @@ professionDivs[2].addEventListener('click', ()=>{
     professionDivs[0].style.background = "transparent"
     professionDivs[1].style.background = "transparent"
     selectedProfession.salary = 12000
-    selectedProfession.expense = 10500
+    selectedProfession.expense = 9500
 })
 
 // enter game button event
