@@ -39,10 +39,38 @@ body {
 
 #loanContainer {
     width: 100%;
-    height: 15%;
+   
     background-color: var(--maincolor);
     border-radius: 12px;
     border: 1px solid var(--bordercolor);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#loanContainer img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+}
+
+.loandetails {
+    width: 90%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+.loandetails h4 {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--textcolor);
+    margin: 0;
 }
 
 .header {
@@ -51,6 +79,39 @@ body {
     text-align: left;
     font-size: 26px;
     width: 100%;
+}
+
+.loanamount {
+    width: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: space-around;
+    height: 50%;
+    color: var(--textcolor);
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+.loanamount * {
+    margin: 0;
+}
+
+.loanamount h2 {
+    font-size: 20px;
+}
+
+.loanamount button {
+    width: 80px;
+    height: 30px;
+    border: 1px solid var(--bordercolor);
+    background-color: rgb(71, 71, 201);
+    border-radius: 5px;
+    color: var(--textcolor);
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 0px 1px, rgba(0, 0, 0, 0.3) 0px 0px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.loanamount button:active {
+    transform: translateY(2px);
 }
 
 @media (width < 512px) {

@@ -4,6 +4,7 @@ const howToPlayDiv = document.querySelector(".how-to-play")
 const restartbtn = document.querySelector(".restart-game") // restart button
 const realEstateBtn = document.querySelector('.house-purchase')
 const feedbackBtn = document.querySelector('.feedback')
+const bankDiv = document.querySelector(".bank")
 
 howToPlayDiv.addEventListener('click', ()=>{
     localStorage.setItem('helpNeeded', false)
@@ -23,4 +24,8 @@ realEstateBtn.addEventListener('click', ()=>{
 feedbackBtn.addEventListener('click', () => {
     localStorage.setItem('wroteToDev', true)
     window.location.href = "https://testimonial.to/rich-race"
+})
+
+bankDiv.addEventListener("click", () => {
+    window.location.href = "loans.html"
 })
