@@ -31,7 +31,8 @@ body {
             3px 3px 10px #383846;
     position: relative;
     border-radius: 10px;
-    background-color: var(--mainbgcolor);
+    background: rgb(33,37,48);
+background: linear-gradient(180deg, rgba(33,37,48,1) 48%, rgba(61,86,117,1) 74%, rgba(44,163,216,1) 100%);
 }
 
 #game-name{
@@ -53,6 +54,7 @@ body {
     display: flex;
     align-items: center;
     cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
 .balance-display:active {
@@ -109,7 +111,7 @@ body {
 .stock-display {
     margin-top: 3%;
     width: 100%;
-    height: 46%;
+    height: 40%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 3%;
@@ -129,6 +131,11 @@ body {
     transform: scale(.95);
 }
 
+#stockdivs {
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+
 #item-details {
     border: 0;
     background: transparent;
@@ -140,8 +147,9 @@ body {
 }
 
 .stock-display i {
+    margin-top: 20px;
     margin-left: 18px;
-    font-size: 40px;
+    font-size: 6dvh;
 }
 
 #item-details h4 {
@@ -166,13 +174,19 @@ body {
     margin-top: 3%;
     width: 100%;
     height: 25%;
-    background-color: var(--maincolor);
     border-top: 1px solid var(--bordercolor);
     border-left: 1px solid var(--bordercolor);
     border-right: 1px solid var(--bordercolor);
     border-radius: 12px 12px 0 0 ;
     padding-top: 8px;
     overflow-y: scroll;
+    /* From https://css.glass */
+background: rgba(255, 255, 255, 0.2);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .progress-display::-webkit-scrollbar {
@@ -270,7 +284,7 @@ header h1 {
     padding: 10px;
     z-index: 10;
     box-sizing: border-box;
-
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
 .balance-details span {
