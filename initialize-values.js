@@ -66,6 +66,12 @@ export function setInitialValues(){
     // wrote feedback to dev
     localStorage.setItem('wroteToDev', false)
     //house initial price
+
+    //loan defaults
+    localStorage.setItem("loanCloseDate", JSON.stringify([0, 0]))
+    
+    //loan activity
+    localStorage.setItem('sbiloanActive', 'no')
     
     for (let i=0; i<houseNameDB.names.length;i++){
         localStorage.setItem(houseNameDB.names[i], houseNameDB.price[i])
