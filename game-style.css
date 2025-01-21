@@ -22,7 +22,7 @@ body {
     max-width: 100%;
     max-height: 100dvh;
     user-select: none;
-    font-family: Poppins;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     -webkit-tap-highlight-color: transparent;
    
 }
@@ -113,7 +113,7 @@ body {
     margin: 0;
     padding: 0;
     font-size: 26px;
-    color: var(--maincolor);
+    color: var(--mainlightcolor);
 }
 
 .balance p {
@@ -1020,11 +1020,8 @@ header h1 {
         position: absolute;
         right: 8px;
         font-size: 12px;
-        background-color: var(--maincolor);
         padding: 0 8px 0 8px;
         border-radius: 8px;
-        color: var(--textcolor);
-        border: 2px solid var(--bordercolor);
     }
 }
 
