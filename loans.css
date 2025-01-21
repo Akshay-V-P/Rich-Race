@@ -108,9 +108,79 @@ body {
     border-radius: 5px;
     color: var(--textcolor);
     box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 0px 1px, rgba(0, 0, 0, 0.3) 0px 0px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    text-wrap: none;
 }
 
 .loanamount button:active {
+    transform: translateY(2px);
+}
+
+
+.alertbuy {
+    position: sticky;
+    top: 50%;
+    left: 50%;
+    transform: translate(-20%, -50%);
+    width: 70%;
+    height: 160px;
+    background-color: var(--maincolor);
+    display: none;
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Poppins;
+    color: var(--textcolor);
+    border-radius: 8px;
+    z-index: 10;
+    padding: 4px;
+    box-shadow: rgba(46, 132, 236, 0.25) 0px 54px 55px, rgba(52, 177, 255, 0.12) 0px -12px 30px, rgba(50, 156, 255, 0.12) 0px 4px 6px, rgba(37, 172, 255, 0.17) 0px 12px 13px, rgba(10, 137, 255, 0.09) 0px -3px 5px;
+}
+
+
+
+.alertbuy h2 {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    font-size: 20px;
+}
+
+.alertbuy .buttoncontainer {
+    width: 60%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.alertbuy .buttoncontainer button {
+    width: 60px;
+    height: 24px;
+    border: 0;
+    border-radius: 4px;
+}
+
+
+#yes {
+    background-color: rgb(80, 170, 44);
+    color: var(--maincolor);
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 0px 1px, rgba(0, 0, 0, 0.3) 0px 0px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+#yes:active {
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 0px 1px, rgba(0, 0, 0, 0.3) 0px 0px 13px -3px;
+    transform: translateY(2px);
+}
+
+#no {
+    background-color: rgb(170, 46, 46);
+    color: var(--maincolor);
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 0px 1px, rgba(0, 0, 0, 0.3) 0px 0px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+#no:active {
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 0px 1px, rgba(0, 0, 0, 0.3) 0px 0px 13px -3px;
     transform: translateY(2px);
 }
 

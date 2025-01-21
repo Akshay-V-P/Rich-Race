@@ -1,39 +1,53 @@
+import { loanDetails } from "./initialize-values.js"
 
 
 const applyBtnSfx = new Audio('sfx/buy-btn-sfx.mp3')// buy button sound
 const applyBtns = document.querySelectorAll(".container button")
+const alertbuy = document.querySelector(".alertbuy")
+const yesBtn = document.querySelector("#yes")
 
-let closeDate = JSON.parse(localStorage.getItem('loanCloseDate'))
 
-if (closeDate[0] === Number(localStorage.getItem('year')) && closeDate[1] === Number(localStorage.getItem('MonthCount'))) {
-    localStorage.setItem('expense', (Number(localStorage.getItem('expense') - 6166)))
-    localStorage.setItem('sbiloanActive', 'no')
+applyBtns[0].addEventListener("click", (e) => {
+    applyBtnSfx.play()
+    takeloan(e.target.name)
+})
+
+applyBtns[1].addEventListener("click", (e) => {
+    applyBtnSfx.play()
+    takeloan(e.target.name)
+})
+
+applyBtns[2].addEventListener("click", (e) => {
+    applyBtnSfx.play()
+    takeloan(e.target.name)
+})
+
+function takeloan(bankName) {
+    alertbuy.style.display = "flex"
+    yesBtn.addEventListener('click', () => {
+        getLoan(bankName)
+        alertbuy.style.display = 'none'
+    })
+    
 }
 
 
-applyBtns[0].addEventListener("click", () => {
-    applyBtnSfx.play()
-    if (localStorage.getItem('sbiloanActive') === 'no') {
-        console.log("here")
+function getLoan(bankName) {
+    if (localStorage.getItem('loanActive') === 'no') {
         let yearToPayoff = Number(localStorage.getItem('year'))
         let monthToPayoff = Number(localStorage.getItem('MonthCount'))
-        yearToPayoff = yearToPayoff + 4
-        let emiAmount = 6166
+        yearToPayoff = yearToPayoff + loanDetails[bankName][2]
+        let emiAmount = loanDetails[bankName][1]
         localStorage.setItem("loanCloseDate", JSON.stringify([yearToPayoff, monthToPayoff]))
-        localStorage.setItem('balance', Number(localStorage.getItem('balance')) + 200000)
+        localStorage.setItem('balance', Number(localStorage.getItem('balance')) + loanDetails[bankName][0])
         localStorage.setItem('expense', Number(localStorage.getItem('expense')) + emiAmount)
-        localStorage.setItem('sbiloanActive', 'yes')
+        localStorage.setItem('loanActive', 'yes')
+        localStorage.setItem('loanBankName', bankName)
+        let remainingAmt = (((loanDetails[bankName][0]/100)*12)*loanDetails[bankName][2])+loanDetails[bankName][0]
+        localStorage.setItem('loanRemainingAmt', remainingAmt)
+        
     } else {
         console.log("already have loan");
         
     }
-})
-
-applyBtns[1].addEventListener("click", () => {
-    applyBtnSfx.play()
-})
-
-applyBtns[2].addEventListener("click", () => {
-    applyBtnSfx.play()
-})
-
+}

@@ -1,9 +1,18 @@
 :root {
     --mainlightcolor : #bebebe;
-    --mainbgcolor : #161920;
-    --maincolor : #212530;
+    --mainbgcolor : #efefef;
+    --offwhite : #fcfcfc;
+    --maincolor : #ffcb2d;
     --bordercolor : #2b313f;
-    --textcolor : #bebebe;
+    --orange : #ff9e2d;
+    --textcolor : #1e1e1e;
+    --green : #23a036;
+    --bordergreen : #268329;
+    --nexgenbg : #ff5844;
+    --ecogenixbg : #f7d78c;
+    --greenpowerbg : #a6d3f2;
+    --ariaapparelbg : #afc388;
+
 }
 
 body {
@@ -15,15 +24,14 @@ body {
     user-select: none;
     font-family: Poppins;
     -webkit-tap-highlight-color: transparent;
-    background-image: linear-gradient(to right top, #212121, #232323, #252425, #262628, #28282a, #2a2a2e, #2d2d31, #2f2f35, #33333b, #363642, #3a3a48, #3e3e4f);
+   
 }
 
 .container {
     max-width: 100%;
     height: 100dvh;
-    padding: 0 3% ;
+    /* padding: 0 3% ; */
     margin: auto;
-    border: 2px solid var(--bordercolor);
     display: flex;
     flex-direction: column;
     box-shadow: -3px 4px 2px -2px rgba(13,13,13,0.3),
@@ -31,8 +39,7 @@ body {
             3px 3px 10px #383846;
     position: relative;
     border-radius: 10px;
-    background: rgb(33,37,48);
-background: linear-gradient(180deg, rgba(33,37,48,1) 48%, rgba(61,86,117,1) 74%, rgba(44,163,216,1) 100%);
+   background-color: var(--mainbgcolor);
 }
 
 #game-name{
@@ -46,15 +53,14 @@ background: linear-gradient(180deg, rgba(33,37,48,1) 48%, rgba(61,86,117,1) 74%,
 
 .balance-display {
     width: 100%;
-    background-color: var(--maincolor);
-    height: 10%;
-    margin-top: 3%;
-    border: 1px solid var(--bordercolor);
-    border-radius: 12px;
+    background-color: #23a036;
+    height: 30%;
+    border-radius: 0 0 50px 50px;
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
 .balance-display:active {
@@ -62,15 +68,23 @@ background: linear-gradient(180deg, rgba(33,37,48,1) 48%, rgba(61,86,117,1) 74%,
 }
 
 .balance-display span {
-    margin-right: 8px;
+    margin-bottom: 2px;
+    transform: rotate(90deg);
     color: var(--mainlightcolor);
+}
+
+.profilesection {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .profile-foto {
     margin-left: 30px;
     width: 55px;
     height: 55px;
-    background-color: var(--bordercolor);
+    background-color: var(--bordergreen);
     border-radius: 50px;
     display: flex;
     justify-content: center;
@@ -82,22 +96,24 @@ background: linear-gradient(180deg, rgba(33,37,48,1) 48%, rgba(61,86,117,1) 74%,
 }
 
 .balance {
-    margin-left: 30px;
-    width: 60%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .balance h4 {
-    color: rgb(220, 157, 63);
+    color: var(--mainlightcolor);
     margin: 0;
     padding: 0;
-    font-size: 10px;
+    font-size: 20px;
 }
 
 .balance h2 {
     margin: 0;
     padding: 0;
-    font-size: 16px;
-    color: var(--textcolor);
+    font-size: 26px;
+    color: var(--maincolor);
 }
 
 .balance p {
@@ -114,12 +130,12 @@ background: linear-gradient(180deg, rgba(33,37,48,1) 48%, rgba(61,86,117,1) 74%,
     height: 40%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 3%;
+    gap: 7%;
+    padding: 6%;
+    box-sizing: border-box;
 }
 
 .stock-display div {
-    background-color: var(--maincolor);
-    border: 1px solid var(--bordercolor);
     border-radius: 12px;
     display: flex;
     justify-content: space-around;
@@ -127,13 +143,31 @@ background: linear-gradient(180deg, rgba(33,37,48,1) 48%, rgba(61,86,117,1) 74%,
     cursor: pointer;
 }
 
+
 .stock-display div:active {
     transform: scale(.95);
 }
 
 #stockdivs {
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+     padding: 8%;
 }
+
+.nexgen {
+    background-color: #ff5844;
+}
+
+.ecogenix {
+    background-color: #f7d78c;
+}
+
+.greenpower {
+    background-color: #a6d3f2;
+}
+
+.ariaapparel {
+    background-color: #afc388;
+}
+
 
 
 #item-details {
@@ -142,19 +176,17 @@ background: linear-gradient(180deg, rgba(33,37,48,1) 48%, rgba(61,86,117,1) 74%,
 }
 
 #item-details * {
-    margin-left: 18px;
     color: var(--textcolor);
 }
 
 .stock-display i {
-    margin-top: 20px;
-    margin-left: 18px;
-    font-size: 6dvh;
+    font-size: 4dvh;
 }
 
 #item-details h4 {
     font-size: 16px;
-    margin: 0 0 0 18px;
+    margin: 0;
+    color: var(--offwhite);
 }
 
 #item-details p {
@@ -163,6 +195,7 @@ background: linear-gradient(180deg, rgba(33,37,48,1) 48%, rgba(61,86,117,1) 74%,
     margin-top: 0;
     font-size: 12px;
     font-weight: 700;
+    color: var(--textcolor);
 }
 
 #item-details p span {
@@ -174,19 +207,10 @@ background: linear-gradient(180deg, rgba(33,37,48,1) 48%, rgba(61,86,117,1) 74%,
     margin-top: 3%;
     width: 100%;
     height: 25%;
-    border-top: 1px solid var(--bordercolor);
-    border-left: 1px solid var(--bordercolor);
-    border-right: 1px solid var(--bordercolor);
-    border-radius: 12px 12px 0 0 ;
+    border-radius: 50px 50px 0 0 ;
     padding-top: 8px;
     overflow-y: scroll;
-    /* From https://css.glass */
-background: rgba(255, 255, 255, 0.2);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
-border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: var(--offwhite);
 }
 
 .progress-display::-webkit-scrollbar {
@@ -204,11 +228,11 @@ border: 1px solid rgba(255, 255, 255, 0.3);
     position: absolute;
     width: calc(100% - 2px);
     height: 10%;
-    background-color: var(--maincolor) ;
-    border: 2px solid var(--bordercolor);
+    background-color: var(--green) ;
+    
     left: 0;
     bottom: 0;
-    border-radius: 12px 12px 10px 10px ;
+    border-radius: 50px 50px 0px 0px ;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -217,7 +241,7 @@ border: 1px solid rgba(255, 255, 255, 0.3);
 
 .items-tab span {
     font-size: 32px;
-    color: rgb(133, 133, 133);
+    color: #268329;
 }
 
 .items-tab div {
@@ -231,7 +255,7 @@ border: 1px solid rgba(255, 255, 255, 0.3);
     padding: 0;
     margin: 0;
     font-size: 12px;
-    color: rgb(133, 133, 133);
+    color: var(--mainlightcolor);
 }
 
 header {
@@ -239,7 +263,7 @@ header {
 }
 
 header h1 {
-    margin-top: 20px;
+    margin-top: 16px;
     font-family: poppins;
     color: var(--mainlightcolor);
     font-size: 24px;
@@ -248,12 +272,12 @@ header h1 {
 .next-month {
     width: 100px;
     height: 100px;
-    background-color: var(--maincolor);
+    background-color: var(--green);
     position: absolute;
     bottom: 1%;
     left: calc(50% - 56px);
     border-radius: 50%;
-    border: 7px solid var(--bordercolor);
+    border: 7px solid #268329;
     /* box-shadow: 0px 20px 20px 5px rgba(70, 74, 111, 0.6); */
     box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
     display: flex;
@@ -261,7 +285,7 @@ header h1 {
     justify-content: center;
     font-size: 15px;
     font-family: Poppins;
-    color: var(--textcolor);
+    color: var(--mainlightcolor);
     cursor: pointer;
     text-wrap: nowrap;
 
@@ -275,8 +299,7 @@ header h1 {
     position: absolute;
     width: 90%;
     left: 5%;
-    background-color: var(--maincolor);
-    border: 2px solid var(--bordercolor);
+    background-color: var(--green);
     border-radius: 12px;
     top: 10%;
     display: none;
@@ -297,7 +320,7 @@ header h1 {
 .balance-details * {
     margin: 0 0 5px 24px;
     padding: 0;
-    color: var(--textcolor);
+    color: var(--mainlightcolor);
 }
 
 .action-div {
@@ -340,14 +363,13 @@ header h1 {
 
 .month-display {
     position: absolute;
-    right: 45px;
-    top: 98px;
+    right: 20px;
+    top: 68px;
     font-size: 12px;
-    background-color: var(--maincolor);
+    background-color: var(--bordergreen);
     padding: 0 8px 0 8px;
     border-radius: 4px;
     color: var(--textcolor);
-    border: 1px solid var(--bordercolor);
     text-wrap: nowrap;
     /* width: 65px; */
     height: 16px;
@@ -357,12 +379,12 @@ header h1 {
 
 .nexgen-stock {
     position: absolute;
-    background-color: var(--maincolor);
+    background-color: var(--nexgenbg);
     width: 250px;
     height: 250px;
+    left: 6%;
     top: 175px;
     border-radius: 12px;
-    border: 2px solid var(--bordercolor);
     box-shadow: 0 0 10px 1px rgba(13,13,13,0.5);
     display: none;
     flex-wrap: wrap;
@@ -454,14 +476,14 @@ header h1 {
 }
 
 .display-and-max input {
-    background-color: var(--maincolor);
+    background-color: var(--mainlightcolor);
     font-family: poppins;
     width: 40px;
     max-width: 90px;
     text-align: center;
     height: 20px;
     border-radius: 4px;
-    border: 2px solid var(--bordercolor);
+    border: 0;
 }
 
 .display-and-max input:focus {
@@ -469,7 +491,7 @@ header h1 {
 }
 
 #max-buyable{
-    background-color: var(--maincolor);
+    background-color: var(--mainlightcolor);
     color: var(--textcolor);
 }
 
@@ -478,7 +500,7 @@ header h1 {
 }
 
 #max-sellable{
-    background-color: var(--maincolor);
+    background-color: var(--mainlightcolor);
     color: var(--textcolor);
 }
 
@@ -524,7 +546,7 @@ header h1 {
 }
 
 .nexgen-stock * {
-    color: var(--textcolor);
+    color: var(--bordercolor);
 }
 
 .nexgen-stock i {
@@ -555,13 +577,12 @@ header h1 {
 
 .ecogenix-stock {
     position: absolute;
-    background-color: var(--maincolor);
+    background-color: var(--ecogenixbg);
     width: 250px;
     height: 250px;
     top: 175px;
     right: 20px;
     border-radius: 12px;
-    border: 2px solid var(--bordercolor);
     box-shadow: 0 0 10px 1px rgba(13,13,13,0.5);
     display: none;
     flex-wrap: wrap;
@@ -571,7 +592,7 @@ header h1 {
 }
 
 .ecogenix-stock * {
-    color: var(--textcolor);
+    color: var(--bordercolor);
 }
 
 .ecogenix-stock i {
@@ -602,12 +623,12 @@ header h1 {
 
 .greenpower-stock {
     position: absolute;
-    background-color: var(--maincolor);
+    background-color: var(--greenpowerbg);
     width: 250px;
     height: 250px;
     top: 224px;
+    left: 6%;
     border-radius: 12px;
-    border: 2px solid var(--bordercolor);
     box-shadow: 0 0 10px 1px rgba(13,13,13,0.5);
     display: none;
     flex-wrap: wrap;
@@ -617,7 +638,7 @@ header h1 {
 }
 
 .greenpower-stock * {
-    color: var(--textcolor);
+    color: var(--bordercolor);
 }
 
 .greenpower-stock i {
@@ -648,13 +669,12 @@ header h1 {
 
 .ariaapparel-stock {
     position: absolute;
-    background-color: var(--maincolor);
+    background-color: var(--ariaapparelbg);
     width: 250px;
     height: 250px;
     top: 224px;
     right: 20px;
     border-radius: 12px;
-    border: 2px solid var(--bordercolor);
     box-shadow: 0 0 10px 1px rgba(13,13,13,0.5);
     display: none;
     flex-wrap: wrap;
@@ -664,7 +684,7 @@ header h1 {
 }
 
 .ariaapparel-stock * {
-    color: var(--textcolor);
+    color: var(--bordercolor);
 }
 
 .ariaapparel-stock i {
@@ -700,9 +720,8 @@ header h1 {
     position: absolute;
     top: 100px;
     left: calc(50% - 110px);
-    background-color: var(--maincolor);
-    border: 2px solid var(--bordercolor);
-    color: var(--textcolor);
+    background-color: var(--green);
+    color: var(--mainlightcolor);
     font-weight: 700;
     margin: 0;
     text-align: center;
@@ -724,10 +743,9 @@ header h1 {
     bottom: 0px;
     width: 100%;
     z-index: 5;
-    border: 2px solid var(--bordercolor);
-    background-color: var(--maincolor);
+    background-color: var(--green);
     border-radius: 10px;
-    color: var(--textcolor);
+    color: var(--mainlightcolor);
     display: none;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
@@ -735,7 +753,7 @@ header h1 {
     box-shadow: 0px -5px 8px -4px rgba(0,0,0,0.61);
     -webkit-box-shadow: 0px -5px 8px -4px rgba(0,0,0,0.61);
     -moz-box-shadow: 0px -5px 8px -4px rgba(0,0,0,0.61);
-    animation: none 0.2s ease-in-out;
+    animation: none 0.1s ease-in-out;
 }
 
 .menu-tab span {
@@ -754,11 +772,11 @@ header h1 {
     position: absolute;
     top: -60px;
     left: calc(50% - 26px);
-    background-color: var(--maincolor);
+    background-color: var(--green);
     width: 50px;
     height: 50px;
     border-radius: 50px !important;
-    border: 2px solid var(--bordercolor) !important;
+    border: 2px solid var(--bordergreen) !important;
     font-size: 10px;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
@@ -769,7 +787,7 @@ header h1 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--bordercolor);
+    border: 1px solid var(--bordergreen);
     border-radius: 10px;
 }
 
@@ -958,7 +976,7 @@ header h1 {
     }
     100% {
       height: 25%;
-      opacity: 0.5;
+      opacity: 0;
     }
   }
 
@@ -969,16 +987,16 @@ header h1 {
     }
     
     .items-tab {
-        border-radius: 25px 25px 0px 0px ;
+        border-radius: 50px 50px 0px 0px ;
     }
     #game-name {
         font-size: 20px;
     }
     header h1 {
-        font-size: 28px;
+        font-size: 26px;
     }
     .month-display {
-        right: 20px;
+        right: 12px;
     }
 }
 

@@ -8,6 +8,12 @@ export const expenseNrentEarnings = {
     'rentearnings': [25000,40000,65000,98000,156000,267000,488900,1500000,4450000]
 }
 
+export const loanDetails = {
+    'sbi': [200000, 6166, 4], // 4 years
+    'icici': [500000, 15416.6, 4], // 4 years
+    'hdfc' : [1500000, 32857, 7] // 7 years
+}
+
 // setting up every initial values to localStorage
 export function setInitialValues(){
     
@@ -71,7 +77,8 @@ export function setInitialValues(){
     localStorage.setItem("loanCloseDate", JSON.stringify([0, 0]))
     
     //loan activity
-    localStorage.setItem('sbiloanActive', 'no')
+    localStorage.setItem('loanActive', 'no')
+
     
     for (let i=0; i<houseNameDB.names.length;i++){
         localStorage.setItem(houseNameDB.names[i], houseNameDB.price[i])

@@ -1,5 +1,5 @@
 import { incrementHouseValue, selectRandomNews } from "./calculation-scripts.js"
-import { expenseNrentEarnings, houseNameDB, setInitialValues, setInitialValuesOnce } from "./initialize-values.js"
+import { expenseNrentEarnings, houseNameDB, loanDetails, setInitialValues, setInitialValuesOnce } from "./initialize-values.js"
 import { alertAMsg, toCurrrency } from "./utills.js"
 const newsTabRoute = document.getElementById("news-tab")
 if (localStorage.getItem("name")==null){
@@ -20,8 +20,6 @@ const feedbackContainer = document.querySelector('.feedbackContainer')
 feedbackCloseBtn.addEventListener('click', ()=>{
     feedbackContainer.style.display = 'none'
 })
-
-
 
 
 
@@ -83,7 +81,7 @@ const progressDiv = document.querySelector(".progress-display")
 const monthDisplay = document.querySelector(".month-display")
 
 const helloName = document.getElementById("hello-name")
-helloName.innerHTML = "Hello, "+localStorage.getItem("name")
+helloName.innerHTML = localStorage.getItem("name")
 
 const profilePhoto = document.querySelector(".profile-foto img")
 profilePhoto.src = localStorage.getItem("profileImgSrc")
@@ -207,11 +205,16 @@ nextBtn.addEventListener("click", ()=>{
             popupTale.style.display = "none"
         }, 8000);
     }
-    if (localStorage.getItem('houseOwns')) {
-        console.log("Rich bouy")
-    }
     netWorth()
     updateBalanceDetails()
+
+    //check loan close date 
+    let closeDate = JSON.parse(localStorage.getItem('loanCloseDate'))
+    if (closeDate[0] === Number(localStorage.getItem('year')) && closeDate[1] === Number(localStorage.getItem('MonthCount'))) {
+        localStorage.setItem('expense', Number(localStorage.getItem('expense')) - loanDetails[localStorage.getItem('loanBankName')][1])
+        localStorage.setItem('loanActive', 'no')
+        localStorage.setItem('loanCloseDate', "Nil")
+    }
     
 
 })
@@ -232,6 +235,9 @@ function payExpense() {
         localStorage.setItem('balance', parseInt(localStorage.getItem('balance')-parseInt(localStorage.getItem('expense'))))
     }
     localStorage.setItem('netWorth', Number(localStorage.getItem('netWorth') - Number(localStorage.getItem('expense'))))
+    if (localStorage.getItem('loanActive') === 'yes') {
+        localStorage.setItem('loanRemainingAmt', Number(localStorage.getItem('loanRemainingAmt')) - loanDetails[localStorage.getItem('loanBankName')][1])
+    }
     displayBalance()
     updateBalanceDetails()
     balanceDetailsDisplayBal.innerHTML = "BAL :<br>"+toCurrrency(localStorage.getItem('balance'))
