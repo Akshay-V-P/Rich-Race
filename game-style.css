@@ -1,12 +1,12 @@
 :root {
-    --mainlightcolor : #bebebe;
+    --mainlightcolor : #d0d0d0;
     --mainbgcolor : #efefef;
     --offwhite : #fcfcfc;
     --maincolor : #ffcb2d;
     --bordercolor : #2b313f;
     --orange : #ff9e2d;
     --textcolor : #1e1e1e;
-    --green : #23a036;
+    --green : #3aab4b;
     --bordergreen : #268329;
     --nexgenbg : #ff5844;
     --ecogenixbg : #f7d78c;
@@ -208,7 +208,8 @@ body {
     width: 100%;
     height: 25%;
     border-radius: 50px 50px 0 0 ;
-    padding-top: 8px;
+    padding-top: 4%;
+    padding-left: 6%;
     overflow-y: scroll;
     background-color: var(--offwhite);
 }
