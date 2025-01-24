@@ -255,7 +255,7 @@ body {
     font-size: 8px;
     margin: 3px 0 0 8px;
     text-wrap: wrap;
-    color: var(--textcolor);
+    color: var(--mainlightcolor);
 }
 
 .items-tab {
