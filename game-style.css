@@ -1,19 +1,30 @@
 :root {
-    --mainlightcolor : #d0d0d0;
-    --mainbgcolor : #efefef;
-    --offwhite : #fcfcfc;
+    --mainlightcolor : #fffeff;
+    --mainbgcolor : #0d0d0b;
+    --offwhite : #fcd36a;
     --maincolor : #ffcb2d;
     --bordercolor : #2b313f;
     --orange : #ff9e2d;
     --textcolor : #1e1e1e;
-    --green : #3aab4b;
+    --green : #1b242d;
     --bordergreen : #268329;
-    --nexgenbg : #ff5844;
-    --ecogenixbg : #f7d78c;
-    --greenpowerbg : #a6d3f2;
-    --ariaapparelbg : #afc388;
+    --nexgenbg : #f8f8f8;
+    --ecogenixbg : #f8f8f8;
+    --greenpowerbg : #f8f8f8;
+    --ariaapparelbg : #f8f8f8;
+    --bordercolors : rgb(157, 39, 39);
+
+
+    --numericfamily : Graduate;
+    --commonfamily : Bebas Neue;
 
 }
+
+/* #a6d3f2
+#f7d78c
+#ff5844
+#afc388 
+#3aab4b*/
 
 body {
     padding: 0;
@@ -26,6 +37,7 @@ body {
     -webkit-tap-highlight-color: transparent;
    
 }
+
 
 .container {
     max-width: 100%;
@@ -53,9 +65,9 @@ body {
 
 .balance-display {
     width: 100%;
-    background-color: #23a036;
+    background-color: var(--green);
     height: 30%;
-    border-radius: 0 0 50px 50px;
+    
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -84,7 +96,7 @@ body {
     margin-left: 30px;
     width: 55px;
     height: 55px;
-    background-color: var(--bordergreen);
+    background-color: var(--mainbgcolor);
     border-radius: 50px;
     display: flex;
     justify-content: center;
@@ -113,6 +125,7 @@ body {
     margin: 0;
     padding: 0;
     font-size: 26px;
+    font-family: Graduate;
     color: var(--mainlightcolor);
 }
 
@@ -125,22 +138,28 @@ body {
 }
 
 .stock-display {
-    margin-top: 3%;
     width: 100%;
     height: 40%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 7%;
-    padding: 6%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 2%;
     box-sizing: border-box;
 }
 
 .stock-display div {
-    border-radius: 12px;
     display: flex;
-    justify-content: space-around;
-    flex-direction: column;
+    justify-content: space-between;
     cursor: pointer;
+    box-sizing: border-box;
+}
+
+.stockprices {
+    font-family: var(--numericfamily);
+}
+
+.stockchange {
+    font-family: var(--numericfamily);
 }
 
 
@@ -149,23 +168,33 @@ body {
 }
 
 #stockdivs {
-     padding: 8%;
+     padding: 3%;
+}
+
+#stockdivs h4 {
+    margin: 0;
+    text-align: center;
+    color: var(--green);
 }
 
 .nexgen {
-    background-color: #ff5844;
+    background-color: #bea45a;
+    height: 24%;
 }
 
 .ecogenix {
-    background-color: #f7d78c;
+    background-color: #fcd36a;
+    height: 24%;
 }
 
 .greenpower {
-    background-color: #a6d3f2;
+    background-color: #fb9e6a;
+    height: 24%;
 }
 
 .ariaapparel {
-    background-color: #afc388;
+    background-color: #fb9e6a;
+    height: 24%;
 }
 
 
@@ -173,20 +202,25 @@ body {
 #item-details {
     border: 0;
     background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
 }
 
 #item-details * {
-    color: var(--textcolor);
+    color: var(--green);
 }
 
 .stock-display i {
     font-size: 4dvh;
+    
 }
 
 #item-details h4 {
     font-size: 16px;
     margin: 0;
-    color: var(--offwhite);
+    color: var(--green);
 }
 
 #item-details p {
@@ -204,14 +238,13 @@ body {
 }
 
 .progress-display {
-    margin-top: 3%;
     width: 100%;
     height: 25%;
-    border-radius: 50px 50px 0 0 ;
     padding-top: 4%;
     padding-left: 6%;
     overflow-y: scroll;
-    background-color: var(--offwhite);
+    background-color: var(--green);
+    box-sizing: border-box;
 }
 
 .progress-display::-webkit-scrollbar {
@@ -230,7 +263,9 @@ body {
     width: calc(100% - 2px);
     height: 10%;
     background-color: var(--green) ;
-    
+    -webkit-box-shadow: 0px -30px 85px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px -30px 85px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px -30px 85px 0px rgba(0,0,0,0.75);
     left: 0;
     bottom: 0;
     border-radius: 50px 50px 0px 0px ;
@@ -238,11 +273,12 @@ body {
     justify-content: space-around;
     align-items: center;
     gap: 50px;
+    border: 2px solid #28343f;
 }
 
 .items-tab span {
     font-size: 32px;
-    color: #268329;
+    color: var(--mainbgcolor);
 }
 
 .items-tab div {
@@ -278,7 +314,7 @@ header h1 {
     bottom: 1%;
     left: calc(50% - 56px);
     border-radius: 50%;
-    border: 7px solid #268329;
+    border: 7px solid var(--mainbgcolor);
     /* box-shadow: 0px 20px 20px 5px rgba(70, 74, 111, 0.6); */
     box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
     display: flex;
@@ -286,7 +322,7 @@ header h1 {
     justify-content: center;
     font-size: 15px;
     font-family: Poppins;
-    color: var(--mainlightcolor);
+    color: var(--offwhite);
     cursor: pointer;
     text-wrap: nowrap;
 
@@ -367,10 +403,10 @@ header h1 {
     right: 20px;
     top: 68px;
     font-size: 12px;
-    background-color: var(--bordergreen);
+    background-color: var(--green);
     padding: 0 8px 0 8px;
     border-radius: 4px;
-    color: var(--textcolor);
+    color: var(--mainlightcolor);
     text-wrap: nowrap;
     /* width: 65px; */
     height: 16px;
