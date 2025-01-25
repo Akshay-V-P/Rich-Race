@@ -14,9 +14,16 @@
     --ariaapparelbg : #f8f8f8;
     --bordercolors : rgb(157, 39, 39);
 
+    --fontcolor1 : #ffffff;
+    --fontcolor2 : #232c10;
+    --color1 : #151d10;
+    --color2 : #474d3f;
+    --color3 : #2f352b;
+    --color4 : #585f4f;
 
-    --numericfamily : Graduate;
-    --commonfamily : Bebas Neue;
+
+    --numericfamily :Teko;
+    --commonfamily : Chakra Petch;
 
 }
 
@@ -33,7 +40,7 @@ body {
     max-width: 100%;
     max-height: 100dvh;
     user-select: none;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: Poppins;
     -webkit-tap-highlight-color: transparent;
    
 }
@@ -46,12 +53,14 @@ body {
     margin: auto;
     display: flex;
     flex-direction: column;
+    align-items: center;
     box-shadow: -3px 4px 2px -2px rgba(13,13,13,0.3),
             -8px 10px 8px rgba(0,0,0,0.1),
             3px 3px 10px #383846;
     position: relative;
     border-radius: 10px;
-   background-color: var(--mainbgcolor);
+    background: rgb(35,44,16);
+    background: linear-gradient(177deg, rgba(35,44,16,1) 0%, rgba(21,29,16,1) 100%);
 }
 
 #game-name{
@@ -64,10 +73,11 @@ body {
 }
 
 .balance-display {
-    width: 100%;
-    background-color: var(--green);
-    height: 30%;
-    
+    width: 95%;
+    background: rgb(35,44,16);
+    background: linear-gradient(177deg, rgba(35,44,16,1) 0%, rgba(71,77,63,1) 100%);
+    height: 35%;
+    border-radius: 0px 0 40px 40px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -86,14 +96,20 @@ body {
 }
 
 .profilesection {
+    margin-top: 5px;
     width: 90%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
+.headingandphoto {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 .profile-foto {
-    margin-left: 30px;
     width: 55px;
     height: 55px;
     background-color: var(--mainbgcolor);
@@ -125,7 +141,7 @@ body {
     margin: 0;
     padding: 0;
     font-size: 26px;
-    font-family: Graduate;
+    font-family: var(--numericfamily);
     color: var(--mainlightcolor);
 }
 
@@ -137,29 +153,61 @@ body {
     font-weight: 700;
 }
 
+.expenseandincome {
+    width: 90%;
+    height: 70px;
+    background-color: var(--color4);
+    border-radius: 20px;
+    margin-bottom: 5%;
+    color: var(--fontcolor1);
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.expenseandincome p {
+    margin: 0;
+}
+
+.secsionheadings {
+    margin: 2%;
+    width: 100%;
+    padding-left: 12%;
+    color: var(--fontcolor1);
+}
+
 .stock-display {
     width: 100%;
-    height: 40%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding: 2%;
+    height: 30%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6%;
+    padding: 1% 6% 1% 6%;
     box-sizing: border-box;
 }
 
 .stock-display div {
+    height: 100%;
+    border-radius: 24px;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
     box-sizing: border-box;
 }
 
+.stockprofile {
+    display: flex;
+    justify-content: center;
+}
+
 .stockprices {
     font-family: var(--numericfamily);
+    font-size: 16px;
 }
 
 .stockchange {
     font-family: var(--numericfamily);
+    font-size: 12px;
 }
 
 
@@ -174,27 +222,30 @@ body {
 #stockdivs h4 {
     margin: 0;
     text-align: center;
-    color: var(--green);
 }
 
 .nexgen {
-    background-color: #bea45a;
+    background-color: #ffffff;
     height: 24%;
+    color: var(--fontcolor2);
 }
 
 .ecogenix {
-    background-color: #fcd36a;
+    background-color: #2f352b;
     height: 24%;
+    color: var(--fontcolor1);
 }
 
 .greenpower {
-    background-color: #fb9e6a;
+    background-color: #474d3f;
     height: 24%;
+    color: var(--fontcolor1);
 }
 
 .ariaapparel {
-    background-color: #fb9e6a;
+    background-color: #c1ef02;
     height: 24%;
+    color: var(--fontcolor2);
 }
 
 
@@ -204,18 +255,11 @@ body {
     background: transparent;
     display: flex;
     flex-direction: column;
-    align-items: end;
+    align-items: start;
     justify-content: center;
+    padding: 0 0 0 12px;
 }
 
-#item-details * {
-    color: var(--green);
-}
-
-.stock-display i {
-    font-size: 4dvh;
-    
-}
 
 #item-details h4 {
     font-size: 16px;
@@ -227,9 +271,7 @@ body {
     padding: 0;
     margin-bottom: 0;
     margin-top: 0;
-    font-size: 12px;
     font-weight: 700;
-    color: var(--textcolor);
 }
 
 #item-details p span {
@@ -243,7 +285,7 @@ body {
     padding-top: 4%;
     padding-left: 6%;
     overflow-y: scroll;
-    background-color: var(--green);
+    background-color: transparent;
     box-sizing: border-box;
 }
 
@@ -260,15 +302,15 @@ body {
 
 .items-tab {
     position: absolute;
-    width: calc(100% - 2px);
+    width: calc(90% - 2px);
     height: 10%;
-    background-color: var(--green) ;
+    background-color: var(--fontcolor1) ;
     -webkit-box-shadow: 0px -30px 85px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px -30px 85px 0px rgba(0,0,0,0.75);
     box-shadow: 0px -30px 85px 0px rgba(0,0,0,0.75);
-    left: 0;
-    bottom: 0;
-    border-radius: 50px 50px 0px 0px ;
+    left: 5%;
+    bottom: 10px;
+    border-radius: 50px 50px 50px 50px ;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -278,7 +320,7 @@ body {
 
 .items-tab span {
     font-size: 32px;
-    color: var(--mainbgcolor);
+    color: var(--color3);
 }
 
 .items-tab div {
@@ -292,7 +334,7 @@ body {
     padding: 0;
     margin: 0;
     font-size: 12px;
-    color: var(--mainlightcolor);
+    color: var(--color1);
 }
 
 header {
@@ -307,14 +349,14 @@ header h1 {
 }
 
 .next-month {
-    width: 100px;
-    height: 100px;
-    background-color: var(--green);
+    width: 85px;
+    height: 85px;
+    background-color: var(--color1);
     position: absolute;
-    bottom: 1%;
-    left: calc(50% - 56px);
+    bottom: .5%;
+    left: calc(50% - 46px);
     border-radius: 50%;
-    border: 7px solid var(--mainbgcolor);
+    border: 7px solid var(--color3);
     /* box-shadow: 0px 20px 20px 5px rgba(70, 74, 111, 0.6); */
     box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
     display: flex;
@@ -322,7 +364,7 @@ header h1 {
     justify-content: center;
     font-size: 15px;
     font-family: Poppins;
-    color: var(--offwhite);
+    color: var(--fontcolor1);
     cursor: pointer;
     text-wrap: nowrap;
 
@@ -336,7 +378,8 @@ header h1 {
     position: absolute;
     width: 90%;
     left: 5%;
-    background-color: var(--green);
+    background: rgb(71,77,63);
+    background: linear-gradient(177deg, rgba(71,77,63,1) 0%, rgba(21,29,16,1) 100%);
     border-radius: 12px;
     top: 10%;
     display: none;
@@ -399,17 +442,14 @@ header h1 {
 }
 
 .month-display {
-    position: absolute;
-    right: 20px;
-    top: 68px;
     font-size: 12px;
-    background-color: var(--green);
+    background-color: var(--fontcolor1);
     padding: 0 8px 0 8px;
-    border-radius: 4px;
-    color: var(--mainlightcolor);
+    border-radius: 40px;
+    color: var(--color3);
     text-wrap: nowrap;
-    /* width: 65px; */
-    height: 16px;
+    width: 60px;
+    height: 20px;
 }
 
 /* Nexgen stock display */
@@ -780,9 +820,10 @@ header h1 {
     bottom: 0px;
     width: 100%;
     z-index: 5;
-    background-color: var(--green);
+    background: rgb(71,77,63);
+    background: linear-gradient(177deg, rgba(71,77,63,1) 0%, rgba(21,29,16,1) 100%);
     border-radius: 10px;
-    color: var(--mainlightcolor);
+    color: var(--fontcolor1);
     display: none;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
@@ -809,11 +850,11 @@ header h1 {
     position: absolute;
     top: -60px;
     left: calc(50% - 26px);
-    background-color: var(--green);
+    background-color: var(--color2);
     width: 50px;
     height: 50px;
     border-radius: 50px !important;
-    border: 2px solid var(--bordergreen) !important;
+    border: 2px solid var(--color3) !important;
     font-size: 10px;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
@@ -824,7 +865,7 @@ header h1 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--bordergreen);
+    border: 1px solid var(--color1);
     border-radius: 10px;
 }
 
@@ -1024,13 +1065,13 @@ header h1 {
     }
     
     .items-tab {
-        border-radius: 50px 50px 0px 0px ;
+        border-radius: 50px 50px 50px 50px ;
     }
     #game-name {
         font-size: 20px;
     }
     header h1 {
-        font-size: 26px;
+        font-size: 20px;
     }
     .month-display {
         right: 12px;
@@ -1052,13 +1093,4 @@ header h1 {
 
 }
 
-@media (width < 390px){
-    .month-display {
-        position: absolute;
-        right: 8px;
-        font-size: 12px;
-        padding: 0 8px 0 8px;
-        border-radius: 8px;
-    }
-}
 
