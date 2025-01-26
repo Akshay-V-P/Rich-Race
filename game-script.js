@@ -62,6 +62,7 @@ const ariaapparelChangeDisplay = document.getElementById("ariaapparel-change")
 // balance displays
 const balanceRootDiv = document.querySelector(".balance-display")
 const balanceHomeDisplay = document.getElementById("home-balance")
+const expenseHomeDisplay = document.getElementById("home-expense")
 const salaryHomeDisplay = document.getElementById("home-salary")
 
 // balance details 
@@ -266,7 +267,8 @@ function addAMonth(){
 
 function displayBalance(){
     balanceHomeDisplay.innerText = toCurrrency(localStorage.getItem('balance'))
-    salaryHomeDisplay.innerText = '₹'+Number(localStorage.getItem("salary")).toLocaleString('en')+"/Month"
+    salaryHomeDisplay.innerText = toCurrrency(localStorage.getItem("salary"))
+    expenseHomeDisplay.innerText = toCurrrency(localStorage.getItem("expense"))
 }
 
 // update price to ui
