@@ -20,6 +20,7 @@
     --color2 : #474d3f;
     --color3 : #2f352b;
     --color4 : #585f4f;
+    --color5 : #c1ef02;
 
 
     --numericfamily :Teko;
@@ -131,7 +132,7 @@ body {
 }
 
 .balance h4 {
-    color: var(--mainlightcolor);
+    color: var(--color5);
     margin: 0;
     padding: 0;
     font-size: 20px;
@@ -142,7 +143,7 @@ body {
     padding: 0;
     font-size: 26px;
     font-family: var(--numericfamily);
-    color: var(--mainlightcolor);
+    color: var(--fontcolor1);
 }
 
 .balance p {
@@ -180,10 +181,12 @@ body {
 
 #home-salary {
     font-family: var(--numericfamily);
+    font-size: 18px;
 }
 
 #home-expense {
     font-family: var(--numericfamily);
+    font-size: 18px;
 }
 
 .homeexpense {
@@ -198,12 +201,13 @@ body {
 
 .expenseandincome p {
     margin: 0;
+    font-weight: 600;
+    font-size: 12px;
 }
 
 .secsionheadings {
     margin: 2%;
-    width: 100%;
-    padding-left: 12%;
+    width: 85%;
     color: var(--fontcolor1);
 }
 
@@ -341,7 +345,7 @@ body {
     -moz-box-shadow: 0px -30px 85px 0px rgba(0,0,0,0.75);
     box-shadow: 0px -30px 85px 0px rgba(0,0,0,0.75);
     left: 5%;
-    bottom: 21px;
+    bottom: 18px;
     border-radius: 50px 50px 50px 50px ;
     display: flex;
     justify-content: space-around;
@@ -474,27 +478,29 @@ header h1 {
 }
 
 .month-display {
-    font-size: 16px;
+    font-size: 20px;
+    font-weight: 600;
     border-radius: 40px;
     color: var(--fontcolor1);
     font-family: var(--numericfamily);
     text-wrap: nowrap;
     text-align: left;
-    width: 60px;
-    height: 20px;
 }
 
 /* Nexgen stock display */
 
 .nexgen-stock {
     position: absolute;
-    background-color: var(--nexgenbg);
-    width: 250px;
-    height: 250px;
     left: 6%;
-    top: 175px;
-    border-radius: 12px;
-    box-shadow: 0 0 10px 1px rgba(13,13,13,0.5);
+    top: 40%;
+    background: rgb(71,77,63);
+    background: linear-gradient(180deg, rgba(71,77,63,1) 0%, rgba(21,29,16,1) 100%);
+    width: 318px;
+    height: 220px;
+    border-radius: 18px;
+    -webkit-box-shadow: 0px 0px 300px 200px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 300px 200px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 300px 200px rgba(0,0,0,0.75);
     display: none;
     flex-wrap: wrap;
     z-index: 1;
@@ -514,7 +520,7 @@ header h1 {
     position: absolute;
     top: 5px;
     left: 5px;
-    color: var(--bordercolor);
+    color: var(--fontcolor1);
     cursor: pointer;
 
 }
@@ -585,7 +591,7 @@ header h1 {
 }
 
 .display-and-max input {
-    background-color: var(--mainlightcolor);
+    background-color: var(--color3);
     font-family: poppins;
     width: 40px;
     max-width: 90px;
@@ -655,7 +661,7 @@ header h1 {
 }
 
 .nexgen-stock * {
-    color: var(--bordercolor);
+    color: var(--fontcolor1);
 }
 
 .nexgen-stock i {
@@ -686,22 +692,25 @@ header h1 {
 
 .ecogenix-stock {
     position: absolute;
-    background-color: var(--ecogenixbg);
-    width: 250px;
-    height: 250px;
-    top: 175px;
-    right: 20px;
-    border-radius: 12px;
-    box-shadow: 0 0 10px 1px rgba(13,13,13,0.5);
+    top: 40%;
+    right: 5.5%;
     display: none;
     flex-wrap: wrap;
     z-index: 1;
     animation: scaleOut 0.2s ease-in-out;
+    background: rgb(71,77,63);
+    background: linear-gradient(180deg, rgba(71,77,63,1) 0%, rgba(21,29,16,1) 100%);
+    width: 320px;
+    height: 220px;
+    border-radius: 18px;
+    -webkit-box-shadow: 0px 0px 300px 200px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 300px 200px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 300px 200px rgba(0,0,0,0.75);
 
 }
 
 .ecogenix-stock * {
-    color: var(--bordercolor);
+    color: var(--fontcolor1);
 }
 
 .ecogenix-stock i {
@@ -732,13 +741,16 @@ header h1 {
 
 .greenpower-stock {
     position: absolute;
-    background-color: var(--greenpowerbg);
-    width: 250px;
-    height: 250px;
-    top: 224px;
+    background: rgb(71,77,63);
+    background: linear-gradient(180deg, rgba(71,77,63,1) 0%, rgba(21,29,16,1) 100%);
+    width: 320px;
+    height: 220px;
+    top: 40%;
     left: 6%;
-    border-radius: 12px;
-    box-shadow: 0 0 10px 1px rgba(13,13,13,0.5);
+    border-radius: 18px;
+    -webkit-box-shadow: 0px 0px 300px 200px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 300px 200px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 300px 200px rgba(0,0,0,0.75);
     display: none;
     flex-wrap: wrap;
     z-index: 1;
@@ -747,7 +759,7 @@ header h1 {
 }
 
 .greenpower-stock * {
-    color: var(--bordercolor);
+    color: var(--fontcolor1);
 }
 
 .greenpower-stock i {
@@ -778,13 +790,16 @@ header h1 {
 
 .ariaapparel-stock {
     position: absolute;
-    background-color: var(--ariaapparelbg);
-    width: 250px;
-    height: 250px;
-    top: 224px;
-    right: 20px;
+    background: rgb(71,77,63);
+    background: linear-gradient(180deg, rgba(71,77,63,1) 0%, rgba(21,29,16,1) 100%);
+    width: 318px;
+    height: 220px;
+    top: 40%;
+    right: 5.8%;
     border-radius: 12px;
-    box-shadow: 0 0 10px 1px rgba(13,13,13,0.5);
+    -webkit-box-shadow: 0px 0px 300px 200px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 300px 200px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 300px 200px rgba(0,0,0,0.75);
     display: none;
     flex-wrap: wrap;
     z-index: 1;
@@ -793,7 +808,7 @@ header h1 {
 }
 
 .ariaapparel-stock * {
-    color: var(--bordercolor);
+    color: var(--fontcolor1);
 }
 
 .ariaapparel-stock i {
@@ -829,14 +844,14 @@ header h1 {
     position: absolute;
     top: 100px;
     left: calc(50% - 110px);
-    background-color: var(--green);
-    color: var(--mainlightcolor);
+    background-color: var(--color5);
+    color: var(--color3);
     font-weight: 700;
     margin: 0;
     text-align: center;
     text-wrap: wrap;
     width: 200px;
-    padding: 1px 10px 1px 10px;
+    padding: 4px 10px 4px 10px;
     font-size: 10px;
     border-radius: 8px;
     font-family: poppins;
@@ -886,7 +901,6 @@ header h1 {
     width: 50px;
     height: 50px;
     border-radius: 50px !important;
-    border: 2px solid var(--color3) !important;
     font-size: 10px;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
@@ -897,7 +911,7 @@ header h1 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--color1);
+    background-color: var(--color2);
     border-radius: 10px;
 }
 
