@@ -1,7 +1,7 @@
 import { incrementHouseValue, selectRandomNews } from "./calculation-scripts.js"
 import { expenseNrentEarnings, houseNameDB, loanDetails, setInitialValues, setInitialValuesOnce } from "./initialize-values.js"
 import { alertAMsg, toCurrrency } from "./utills.js"
-const newsTabRoute = document.getElementById("news-tab")
+const companyTabRoute = document.getElementById("news-tab")
 if (localStorage.getItem("name")==null){
     window.location.href = "index.html"
 }
@@ -158,9 +158,9 @@ balanceDetailClose.addEventListener("click", ()=>{
 })
 
 // navigate to news tab
-newsTabRoute.addEventListener("click", ()=>{
+companyTabRoute.addEventListener("click", ()=>{
     clickBubbleSfx.play()
-    window.location.href = "news-tab.html"
+    window.location.href = "company.html"
 })
 
 updateCurrentPrice()

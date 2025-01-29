@@ -1,0 +1,176 @@
+:root {
+
+    --fontcolor1 : #ffffff;
+    --fontcolor2 : #232c10;
+    --fontcolor3 : #cbcec7;
+    --color1 : #151d10;
+    --color2 : #474d3f;
+    --color3 : #2f352b;
+    --color4 : #585f4f;
+    --color5 : #c1ef02;
+
+
+    --numericfamily :Teko;
+    --commonfamily : Chakra Petch;
+
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    max-width: 100%;
+    max-height: 100dvh;
+    user-select: none;
+    font-family: Poppins;
+    -webkit-tap-highlight-color: transparent;
+    background-color: var(--color1);
+   
+}
+
+
+.container {
+    max-width: 100%;
+    height: 100dvh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    border-radius: 10px;
+    background: rgb(35,44,16);
+    background: linear-gradient(177deg, rgba(35,44,16,1) 0%, rgba(21,29,16,1) 100%);
+    position: relative;
+}
+
+.catagory {
+    width: 80%;
+    border: 1px solid var(--fontcolor1);
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.catagory p {
+    margin: 0;
+    width: 90%;
+    text-align: left;
+    font-family: var(--commonfamily);
+    font-size: 12px;
+}
+
+.catagory #heading {
+    font-size: 22px;
+}
+
+.companyStartup {
+    width: 80%;
+    position: absolute;
+    top: 30%;
+    background-color: var(--color3);
+    border: 3px solid var(--color4);
+    border-radius: 16px;
+    padding: 6%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--fontcolor3);
+}
+
+.companyStartup p {
+    width: 75%;
+    font-family: var(--commonfamily);
+}
+
+.companyStartup button {
+    width: 50%;
+    height: 30px;
+    background-color: var(--color5);
+    border-radius: 8px;
+    border: 0;
+}
+
+.companyStartup input {
+    color: var(--fontcolor3);
+    background-color: var(--color2);
+    height: 30px;
+    border: 2px solid var(--color4);
+    border-radius: 8px;
+    box-sizing: border-box;
+    padding-left: 8px;
+}
+
+.companyStartup input:focus {
+    outline: none;
+}
+
+#investmentAmt {
+    margin-top: 0;
+}
+
+/* Hide scrollbar for Chrome, Safari, and Opera */
+.startcompany::-webkit-scrollbar {
+    display: none;
+}
+  
+  /* Hide scrollbar for IE, Edge, and Firefox */
+.startcompany {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+}
+
+.startcompany {
+    width: 100%;
+    height: 100%;
+    background-color: #474d3f;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    color: var(--fontcolor1);
+    font-family: Poppins;
+    padding: 6%;
+    box-sizing: border-box;
+    overflow-y: scroll;
+}
+
+.startcompany h2 {
+    font-size: 24px;
+    text-align: center;
+}
+
+.startcompany h4 {
+    margin: 10px 0 20px 0;
+    font-size: 18px;
+    width: 90%;
+    text-align: left;
+}
+
+
+.startbusiness {
+    width: 80%;
+    height: 40px;
+    margin-top: 20px;
+    font-family: var(--commonfamily);
+    font-size: 12px;
+}
+
+@media (width < 512px) {
+    .container {
+        border: 0;
+        border-radius: 0px;
+    }
+}
+
+@media (width > 512px) {
+    .container {
+        max-height: 90dvh;
+        max-width: 360px;
+        margin: 5dvh auto auto auto;
+    }
+
+}
+

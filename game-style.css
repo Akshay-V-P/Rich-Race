@@ -1,18 +1,4 @@
 :root {
-    --mainlightcolor : #fffeff;
-    --mainbgcolor : #0d0d0b;
-    --offwhite : #fcd36a;
-    --maincolor : #ffcb2d;
-    --bordercolor : #2b313f;
-    --orange : #ff9e2d;
-    --textcolor : #1e1e1e;
-    --green : #1b242d;
-    --bordergreen : #268329;
-    --nexgenbg : #f8f8f8;
-    --ecogenixbg : #f8f8f8;
-    --greenpowerbg : #f8f8f8;
-    --ariaapparelbg : #f8f8f8;
-    --bordercolors : rgb(157, 39, 39);
 
     --fontcolor1 : #ffffff;
     --fontcolor2 : #232c10;
@@ -27,12 +13,6 @@
     --commonfamily : Chakra Petch;
 
 }
-
-/* #a6d3f2
-#f7d78c
-#ff5844
-#afc388 
-#3aab4b*/
 
 body {
     padding: 0;
@@ -56,9 +36,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: -3px 4px 2px -2px rgba(13,13,13,0.3),
-            -8px 10px 8px rgba(0,0,0,0.1),
-            3px 3px 10px #383846;
     position: relative;
     border-radius: 10px;
     background: rgb(35,44,16);
@@ -114,7 +91,7 @@ body {
 .profile-foto {
     width: 55px;
     height: 55px;
-    background-color: var(--mainbgcolor);
+    background-color: var(--color2);
     border-radius: 50px;
     display: flex;
     justify-content: center;
@@ -298,12 +275,6 @@ body {
 }
 
 
-#item-details h4 {
-    font-size: 16px;
-    margin: 0;
-    color: var(--green);
-}
-
 #item-details p {
     padding: 0;
     margin-bottom: 0;
@@ -334,7 +305,7 @@ body {
     font-size: 8px;
     margin: 3px 0 0 8px;
     text-wrap: wrap;
-    color: var(--mainlightcolor);
+    color: var(--fontcolor1);
 }
 
 .items-tab {
@@ -381,7 +352,7 @@ header {
 header h1 {
     margin-top: 16px;
     font-family: poppins;
-    color: var(--mainlightcolor);
+    color: var(--fontcolor1);
     font-size: 24px;
 }
 
@@ -412,6 +383,7 @@ header h1 {
 }
 
 .balance-details {
+    border: 3px solid var(--color4);
     position: absolute;
     width: 90%;
     left: 5%;
@@ -439,7 +411,7 @@ header h1 {
 .balance-details * {
     margin: 0 0 5px 24px;
     padding: 0;
-    color: var(--mainlightcolor);
+    color: var(--fontcolor1);
 }
 
 .action-div {
@@ -501,6 +473,7 @@ header h1 {
     width: 88.8%;
     height: 30%;
     border-radius: 18px;
+    border: 3px solid var(--color4);
     -webkit-box-shadow: 0px 0px 300px 200px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 300px 200px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 300px 200px rgba(0,0,0,0.75);
@@ -609,8 +582,8 @@ header h1 {
 }
 
 #max-buyable{
-    background-color: var(--mainlightcolor);
-    color: var(--textcolor);
+    background-color: var(--fontcolor1);
+    color: var(--color3);
 }
 
 #max-buyable:focus{
@@ -618,8 +591,8 @@ header h1 {
 }
 
 #max-sellable{
-    background-color: var(--mainlightcolor);
-    color: var(--textcolor);
+    background-color: var(--fontcolor1);
+    color: var(--color3);
 }
 
 #max-sellable:focus {
@@ -654,13 +627,13 @@ header h1 {
 #buy {
     background-color: rgb(47, 104, 47);
     border: 0;
-    color: var(--mainlightcolor);
+    color: var(--fontcolor1);
 }
 
 #sell {
     background-color: rgb(160, 39, 39);
     border: 0;
-    color: var(--mainlightcolor);
+    color: var(--fontcolor1);
 }
 
 .nexgen-stock * {
@@ -706,6 +679,7 @@ header h1 {
     width: 88.8%;
     height: 30%;
     border-radius: 18px;
+    border: 3px solid var(--color4);
     -webkit-box-shadow: 0px 0px 300px 200px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 300px 200px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 300px 200px rgba(0,0,0,0.75);
@@ -751,6 +725,7 @@ header h1 {
     top: 40%;
     left: 6%;
     border-radius: 18px;
+    border: 3px solid var(--color4);
     -webkit-box-shadow: 0px 0px 300px 200px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 300px 200px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 300px 200px rgba(0,0,0,0.75);
@@ -800,6 +775,7 @@ header h1 {
     top: 40%;
     right: 5.8%;
     border-radius: 12px;
+    border: 3px solid var(--color4);
     -webkit-box-shadow: 0px 0px 300px 200px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 300px 200px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 300px 200px rgba(0,0,0,0.75);
@@ -927,7 +903,7 @@ header h1 {
     position: absolute;
     width: 200px;
     height: 100px;
-    background-color: var(--mainlightcolor);
+    background-color: var(--fontcolor1);
     bottom: 100px;
     right: 80px;
     z-index: 19;
@@ -943,7 +919,7 @@ header h1 {
 
 .help-popup p {
     margin: 0;
-    color: var(--maincolor);
+    color: var(--color3);
     font-size: 12px;
 }
 
@@ -956,7 +932,7 @@ header h1 {
     right: 80px;
     border-style: solid;
     border-width: 0 34px 34px 0px;
-    border-color: transparent transparent var(--mainlightcolor) transparent;
+    border-color: transparent transparent var(--fontcolor1) transparent;
     transform: rotate(180deg);
     z-index: 20;
     animation: slideUp 0.2s ease-in-out;
@@ -967,7 +943,7 @@ header h1 {
     position: absolute;
     width: 95px ;
     height: 35px;
-    background-color: var(--textcolor);
+    background-color: var(--fontcolor1);
     display: none;
     align-items: center;
     justify-content: center;
@@ -991,7 +967,7 @@ header h1 {
         height: 0px;
         border-style: solid;
         border-width: 18px 25px 0 25px;
-        border-color: var(--textcolor) transparent transparent transparent;
+        border-color: var(--fontcolor1) transparent transparent transparent;
         bottom: 20.2%;
     left: calc(50% - 25px);
     z-index: 19;
@@ -1006,8 +982,8 @@ header h1 {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    color: var(--textcolor);
-    background-color: var(--maincolor);
+    color: var(--fontcolor1);
+    background-color: var(--color2);
     padding: 24px;
     display: none;
     flex-direction: column;
@@ -1015,8 +991,10 @@ header h1 {
     box-sizing: border-box;
     width: 80%;
     border-radius: 12px;
-    border: 1px solid var(--bordercolor);
-    box-shadow: 0 0 20px 50px rgba(27, 26, 26, 0.25);
+    border: 1px solid var(--color3);
+    -webkit-box-shadow: 0px 0px 300px 200px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 300px 200px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 300px 200px rgba(0,0,0,0.75);
     z-index: 50;
     animation: slideUp 0.2s ease-in-out;
  }
@@ -1060,7 +1038,7 @@ header h1 {
     position: absolute;
     right: 4px;
     top: 4px;
-    color: var(--textcolor);
+    color: var(--fontcolor1);
  }
 
 @keyframes scaleOut {
